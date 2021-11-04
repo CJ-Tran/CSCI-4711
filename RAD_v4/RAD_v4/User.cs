@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity
+namespace EntityObjects
 {
     class User
     {
@@ -12,13 +12,15 @@ namespace Entity
         private string pWord;
         private char type;
 
-        public User(string n, string p, char t = 'C')
+        // No type provided, defaults to Customer
+        public User(string n, string p, char t = 'C') 
         {
             uName = n;
             pWord = p;
             type = t;
         }
 
+        /* Getters & Setters */
         public string GetUName()
         {
             return uName;

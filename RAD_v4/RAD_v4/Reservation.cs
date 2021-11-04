@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity
+namespace EntityObjects
 {
     class Reservation
     {
@@ -17,6 +17,7 @@ namespace Entity
             keyID = k;
         }
 
+        /* Getters & Setters */
         public string GetUName()
         {
             return uName;

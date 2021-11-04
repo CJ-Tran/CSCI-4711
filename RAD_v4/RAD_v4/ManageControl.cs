@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controller
+namespace ControllerObjects
 {
     class ManageControl
     {
-        public static Entity.KeyStatus GetStatus(int s)
+        public static EntityObjects.KeyStatus GetStatus(int s)
         {
-            return Controller.DBConnector.GetStatus(s);
+            return ControllerObjects.DBConnector.GetStatus(s);
         }
-        public static void Update(Entity.KeyStatus k)
+        public static void Update(EntityObjects.KeyStatus k)
         {
-            Controller.DBConnector.Save(k);
+            ControllerObjects.DBConnector.Save(k);
         }
     }
 }

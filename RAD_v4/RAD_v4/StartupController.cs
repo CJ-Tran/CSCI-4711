@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controller
+namespace ControllerObjects
 {
     class StartupController
     {
         public static void Initiate()
         {
-            Boundary.LoginForm.Open();
-            Controller.DBConnector.Initialize();
+            BoundaryObjects.LoginForm.Open();
+            ControllerObjects.DBConnector.Initialize();
         }
 
     }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Boundary
+namespace BoundaryObjects
 {
     class RequestKeyForm
     {
@@ -12,7 +12,7 @@ namespace Boundary
         {
             string n = "";
             int k = 0;
-            Controller.RequestControl.Reserve(n, k); // no need return bool
+            ControllerObjects.RequestControl.Reserve(n, k); // no need return bool (Sequence Diagram)
             Close();
         }
 

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Boundary
+namespace BoundaryObjects
 {
     class MainMenu
     {
-        public static void Open(string n, Entity.KeyList kL)
+        public static void Open(string n, EntityObjects.KeyList kL)
         {
             // opens main menu
         }

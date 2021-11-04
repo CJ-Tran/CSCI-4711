@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity
+namespace EntityObjects
 {
     class KeyList
     {
         private static Key[] keys;
+
+        // Will need constructor that instantiates keys in the future?
 
         public static Key[] GetKeys()
         {

@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Boundary
+namespace BoundaryObjects
 {
     class Form
     {
         public static void Logout()
         {
             string n = "";
-            Controller.LogoutControl.Logout(n);
+            ControllerObjects.LogoutControl.Logout(n);
             Close();
         }
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Boundary
+namespace BoundaryObjects
 {
     class LoginForm
     {
@@ -16,7 +16,7 @@ namespace Boundary
         public static void Submit()
         {
             string n = "", p = ""; // example
-            Controller.AvailController.Verify(n, p);
+            ControllerObjects.AvailController.Verify(n, p);
             Close();
         }
 

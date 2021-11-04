@@ -4,27 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controller
+namespace ControllerObjects
 {
     class AvailController
     {
         public static void Verify(string n, string p)
         {
-            if (Validate(Controller.DBConnector.GetUser(n, p)) == true)
+            if (Validate(ControllerObjects.DBConnector.GetUser(n, p)) == true)
             {
-                Boundary.MainMenu.Open(n, Controller.DBConnector.GetKeys());
+                BoundaryObjects.MainMenu.Open(n, ControllerObjects.DBConnector.GetKeys());
 
-                Boundary.LoginForm.Close();
+                BoundaryObjects.LoginForm.Close();
 
                 // and save user login
             }
             else
             {
-                Boundary.LoginForm.Display("Error!");
+                BoundaryObjects.LoginForm.Display("Error!");
             }
         }
 
-        public static bool Validate(Entity.User u) // changed to booL?
+        public static bool Validate(EntityObjects.User u) // changed to booL?
         {
             // comapre to an array of users in DB?
             return true;

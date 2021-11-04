@@ -10,7 +10,7 @@ namespace RAD_v4
     {
         static void Main(string[] args)
         {
-            Controller.StartupController.Initiate();
+            ControllerObjects.StartupController.Initiate();
         }
 
     }

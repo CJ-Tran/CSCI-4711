@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controller
+namespace ControllerObjects
 {
     class RequestControl
     {
         public static bool Reserve(string n, int k)
         {
-            Controller.DBConnector.Save(new Entity.Reservation(n, k));
-            Boundary.RequestProcessedWin.Open(n);
+            ControllerObjects.DBConnector.Save(new EntityObjects.Reservation(n, k));
+            BoundaryObjects.RequestProcessedWin.Open(n);
 
             return true; // no need?
         }

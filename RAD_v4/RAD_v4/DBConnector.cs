@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controller
+namespace ControllerObjects
 {
     class DBConnector
     {
@@ -13,27 +13,27 @@ namespace Controller
             // start DB
         }
 
-        public static Entity.User GetUser(string n, string p)
+        public static EntityObjects.User GetUser(string n, string p)
         {
-            return new Entity.User(n, p);
+            return new EntityObjects.User(n, p);
         }
 
-        public static Entity.KeyList GetKeys()
+        public static EntityObjects.KeyList GetKeys()
         {
-            return new Entity.KeyList();
+            return new EntityObjects.KeyList();
         }
 
-        public static bool Save(Entity.Reservation r)
+        public static bool Save(EntityObjects.Reservation r)
         {
             return true;
         }
 
-        public static Entity.KeyStatus GetStatus(int n)
+        public static EntityObjects.KeyStatus GetStatus(int n)
         {
-            return new Entity.KeyStatus(n);
+            return new EntityObjects.KeyStatus(n);
         }
 
-        public static void Save(Entity.KeyStatus k)
+        public static void Save(EntityObjects.KeyStatus k)
         {
             // save to DB
         }
