@@ -9,10 +9,15 @@ namespace BoundaryObjects
     class LoginForm
     {
         ControllerObjects.AvailController _ac;
+        ControllerObjects.LogoutControl _lc;
 
         public LoginForm(ControllerObjects.AvailController ac)
         {
             _ac = ac;
+        }
+        public LoginForm(ControllerObjects.LogoutControl lc)
+        {
+            _lc = lc;
         }
 
         public  void Open()

@@ -14,7 +14,7 @@ namespace ControllerObjects
         public LogoutControl()
         {
             db = new DBConnector();
-            lf = new BoundaryObjects.LoginForm();
+            lf = new BoundaryObjects.LoginForm(this);
         }
 
         public void Logout(string n)

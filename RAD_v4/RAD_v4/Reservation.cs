@@ -8,32 +8,17 @@ namespace EntityObjects
 {
     class Reservation
     {
-        private string uName;
-        private int keyID;
+        /* Properties */
+        private string UName { get; set; }
+
+        public int KeyID { get; set; }
 
         public Reservation(string n, int k)
         {
-            uName = n;
-            keyID = k;
+            UName = n;
+            KeyID = k;
         }
 
-        /* Getters & Setters */
-        public string GetUName()
-        {
-            return uName;
-        }
-        public void SetUName(string name)
-        {
-            uName = name;
-        }
-
-        public int GetKeyID()
-        {
-            return keyID;
-        }
-        public void SetUName(int k)
-        {
-            keyID = k;
-        }
+        
     }
 }

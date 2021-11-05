@@ -8,8 +8,10 @@ namespace EntityObjects
 {
     class KeyStatus
     {
-        private int keyID;
-        private StatusType status;
+        /* Properties */
+        public int KeyID { get; }
+
+        public StatusType Status { get; set; }
 
         public enum StatusType
         {
@@ -21,13 +23,10 @@ namespace EntityObjects
         // Key's status set to "Available" by default
         public KeyStatus(int k, StatusType s = StatusType.Available)
         {
-            keyID = k;
-            status = s;
+            KeyID = k;
+            Status = s;
         }
 
-        /* Properties */
-        public int KeyID { get; }
-
-        public StatusType Status { get; set; }
+        
     }
 }
