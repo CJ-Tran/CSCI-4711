@@ -8,11 +8,11 @@ namespace EntityObjects
 {
     class KeyList
     {
-        private static Key[] keys;
+        private Key[] keys;
 
         // Will need constructor that instantiates keys in the future?
 
-        public static Key[] GetKeys()
+        public Key[] GetKeys()
         {
             return keys;
         }

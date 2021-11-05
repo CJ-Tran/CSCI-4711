@@ -8,37 +8,37 @@ namespace ControllerObjects
 {
     class DBConnector : Controller
     {
-        public static void Initialize()
+        public void Initialize()
         {
             // start DB
         }
 
-        public static EntityObjects.User GetUser(string n, string p)
+        public EntityObjects.User GetUser(string n, string p)
         {
             return new EntityObjects.User(n, p);
         }
 
-        public static EntityObjects.KeyList GetKeys()
+        public EntityObjects.KeyList GetKeys()
         {
             return new EntityObjects.KeyList();
         }
 
-        public static bool Save(EntityObjects.Reservation r)
+        public bool Save(EntityObjects.Reservation r)
         {
             return true;
         }
 
-        public static EntityObjects.KeyStatus GetStatus(int n)
+        public EntityObjects.KeyStatus GetStatus(int n)
         {
             return new EntityObjects.KeyStatus(n);
         }
 
-        public static void Save(EntityObjects.KeyStatus k)
+        public void Save(EntityObjects.KeyStatus k)
         {
             // save to DB
         }
 
-        public static void SaveLogout(string n)
+        public void SaveLogout(string n)
         {
             // save to DB
         }

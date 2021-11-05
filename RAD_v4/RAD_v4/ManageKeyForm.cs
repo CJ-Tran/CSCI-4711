@@ -8,21 +8,28 @@ namespace BoundaryObjects
 {
     class ManageKeyForm
     {
-        public static void Submit()
+        ControllerObjects.ManageControl mc;
+
+        public ManageKeyForm()
         {
-            int k = 0;
-            Display(ControllerObjects.ManageControl.GetStatus(k));
+            mc = new ControllerObjects.ManageControl();
         }
 
-        public static void Save()
+        public void Submit()
+        {
+            int k = 0;
+            Display(mc.GetStatus(k));
+        }
+
+        public void Save()
         {
             int temp = 0;
             EntityObjects.KeyStatus k = new EntityObjects.KeyStatus(temp);
-            ControllerObjects.ManageControl.Update(k);
+            mc.Update(k);
             Display(k);
         }
 
-        public static void Display(EntityObjects.KeyStatus k)
+        public void Display(EntityObjects.KeyStatus k)
         {
 
         }

@@ -8,23 +8,34 @@ namespace ControllerObjects
 {
     class AvailController : Controller
     {
-        public static void Verify(string n, string p)
-        {
-            if (Validate(ControllerObjects.DBConnector.GetUser(n, p)) == true)
-            {
-                BoundaryObjects.MainMenu.Open(n, ControllerObjects.DBConnector.GetKeys());
+        DBConnector db;
+        BoundaryObjects.MainMenu mm;
+        BoundaryObjects.LoginForm lf;
 
-                BoundaryObjects.LoginForm.Close();
+        public AvailController()
+        {
+            db = new DBConnector();
+            mm = new BoundaryObjects.MainMenu();
+            lf = new BoundaryObjects.LoginForm();
+        }
+
+        public void Verify(string n, string p)
+        {
+            if (Validate(db.GetUser(n, p)) == true)
+            {
+                mm.Open(n, db.GetKeys());
+
+                lf.Close();
 
                 // and save user login
             }
             else
             {
-                BoundaryObjects.LoginForm.Display("Error!");
+                lf.Display("Error!");
             }
         }
 
-        public static bool Validate(EntityObjects.User u) // changed to booL?
+        public bool Validate(EntityObjects.User u) // changed to bool?
         {
             // comapre to an array of users in DB?
             return true;

@@ -8,10 +8,13 @@ namespace ControllerObjects
 {
     class RequestControl : Controller
     {
-        public static bool Reserve(string n, int k)
+        public bool Reserve(string n, int k)
         {
-            ControllerObjects.DBConnector.Save(new EntityObjects.Reservation(n, k));
-            BoundaryObjects.RequestProcessedWin.Open(n);
+            DBConnector db = new DBConnector();
+            BoundaryObjects.RequestProcessedWin rpw = new BoundaryObjects.RequestProcessedWin();
+
+            db.Save(new EntityObjects.Reservation(n, k));
+            rpw.Open(n);
 
             return true; // no need?
         }

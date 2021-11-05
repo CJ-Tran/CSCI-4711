@@ -8,7 +8,7 @@ namespace BoundaryObjects
 {
     class MainMenu
     {
-        public static void Open(string n, EntityObjects.KeyList kL)
+        public void Open(string n, EntityObjects.KeyList kL)
         {
             // opens main menu
         }
