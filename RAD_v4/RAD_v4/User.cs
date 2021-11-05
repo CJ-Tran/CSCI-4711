@@ -8,16 +8,24 @@ namespace EntityObjects
 {
     class User
     {
-        private string uName;
-        private string pWord;
-        private char type;
+        public enum AcctType
+        {
+            Customer = 0,
+            Admin = 1
+        }
+
+        //Private vars
+        private string uName; //username
+        private string pWord; //password hash
+        private AcctType type; //account type (Admin/Customer)
+
 
         // No type provided, defaults to Customer
-        public User(string n, string p, char t = 'C') 
+        public User(string username, string passHash, AcctType type = AcctType.Customer) 
         {
-            uName = n;
-            pWord = p;
-            type = t;
+            uName = username;
+            pWord = passHash;
+            this.type = type;
         }
 
         /* Getters & Setters */
@@ -39,11 +47,11 @@ namespace EntityObjects
             pWord = p;
         }
 
-        public new char GetType()
+        public new AcctType GetType() //0 for customer, 1 for admin
         {
             return type;
         }
-        public void SetType(char t)
+        public void SetType(AcctType t)
         {
             type = t;
         }
