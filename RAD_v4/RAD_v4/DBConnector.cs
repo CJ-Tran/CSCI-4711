@@ -16,6 +16,8 @@ namespace ControllerObjects
         public EntityObjects.User GetUser(string n, string p)
         {
             return new EntityObjects.User(n, p);
+            //putting this link for when we begin implementing the hashing algorithm
+            //https://stackoverflow.com/questions/4181198/how-to-hash-a-password#10402129
         }
 
         public EntityObjects.KeyList GetKeys()
