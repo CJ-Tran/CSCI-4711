@@ -20,7 +20,8 @@ namespace ControllerObjects
 
         public EntityObjects.KeyList GetKeys()
         {
-            return new EntityObjects.KeyList();
+            List<EntityObjects.Key> kList = new List<EntityObjects.Key>(); //keys from database should be placed into this list
+            return new EntityObjects.KeyList(kList);
         }
 
         public bool Save(EntityObjects.Reservation r)
