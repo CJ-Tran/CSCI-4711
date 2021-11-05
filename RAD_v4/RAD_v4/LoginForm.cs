@@ -20,29 +20,29 @@ namespace BoundaryObjects
             _lc = lc;
         }
 
-        public  void Open()
+        public void Open()
         {
             // opens login form
         }
 
-        public  void Submit()
+        public void Submit()
         {
             string n = "", p = ""; // example
             _ac.Verify(n, p);
             Close();
         }
 
-        public  void Close()
+        public void Close()
         {
             // close login form
         }
 
-        public  void Display(string s)
+        public void Display(string s)
         {
             Console.WriteLine(s);
         }
 
-        public  void Display()
+        public void Display()
         {
             // displays login form on screen
         }
