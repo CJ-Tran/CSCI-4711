@@ -8,29 +8,36 @@ namespace BoundaryObjects
 {
     class LoginForm
     {
-        public static void Open()
+        ControllerObjects.AvailController _ac;
+
+        public LoginForm(ControllerObjects.AvailController ac)
+        {
+            _ac = ac;
+        }
+
+        public  void Open()
         {
             // opens login form
         }
 
-        public static void Submit()
+        public  void Submit()
         {
             string n = "", p = ""; // example
-            ControllerObjects.AvailController.Verify(n, p);
+            _ac.Verify(n, p);
             Close();
         }
 
-        public static void Close()
+        public  void Close()
         {
             // close login form
         }
 
-        public static void Display(string s)
+        public  void Display(string s)
         {
             Console.WriteLine(s);
         }
 
-        public static void Display()
+        public  void Display()
         {
             // displays login form on screen
         }

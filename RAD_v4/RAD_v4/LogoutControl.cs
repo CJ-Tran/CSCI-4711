@@ -6,12 +6,21 @@ using System.Threading.Tasks;
 
 namespace ControllerObjects
 {
-    class LogoutControl : Controller
+    public class LogoutControl : Controller
     {
-        public static void Logout(string n)
+        DBConnector db;
+        BoundaryObjects.LoginForm lf;
+
+        public LogoutControl()
         {
-            ControllerObjects.DBConnector.SaveLogout(n);
-            BoundaryObjects.LoginForm.Display();
+            db = new DBConnector();
+            lf = new BoundaryObjects.LoginForm();
+        }
+
+        public void Logout(string n)
+        {
+            db.SaveLogout(n);
+            lf.Display();
         }
     }
 }

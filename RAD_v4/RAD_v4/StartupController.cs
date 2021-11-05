@@ -8,10 +8,13 @@ namespace ControllerObjects
 {
     class StartupController : Controller
     {
-        public static void Initiate()
+        public void Initiate()
         {
-            BoundaryObjects.LoginForm.Open();
-            ControllerObjects.DBConnector.Initialize();
+            BoundaryObjects.LoginForm lf = new BoundaryObjects.LoginForm();
+            lf.Open();
+
+            DBConnector dc = new DBConnector();
+            dc.Initialize();
         }
 
     }

@@ -8,14 +8,21 @@ namespace BoundaryObjects
 {
     public class Form
     {
-        public static void Logout()
+        ControllerObjects.LogoutControl _lc;
+
+        public Form(ControllerObjects.LogoutControl lc)
+        {
+            _lc = lc;
+        }
+
+        public void Logout()
         {
             string n = "";
-            ControllerObjects.LogoutControl.Logout(n);
+            _lc.Logout(n);
             Close();
         }
 
-        public static void Close()
+        public void Close()
         {
 
         }

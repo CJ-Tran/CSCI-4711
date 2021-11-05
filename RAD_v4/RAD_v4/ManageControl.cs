@@ -8,13 +8,20 @@ namespace ControllerObjects
 {
     class ManageControl : Controller
     {
-        public static EntityObjects.KeyStatus GetStatus(int s)
+        DBConnector db;
+
+        public ManageControl()
         {
-            return ControllerObjects.DBConnector.GetStatus(s);
+            db = new DBConnector();
         }
-        public static void Update(EntityObjects.KeyStatus k)
+
+        public EntityObjects.KeyStatus GetStatus(int s)
         {
-            ControllerObjects.DBConnector.Save(k);
+            return db.GetStatus(s);
+        }
+        public void Update(EntityObjects.KeyStatus k)
+        {
+            db.Save(k);
         }
     }
 }
