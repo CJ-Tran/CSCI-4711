@@ -25,23 +25,9 @@ namespace EntityObjects
             status = s;
         }
 
-        /* Getters & Setters */
-        public int GetKeyID()
-        {
-            return keyID;
-        }
-        public void SetUName(int k)
-        {
-            keyID = k;
-        }
+        /* Properties */
+        public int KeyID { get; }
 
-        public StatusType GetStatus()
-        {
-            return status;
-        }
-        public void SetStatus(StatusType newStatus)
-        {
-            status = newStatus;
-        }
+        public StatusType Status { get; set; }
     }
 }

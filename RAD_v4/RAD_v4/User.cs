@@ -15,45 +15,25 @@ namespace EntityObjects
         }
 
         //Private vars
-        private string uName; //username
-        private string pWord; //password hash
-        private AcctType type; //account type (Admin/Customer)
+        //private string uName; 
+        //private string pWord; 
+        //private AcctType type; 
 
 
         // No type provided, defaults to Customer
-        public User(string username, string passHash, AcctType type = AcctType.Customer) 
+        public User(string username, string passHash, AcctType type = AcctType.Customer)
         {
-            uName = username;
-            pWord = passHash;
-            this.type = type;
+            UName = username;
+            PWord = passHash;
+            Type = type;
         }
 
-        /* Getters & Setters */
-        public string GetUName()
-        {
-            return uName;
-        }
-        public void SetUName(string name)
-        {
-            uName = name;
-        }
+        /* Properties */
+        public string UName { get; set; } //username
 
-        public string GetPWord()
-        {
-            return pWord;
-        }
-        public void SetPWord(string p)
-        {
-            pWord = p;
-        }
+        public string PWord { get; set; } //password hash
 
-        public new AcctType GetType() //0 for customer, 1 for admin
-        {
-            return type;
-        }
-        public void SetType(AcctType t)
-        {
-            type = t;
-        }
+        public AcctType Type { get; set; } //account type (Admin = 1/Customer = 0)
+
     }
 }
