@@ -12,7 +12,8 @@ namespace BoundaryObjects
         {
             string n = "";
             int k = 0;
-            ControllerObjects.RequestControl.Reserve(n, k); // no need return bool (Sequence Diagram)
+            ControllerObjects.RequestControl rc = new ControllerObjects.RequestControl();
+            rc.Reserve(n, k); // no need return bool (Sequence Diagram)
             Close();
         }
 

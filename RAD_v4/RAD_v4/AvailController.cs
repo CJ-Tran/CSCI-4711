@@ -16,7 +16,7 @@ namespace ControllerObjects
         {
             db = new DBConnector();
             mm = new BoundaryObjects.MainMenu();
-            lf = new BoundaryObjects.LoginForm();
+            lf = new BoundaryObjects.LoginForm(this);
         }
 
         public void Verify(string n, string p)

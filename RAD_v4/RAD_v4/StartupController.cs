@@ -10,7 +10,8 @@ namespace ControllerObjects
     {
         public void Initiate()
         {
-            BoundaryObjects.LoginForm lf = new BoundaryObjects.LoginForm();
+            AvailController ac = new AvailController();
+            BoundaryObjects.LoginForm lf = new BoundaryObjects.LoginForm(ac);
             lf.Open();
 
             DBConnector dc = new DBConnector();
