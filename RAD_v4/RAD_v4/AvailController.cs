@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ControllerObjects
 {
-    class AvailController
+    class AvailController : Controller
     {
         public static void Verify(string n, string p)
         {

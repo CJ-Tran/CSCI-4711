@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ControllerObjects
 {
-    class DBConnector
+    class DBConnector : Controller
     {
         public static void Initialize()
         {

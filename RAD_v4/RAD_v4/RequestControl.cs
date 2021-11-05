@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ControllerObjects
 {
-    class RequestControl
+    class RequestControl : Controller
     {
         public static bool Reserve(string n, int k)
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ControllerObjects
 {
-    class LogoutControl
+    class LogoutControl : Controller
     {
         public static void Logout(string n)
         {

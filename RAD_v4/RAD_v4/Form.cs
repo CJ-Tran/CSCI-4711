@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoundaryObjects
 {
-    class Form
+    public class Form
     {
         public static void Logout()
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ControllerObjects
 {
-    class StartupController
+    class StartupController : Controller
     {
         public static void Initiate()
         {

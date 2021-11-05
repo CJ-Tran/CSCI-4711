@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ControllerObjects
 {
-    class ManageControl
+    class ManageControl : Controller
     {
         public static EntityObjects.KeyStatus GetStatus(int s)
         {

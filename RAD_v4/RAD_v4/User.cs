@@ -39,7 +39,7 @@ namespace EntityObjects
             pWord = p;
         }
 
-        public char GetType()
+        public new char GetType()
         {
             return type;
         }
