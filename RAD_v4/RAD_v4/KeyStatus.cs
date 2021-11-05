@@ -9,12 +9,20 @@ namespace EntityObjects
     class KeyStatus
     {
         private int keyID;
-        private char status;
+        private StatusType status;
+
+        public enum StatusType
+        {
+            Available, //0
+            Pending, //1
+            Assigned //2
+        }
 
         // Key's status set to "Available" by default
-        public KeyStatus(int k, char s = 'A')
+        public KeyStatus(int k, StatusType s = StatusType.Available)
         {
             keyID = k;
+            status = s;
         }
 
         /* Getters & Setters */
@@ -27,13 +35,13 @@ namespace EntityObjects
             keyID = k;
         }
 
-        public int GetStatus()
+        public StatusType GetStatus()
         {
             return status;
         }
-        public void SetStatus(char s)
+        public void SetStatus(StatusType newStatus)
         {
-            status = s;
+            status = newStatus;
         }
     }
 }
