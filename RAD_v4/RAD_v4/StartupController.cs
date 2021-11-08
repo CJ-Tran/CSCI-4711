@@ -14,8 +14,7 @@ namespace ControllerObjects
             BoundaryObjects.LoginForm lf = new BoundaryObjects.LoginForm(ac);
             lf.Open();
 
-            DBConnector dc = new DBConnector();
-            dc.Initialize();
+            DBConnector.Initialize();
         }
 
     }
