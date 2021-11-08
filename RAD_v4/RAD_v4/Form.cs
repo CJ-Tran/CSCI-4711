@@ -8,17 +8,17 @@ namespace BoundaryObjects
 {
     public class Form
     {
-        ControllerObjects.LogoutControl _lc;
+        ControllerObjects.LogoutControl logoutCtrl;
 
-        public Form(ControllerObjects.LogoutControl lc)
+        public Form(ControllerObjects.LogoutControl logoutCtrl)
         {
-            _lc = lc;
+            this.logoutCtrl = logoutCtrl;
         }
 
         public void Logout()
         {
             string n = "";
-            _lc.Logout(n);
+            logoutCtrl.Logout(n);
             Close();
         }
 

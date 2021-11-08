@@ -8,22 +8,20 @@ namespace ControllerObjects
 {
     class AvailController : Controller
     {
-        DBConnector db;
         BoundaryObjects.MainMenu mm;
         BoundaryObjects.LoginForm lf;
 
         public AvailController()
         {
-            db = new DBConnector();
             mm = new BoundaryObjects.MainMenu();
             lf = new BoundaryObjects.LoginForm(this);
         }
 
         public void Verify(string n, string p)
         {
-            if (Validate(db.GetUser(n, p)) == true)
+            if (Validate(DBConnector.GetUser(n, p)) == true)
             {
-                mm.Open(n, db.GetKeys());
+                mm.Open(n, DBConnector.GetKeys());
 
                 lf.Close();
 

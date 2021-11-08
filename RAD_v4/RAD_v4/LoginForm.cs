@@ -8,16 +8,16 @@ namespace BoundaryObjects
 {
     class LoginForm
     {
-        ControllerObjects.AvailController _ac;
-        ControllerObjects.LogoutControl _lc;
+        ControllerObjects.AvailController availCtrl;
+        ControllerObjects.LogoutControl logoutCtrl; //Not sure if we need a logoutCtrl on the LoginForm
 
-        public LoginForm(ControllerObjects.AvailController ac)
+        public LoginForm(ControllerObjects.AvailController availCtrl)
         {
-            _ac = ac;
+            this.availCtrl = availCtrl;
         }
-        public LoginForm(ControllerObjects.LogoutControl lc)
+        public LoginForm(ControllerObjects.LogoutControl logoutCtrl)
         {
-            _lc = lc;
+            this.logoutCtrl = logoutCtrl;
         }
 
         public void Open()
@@ -28,7 +28,7 @@ namespace BoundaryObjects
         public void Submit()
         {
             string n = "", p = ""; // example
-            _ac.Verify(n, p);
+            availCtrl.Verify(n, p);
             Close();
         }
 

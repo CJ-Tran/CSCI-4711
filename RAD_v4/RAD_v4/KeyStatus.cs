@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace EntityObjects
 {
+    public enum StatusType
+    {
+        Available, //0
+        Pending, //1
+        Assigned //2
+    }//StatusType Enum
+
     class KeyStatus
     {
         /* Properties */
@@ -13,20 +20,12 @@ namespace EntityObjects
 
         public StatusType Status { get; set; }
 
-        public enum StatusType
-        {
-            Available, //0
-            Pending, //1
-            Assigned //2
-        }
 
         // Key's status set to "Available" by default
-        public KeyStatus(int k, StatusType s = StatusType.Available)
+        public KeyStatus(int keyNum, StatusType status = StatusType.Available)
         {
-            KeyID = k;
-            Status = s;
-        }
-
-        
-    }
-}
+            this.KeyID = keyNum;
+            this.Status = status;
+        }//KeyStatus()
+    }//KeyStatus class
+}//namespace
