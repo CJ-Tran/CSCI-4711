@@ -11,7 +11,8 @@ namespace EntityObjects
         Available, //0
         Pending, //1
         Assigned //2
-    }
+    }//StatusType Enum
+
     class KeyStatus
     {
         /* Properties */
@@ -19,13 +20,12 @@ namespace EntityObjects
 
         public StatusType Status { get; set; }
 
+
         // Key's status set to "Available" by default
         public KeyStatus(int keyNum, StatusType status = StatusType.Available)
         {
             this.KeyID = keyNum;
             this.Status = status;
-        }
-
-        
-    }
-}
+        }//KeyStatus()
+    }//KeyStatus class
+}//namespace
