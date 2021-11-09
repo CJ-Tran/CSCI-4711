@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ControllerObjects;
+using EntityObjects;
 
 namespace BoundaryObjects
 {
-    class ManageKeyForm
+    class ManageKeyForm : Form
     {
-        ControllerObjects.ManageControl mc;
+        ManageControl mc;
 
         public ManageKeyForm()
         {
-            mc = new ControllerObjects.ManageControl();
+            mc = new ManageControl();
         }
 
         public void Submit()
@@ -24,12 +26,12 @@ namespace BoundaryObjects
         public void Save()
         {
             int temp = 0;
-            EntityObjects.KeyStatus k = new EntityObjects.KeyStatus(temp);
+            KeyStatus k = new KeyStatus(temp);
             mc.Update(k);
             Display(k);
         }
 
-        public void Display(EntityObjects.KeyStatus k)
+        public void Display(KeyStatus k)
         {
 
         }

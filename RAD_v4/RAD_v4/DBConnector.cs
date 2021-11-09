@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EntityObjects;
 
 namespace ControllerObjects
 {
@@ -13,30 +14,30 @@ namespace ControllerObjects
             // start DB
         }
 
-        public static EntityObjects.User GetUser(string n, string p)
+        public static User GetUser(string n, string p)
         {
-            return new EntityObjects.User(n, p);
+            return new User(n, p);
             //putting this link for when we begin implementing the hashing algorithm
             //https://stackoverflow.com/questions/4181198/how-to-hash-a-password#10402129
         }
 
-        public static EntityObjects.KeyList GetKeys()
+        public static KeyList GetKeys()
         {
-            List<EntityObjects.Key> kList = new List<EntityObjects.Key>(); //keys from database should be placed into this list
-            return new EntityObjects.KeyList(kList);
+            List<Key> kList = new List<Key>(); //keys from database should be placed into this list
+            return new KeyList(kList);
         }
 
-        public static bool Save(EntityObjects.Reservation res)
+        public static bool Save(Reservation res)
         {
             return true;
         }
 
-        public static EntityObjects.KeyStatus GetStatus(int key)
+        public static KeyStatus GetStatus(int key)
         {
-            return new EntityObjects.KeyStatus(key);
+            return new KeyStatus(key);
         }
 
-        public static void Save(EntityObjects.KeyStatus keyStat)
+        public static void Save(KeyStatus keyStat)
         {
             // save to DB
         }

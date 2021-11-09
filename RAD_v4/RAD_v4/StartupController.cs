@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BoundaryObjects;
 
 namespace ControllerObjects
 {
@@ -11,7 +12,7 @@ namespace ControllerObjects
         public void Initiate()
         {
             AvailController ac = new AvailController();
-            BoundaryObjects.LoginForm lf = new BoundaryObjects.LoginForm(ac);
+            LoginForm lf = new LoginForm(ac);
             lf.Open();
 
             DBConnector.Initialize();

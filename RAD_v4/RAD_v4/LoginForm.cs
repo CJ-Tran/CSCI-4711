@@ -3,22 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ControllerObjects;
 
 namespace BoundaryObjects
 {
-    class LoginForm
+    class LoginForm : Form
     {
-        ControllerObjects.AvailController availCtrl;
-        ControllerObjects.LogoutControl logoutCtrl; //Not sure if we need a logoutCtrl on the LoginForm
+        AvailController availCtrl;
 
-        public LoginForm(ControllerObjects.AvailController availCtrl)
+        public LoginForm(AvailController availCtrl)
         {
             this.availCtrl = availCtrl;
         }
-        public LoginForm(ControllerObjects.LogoutControl logoutCtrl)
-        {
-            this.logoutCtrl = logoutCtrl;
-        }
+
+        public LoginForm(LogoutControl logoutCtrl) : base(logoutCtrl) { }
 
         public void Open()
         {
@@ -32,10 +30,10 @@ namespace BoundaryObjects
             Close();
         }
 
-        public void Close()
-        {
-            // close login form
-        }
+        //public void Close()
+        //{
+        //    // close login form
+        //}
 
         public void Display(string s)
         {

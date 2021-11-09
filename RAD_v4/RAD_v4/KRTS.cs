@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ControllerObjects;
 
 namespace RAD_v4
 {
@@ -10,7 +11,7 @@ namespace RAD_v4
     {
         public static void Run()
         {
-            ControllerObjects.StartupController sc = new ControllerObjects.StartupController();
+            StartupController sc = new StartupController();
             sc.Initiate();
         }
     }

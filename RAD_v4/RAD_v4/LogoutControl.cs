@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BoundaryObjects;
 
 namespace ControllerObjects
 {
     public class LogoutControl : Controller
     {
-        BoundaryObjects.LoginForm lf;
+        LoginForm lf;
 
         public LogoutControl()
         {
-            lf = new BoundaryObjects.LoginForm(this);
+            lf = new LoginForm(this);
         }
 
         public void Logout(string n)

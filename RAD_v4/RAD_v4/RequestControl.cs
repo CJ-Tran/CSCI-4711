@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BoundaryObjects;
+using EntityObjects;
 
 namespace ControllerObjects
 {
@@ -10,9 +12,9 @@ namespace ControllerObjects
     {
         public bool Reserve(string n, int k)
         {
-            BoundaryObjects.RequestProcessedWin rpw = new BoundaryObjects.RequestProcessedWin();
+            RequestProcessedWin rpw = new RequestProcessedWin();
 
-            DBConnector.Save(new EntityObjects.Reservation(n, k));
+            DBConnector.Save(new Reservation(n, k));
             rpw.Open(n);
 
             return true; // no need?

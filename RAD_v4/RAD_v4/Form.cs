@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ControllerObjects;
 
 namespace BoundaryObjects
 {
     public class Form
     {
-        ControllerObjects.LogoutControl logoutCtrl;
+        LogoutControl logoutCtrl;
 
-        public Form(ControllerObjects.LogoutControl logoutCtrl)
+        public Form(LogoutControl logoutCtrl)
         {
             this.logoutCtrl = logoutCtrl;
         }
+
+        public Form() { }
 
         public void Logout()
         {
