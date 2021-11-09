@@ -9,19 +9,19 @@ namespace BoundaryObjects
 {
     public class Form
     {
-        LogoutControl logoutCtrl;
+        //LogoutControl logoutCtrl;
 
-        public Form(LogoutControl logoutCtrl)
-        {
-            this.logoutCtrl = logoutCtrl;
-        }
+        //public Form(LogoutControl logoutCtrl)
+        //{
+        //    this.logoutCtrl = logoutCtrl;
+        //}
 
         public Form() { }
 
         public void Logout()
         {
             string n = "";
-            logoutCtrl.Logout(n);
+            LogoutControl.Logout(n);
             Close();
         }
 

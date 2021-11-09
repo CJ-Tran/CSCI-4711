@@ -9,25 +9,22 @@ namespace BoundaryObjects
 {
     class RequestKeyForm : Form
     {
-        RequestControl RequestCtrl;
+        //RequestControl RequestCtrl;
 
         public RequestKeyForm()
         {
-            RequestCtrl = new RequestControl();
+            //RequestCtrl = new RequestControl();
         }
 
         public void Submit()
         {
             string n = "";
             int k = 0;
-            RequestControl rc = new RequestControl();
-            rc.Reserve(n, k); // no need return bool (Sequence Diagram)
+            //RequestControl rc = new RequestControl();
+            RequestControl.Reserve(n, k); // no need return bool (Sequence Diagram)
             Close();
         }
 
-        //public void Close()
-        //{
-        //    //close request key form
-        //}
+        //public void Close() { }
     }
 }

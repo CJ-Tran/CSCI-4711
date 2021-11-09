@@ -10,26 +10,28 @@ namespace BoundaryObjects
 {
     class ManageKeyForm : Form
     {
-        ManageControl mc;
+        //ManageControl mc;
 
         public ManageKeyForm()
         {
-            mc = new ManageControl();
+            //mc = new ManageControl();
         }
 
         public void Submit()
         {
             int k = 0;
-            Display(mc.GetStatus(k));
+            Display(ManageControl.GetStatus(k));
         }
 
         public void Save()
         {
             int temp = 0;
             KeyStatus k = new KeyStatus(temp);
-            mc.Update(k);
+            ManageControl.Update(k);
             Display(k);
         }
+
+        //public void Close() { }
 
         public void Display(KeyStatus k)
         {

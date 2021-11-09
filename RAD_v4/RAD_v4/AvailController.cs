@@ -8,34 +8,36 @@ using EntityObjects;
 
 namespace ControllerObjects
 {
-    class AvailController : Controller
+    static class AvailController
     {
-        MainMenu mm;
-        LoginForm lf;
+        //MainMenu mm;
+        //LoginForm lf;
 
-        public AvailController()
-        {
-            mm = new MainMenu();
-            lf = new LoginForm(this);
-        }
+        //public AvailController()
+        //{
+        //    mm = new MainMenu();
+        //    lf = new LoginForm(this);
+        //}
 
-        public void Verify(string n, string p)
+        public static void Verify(string n, string p)
         {
+            MainMenu mainMenu = new MainMenu();
+            LoginForm loginForm = new LoginForm();
+
             if (Validate(DBConnector.GetUser(n, p)) == true)
             {
-                mm.Open(n, DBConnector.GetKeys());
-
-                lf.Close();
+                mainMenu.Open(n, DBConnector.GetKeys());
+                loginForm.Close();
 
                 // and save user login
             }
             else
             {
-                lf.Display("Error!");
+                loginForm.Display("Error!");
             }
         }
 
-        public bool Validate(User u) // changed to bool?
+        public static bool Validate(User u) // changed to bool?
         {
             // comapre to an array of users in DB?
             return true;

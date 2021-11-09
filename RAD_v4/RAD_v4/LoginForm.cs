@@ -9,14 +9,16 @@ namespace BoundaryObjects
 {
     class LoginForm : Form
     {
-        AvailController availCtrl;
+        //AvailController availCtrl;
 
-        public LoginForm(AvailController availCtrl)
-        {
-            this.availCtrl = availCtrl;
-        }
+        //public LoginForm(AvailController availCtrl)
+        //{
+        //    this.availCtrl = availCtrl;
+        //}
 
-        public LoginForm(LogoutControl logoutCtrl) : base(logoutCtrl) { }
+        //public LoginForm(LogoutControl logoutCtrl) : base(logoutCtrl) { }
+
+        public LoginForm() { }
 
         public void Open()
         {
@@ -26,7 +28,7 @@ namespace BoundaryObjects
         public void Submit()
         {
             string n = "", p = ""; // example
-            availCtrl.Verify(n, p);
+            AvailController.Verify(n, p);
             Close();
         }
 

@@ -7,12 +7,12 @@ using BoundaryObjects;
 
 namespace ControllerObjects
 {
-    class StartupController : Controller
+    static class StartupController
     {
-        public void Initiate()
+        public static void Initiate()
         {
-            AvailController ac = new AvailController();
-            LoginForm lf = new LoginForm(ac);
+            //AvailController ac = new AvailController();
+            LoginForm lf = new LoginForm();
             lf.Open();
 
             DBConnector.Initialize();

@@ -8,16 +8,16 @@ using EntityObjects;
 
 namespace ControllerObjects
 {
-    class RequestControl : Controller
+    static class RequestControl
     {
-        public bool Reserve(string n, int k)
+        public static void Reserve(string n, int k)
         {
             RequestProcessedWin rpw = new RequestProcessedWin();
 
             DBConnector.Save(new Reservation(n, k));
             rpw.Open(n);
 
-            return true; // no need?
+            //return true; // no need?
         }
     }
 }

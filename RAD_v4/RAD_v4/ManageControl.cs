@@ -7,13 +7,13 @@ using EntityObjects;
 
 namespace ControllerObjects
 {
-    class ManageControl : Controller
+    static class ManageControl 
     {
-        public KeyStatus GetStatus(int s)
+        public static KeyStatus GetStatus(int s)
         {
             return DBConnector.GetStatus(s);
         }
-        public void Update(KeyStatus k)
+        public static void Update(KeyStatus k)
         {
             DBConnector.Save(k);
         }

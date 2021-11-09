@@ -7,18 +7,19 @@ using BoundaryObjects;
 
 namespace ControllerObjects
 {
-    public class LogoutControl : Controller
+    public static class LogoutControl 
     {
-        LoginForm lf;
+        //LoginForm lf;
 
-        public LogoutControl()
-        {
-            lf = new LoginForm(this);
-        }
+        //public LogoutControl()
+        //{
+        //    LoginForm lf = new LoginForm(this);
+        //}
 
-        public void Logout(string n)
+        public static void Logout(string n)
         {
             DBConnector.SaveLogout(n);
+            LoginForm lf = new LoginForm();
             lf.Display();
         }
     }
