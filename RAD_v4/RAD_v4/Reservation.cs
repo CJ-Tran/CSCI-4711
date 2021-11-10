@@ -13,10 +13,10 @@ namespace Entity
 
         public int KeyID { get; set; }
 
-        public Reservation(string n, int k)
+        public Reservation(string uName, int keyId)
         {
-            UName = n;
-            KeyID = k;
+            this.UName = uName;
+           this.KeyID = keyId;
         }
 
         

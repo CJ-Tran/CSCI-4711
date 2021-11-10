@@ -8,7 +8,7 @@ namespace Boundary
 {
     class RequestProcessedWin
     {
-        public void Open(string n)
+        public void Open(string uName)
         {
             //opens window
         }

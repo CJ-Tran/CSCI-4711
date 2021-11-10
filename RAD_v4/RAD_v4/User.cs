@@ -24,9 +24,9 @@ namespace Entity
         // No type provided, defaults to Customer
         public User(string username, string passHash, AcctType type = AcctType.Customer)
         {
-            UName = username;
-            PWord = passHash;
-            Type = type;
+            this.UName = username;
+            this.PWord = passHash;
+            this.Type = type;
         }
 
         

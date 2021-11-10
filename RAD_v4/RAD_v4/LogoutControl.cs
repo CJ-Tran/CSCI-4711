@@ -16,9 +16,9 @@ namespace Controller
         //    LoginForm lf = new LoginForm(this);
         //}
 
-        public static void Logout(string n)
+        public static void Logout(string uName)
         {
-            DBConnector.SaveLogout(n);
+            DBConnector.SaveLogout(uName);
             LoginForm lf = new LoginForm();
             lf.Display();
         }

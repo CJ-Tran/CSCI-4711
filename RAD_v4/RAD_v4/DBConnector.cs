@@ -14,9 +14,9 @@ namespace Controller
             // start DB
         }
 
-        public static User GetUser(string n, string p)
+        public static User GetUser(string uName, string pHash)
         {
-            return new User(n, p);
+            return new User(uName, pHash);
             //putting this link for when we begin implementing the hashing algorithm
             //https://stackoverflow.com/questions/4181198/how-to-hash-a-password#10402129
         }
@@ -42,7 +42,7 @@ namespace Controller
             // save to DB
         }
 
-        public static void SaveLogout(string n)
+        public static void SaveLogout(string uName)
         {
             // save to DB
         }

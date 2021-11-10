@@ -9,13 +9,13 @@ namespace Controller
 {
     static class ManageControl 
     {
-        public static KeyStatus GetStatus(int s)
+        public static KeyStatus GetStatus(int keyId)
         {
-            return DBConnector.GetStatus(s);
+            return DBConnector.GetStatus(keyId);
         }
-        public static void Update(KeyStatus k)
+        public static void Update(KeyStatus kStat)
         {
-            DBConnector.Save(k);
+            DBConnector.Save(kStat); //need to pass keyId to DBConnector since connector is static
         }
     }
 }

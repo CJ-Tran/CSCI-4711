@@ -10,12 +10,12 @@ namespace Controller
 {
     static class RequestControl
     {
-        public static void Reserve(string n, int k)
+        public static void Reserve(string uName, int key)
         {
             RequestProcessedWin rpw = new RequestProcessedWin();
 
-            DBConnector.Save(new Reservation(n, k));
-            rpw.Open(n);
+            DBConnector.Save(new Reservation(uName, key));
+            rpw.Open(uName);
 
             //return true; // no need?
         }

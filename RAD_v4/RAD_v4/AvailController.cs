@@ -19,14 +19,14 @@ namespace Controller
         //    lf = new LoginForm(this);
         //}
 
-        public static void Verify(string n, string p)
+        public static void Verify(string uName, string pWord)
         {
             MainMenu mainMenu = new MainMenu();
             LoginForm loginForm = new LoginForm();
 
-            if (Validate(DBConnector.GetUser(n, p)) == true)
+            if (Validate(DBConnector.GetUser(uName, pWord)) == true)
             {
-                mainMenu.Open(n, DBConnector.GetKeys());
+                mainMenu.Open(uName, DBConnector.GetKeys());
                 loginForm.Close();
 
                 // and save user login
@@ -37,7 +37,7 @@ namespace Controller
             }
         }
 
-        public static bool Validate(User u) // changed to bool?
+        public static bool Validate(User user) // changed to bool?
         {
             // comapre to an array of users in DB?
             return true;

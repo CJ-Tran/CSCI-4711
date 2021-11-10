@@ -9,7 +9,7 @@ namespace Boundary
 {
     class MainMenu
     {
-        public void Open(string n, KeyList kL)
+        public void Open(string n, KeyList kList)
         {
             // opens main menu
         }
