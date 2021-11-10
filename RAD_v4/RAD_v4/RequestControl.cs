@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BoundaryObjects;
-using EntityObjects;
+using Boundary;
+using Entity;
 
-namespace ControllerObjects
+namespace Controller
 {
     static class RequestControl
     {

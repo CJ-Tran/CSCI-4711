@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ControllerObjects;
-using EntityObjects;
+using Controller;
+using Entity;
 
-namespace BoundaryObjects
+namespace Boundary
 {
     class ManageKeyForm : Form
     {
