@@ -9,7 +9,7 @@ namespace Entity
     class Reservation
     {
         /* Properties */
-        private string UName { get; set; }
+        public string UName { get; set; } // made public so DBConnector could access
 
         public int KeyID { get; set; }
 
