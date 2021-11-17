@@ -19,7 +19,8 @@ namespace Controller
             {
                 // start DB
                 conn.Open();
-
+                //We might not want to have a drop schema line since that will wipe the User table every time the DB is initialized
+                // the 'typeof' for TYPE can be int for simplicity (since the enum occurs in local code)
                 cmd.CommandText = "" +
                     "DROP SCHEMA (IF EXISTS)" +
                     "CREATE TABLE User {" +
