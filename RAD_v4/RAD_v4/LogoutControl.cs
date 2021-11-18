@@ -18,7 +18,7 @@ namespace Controller
 
         public static void Logout(string uName)
         {
-            DBConnector.SaveLogout(uName);
+            //DBConnector.SaveLogout(uName);
             LoginForm lf = new LoginForm();
             lf.Display();
         }

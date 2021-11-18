@@ -8,12 +8,12 @@ using System.Data.SQLite;
 
 namespace Controller
 {
-    static class DBConnector
+     class DBConnector
     {
-        static readonly SQLiteConnection conn = new SQLiteConnection();
+        SQLiteConnection conn = new SQLiteConnection();
         //static readonly SQLiteCommand cmd = new SQLiteCommand();
 
-        public static void Initialize()
+        public  void Initialize()
         {
             try
             {
@@ -147,7 +147,7 @@ namespace Controller
         }
 
         /* Saves logout info when user logs out */
-        public static void SaveLogout(string name)
+        public  void SaveLogout(string name)
         {
             //SQLiteConnection conn = new SQLiteConnection();
             SQLiteCommand cmd = new SQLiteCommand();
@@ -162,4 +162,5 @@ namespace Controller
             conn.Close(); // after saving logout, we can close the connection 
         }
     }
+
 }

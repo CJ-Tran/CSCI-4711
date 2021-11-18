@@ -25,7 +25,6 @@ C:/Users/ChrisLaptop/Documents/GitHub/CSCI-4711/RAD_v4/RAD_v4/obj/Debug/RAD_v4.p
 /Users/cjtran/Projects/CSCI-4711/RAD_v4/RAD_v4/bin/Debug/System.Data.SQLite.xml
 /Users/cjtran/Projects/CSCI-4711/RAD_v4/RAD_v4/bin/Debug/EntityFramework.xml
 /Users/cjtran/Projects/CSCI-4711/RAD_v4/RAD_v4/bin/Debug/EntityFramework.SqlServer.xml
-/Users/cjtran/Projects/CSCI-4711/RAD_v4/RAD_v4/obj/Debug/RAD_v4.csproj.AssemblyReference.cache
 /Users/cjtran/Projects/CSCI-4711/RAD_v4/RAD_v4/obj/Debug/RAD_v4.csproj.CoreCompileInputs.cache
 /Users/cjtran/Projects/CSCI-4711/RAD_v4/RAD_v4/obj/Debug/RAD_v4.csproj.CopyComplete
 /Users/cjtran/Projects/CSCI-4711/RAD_v4/RAD_v4/obj/Debug/RAD_v4.exe

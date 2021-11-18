@@ -16,9 +16,9 @@ namespace Controller
             LoginForm lf = new LoginForm();
             lf.Open();
 
-            DBConnector.Initialize();
-            //DBConnector db = new DBConnector();
-            //db.Initialize();
+            //DBConnector.Initialize();
+            DBConnector db = new DBConnector();
+            db.Initialize();
         }
 
     }
