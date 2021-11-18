@@ -10,15 +10,15 @@ namespace Controller
 {
     static class DBConnector
     {
-        //static readonly SQLiteConnection conn = new SQLiteConnection();
-        //static readonly SQLiteCommand cmd = new SQLiteCommand();
+        static readonly SQLiteConnection conn = new SQLiteConnection();
+        static readonly SQLiteCommand cmd = new SQLiteCommand();
 
         public static void Initialize()
         {
             try
             {
-                SQLiteConnection conn = new SQLiteConnection();
-                SQLiteCommand cmd = new SQLiteCommand();
+                //SQLiteConnection conn = new SQLiteConnection();
+                //SQLiteCommand cmd = new SQLiteCommand();
                 // start DB
                 conn.Open();
                 //We might not want to have a drop schema line since that will wipe the User table every time the DB is initialized
@@ -35,7 +35,7 @@ namespace Controller
                     "CREATE TABLE User (" +
                     "UName VARCHAR(50) PRIMARY KEY," +
                     "PWord CHAR(16) PRIMARY KEY," +
-                    "TYPE SMALLINT (\"Customer\", \"Admin\")" +
+                    "TYPE SMALLINT" + // Customer = 0, Admin = 1
                     ")";
                 cmd.ExecuteReader();
 

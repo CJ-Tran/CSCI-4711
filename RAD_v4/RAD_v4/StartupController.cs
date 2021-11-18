@@ -16,6 +16,8 @@ namespace Controller
             lf.Open();
 
             DBConnector.Initialize();
+            //DBConnector db = new DBConnector();
+            //db.Initialize();
         }
 
     }
