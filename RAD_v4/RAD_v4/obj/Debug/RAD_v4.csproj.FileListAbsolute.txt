@@ -14,8 +14,6 @@ C:/Users/ChrisLaptop/Documents/GitHub/CSCI-4711/RAD_v4/RAD_v4/obj/Debug/RAD_v4.c
 C:/Users/ChrisLaptop/Documents/GitHub/CSCI-4711/RAD_v4/RAD_v4/obj/Debug/RAD_v4.csproj.CopyComplete
 C:/Users/ChrisLaptop/Documents/GitHub/CSCI-4711/RAD_v4/RAD_v4/obj/Debug/RAD_v4.exe
 C:/Users/ChrisLaptop/Documents/GitHub/CSCI-4711/RAD_v4/RAD_v4/obj/Debug/RAD_v4.pdb
-/Users/cjtran/Projects/CSCI-4711/RAD_v4/RAD_v4/bin/Debug/x86/sqlite3.dll
-/Users/cjtran/Projects/CSCI-4711/RAD_v4/RAD_v4/bin/Debug/x64/sqlite3.dll
 /Users/cjtran/Projects/CSCI-4711/RAD_v4/RAD_v4/bin/Debug/RAD_v4.exe.config
 /Users/cjtran/Projects/CSCI-4711/RAD_v4/RAD_v4/bin/Debug/RAD_v4.exe
 /Users/cjtran/Projects/CSCI-4711/RAD_v4/RAD_v4/bin/Debug/RAD_v4.pdb

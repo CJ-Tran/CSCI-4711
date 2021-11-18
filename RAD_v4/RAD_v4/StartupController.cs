@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Boundary;
+using System.Data.SQLite;
 
 namespace Controller
-{
+{ 
     static class StartupController
     {
         public static void Initiate()

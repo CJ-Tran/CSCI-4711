@@ -11,14 +11,14 @@ namespace Controller
     static class DBConnector
     {
         static readonly SQLiteConnection conn = new SQLiteConnection();
-        static readonly SQLiteCommand cmd = new SQLiteCommand();
+        //static readonly SQLiteCommand cmd = new SQLiteCommand();
 
         public static void Initialize()
         {
             try
             {
                 //SQLiteConnection conn = new SQLiteConnection();
-                //SQLiteCommand cmd = new SQLiteCommand();
+                SQLiteCommand cmd = new SQLiteCommand();
                 // start DB
                 conn.Open();
                 //We might not want to have a drop schema line since that will wipe the User table every time the DB is initialized
@@ -90,7 +90,7 @@ namespace Controller
         /* Updates a key's status via reservation */
         public static bool Save(Reservation res)
         {
-            SQLiteConnection conn = new SQLiteConnection();
+            //SQLiteConnection conn = new SQLiteConnection();
             SQLiteCommand cmd = new SQLiteCommand();
 
             cmd.CommandText = "" +
@@ -111,7 +111,7 @@ namespace Controller
         /* KeyStatus Getter */
         public static KeyStatus GetStatus(int key)
         {
-            SQLiteConnection conn = new SQLiteConnection();
+            //SQLiteConnection conn = new SQLiteConnection();
             SQLiteCommand cmd = new SQLiteCommand();
 
             cmd.CommandText = "" +
@@ -136,7 +136,7 @@ namespace Controller
         /* Updates Key's Status */
         public static void Save(KeyStatus keyStat)
         {
-            SQLiteConnection conn = new SQLiteConnection();
+            //SQLiteConnection conn = new SQLiteConnection();
             SQLiteCommand cmd = new SQLiteCommand();
 
             // save to DB
@@ -149,7 +149,7 @@ namespace Controller
         /* Saves logout info when user logs out */
         public static void SaveLogout(string name)
         {
-            SQLiteConnection conn = new SQLiteConnection();
+            //SQLiteConnection conn = new SQLiteConnection();
             SQLiteCommand cmd = new SQLiteCommand();
 
             // save to DB
