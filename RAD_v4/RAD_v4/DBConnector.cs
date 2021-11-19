@@ -10,34 +10,35 @@ namespace Controller
 {
      class DBConnector
     {
-        SQLiteConnection conn = new SQLiteConnection();
+        SQLiteConnection conn = new SQLiteConnection("Data Source=PasswordManager.s3db;Version=3;");//woriking way of creating a connection
         //static readonly SQLiteCommand cmd = new SQLiteCommand();
 
         public  void Initialize()
         {
             try
             {
-                //SQLiteConnection conn = new SQLiteConnection();
-                SQLiteCommand cmd = new SQLiteCommand();
-                // start DB
+                //SQLiteConnection conn = new SQLiteConnection("Data Source=PasswordManager.s3db;Version=3;");
+                SQLiteCommand cmd = conn.CreateCommand();// cmd is associated with the connector
+                //start DB
                 conn.Open();
                 //We might not want to have a drop schema line since that will wipe the User table every time the DB is initialized
                 // the 'typeof' for TYPE can be int for simplicity (since the enum occurs in local code)
-
-                //cmd.CommandText = "" +
-                //    "DROP TABLE [IF EXISTS] User;" +
-                //    "DROP TABLE [IF EXISTS] Keys;" +
-                //    "DROP TABLE [IF EXISTS] Log;";
-                //cmd.ExecuteNonQuery();
-
+               
+                cmd.CommandText = "" +
+                    "DROP TABLE IF EXISTS User; " +
+                    "DROP TABLE IF EXISTS Keys; " +
+                    "DROP TABLE IF EXISTS Log; ";
+                cmd.ExecuteNonQuery();
+               
 
                 cmd.CommandText = "" +
                     "CREATE TABLE User (" +
-                    "UName VARCHAR(50) PRIMARY KEY," +
-                    "PWord CHAR(16) PRIMARY KEY," +
-                    "TYPE SMALLINT" + // Customer = 0, Admin = 1
+                    "UName VARCHAR(50)," +
+                    "PWord CHAR(16)," +
+                    "TYPE SMALLINT," + // Customer = 0, Admin = 1
+                    "PRIMARY KEY (UName, PWord)" +//MULTIPLE PRIMARY KEY SYNTAX
                     ")";
-                cmd.ExecuteReader();
+                cmd.ExecuteNonQuery();
 
                 cmd.CommandText = "" +
                     "CREATE TABLE Keys (" +
@@ -47,7 +48,7 @@ namespace Controller
                     "PreviousUser VARCHAR(16)," +
                     "RoomNum SMALLINT" +
                     ")";
-                cmd.ExecuteReader();
+                cmd.ExecuteNonQuery();
 
                 cmd.CommandText = "" +
                     "CREATE TABLE Log (" +
@@ -55,24 +56,24 @@ namespace Controller
                     "Login DATETIME," +
                     "Logout DATETIME" +
                     ")";
-                cmd.ExecuteReader();
+                cmd.ExecuteNonQuery();
 
-                SQLiteDataReader reader;
+                //SQLiteDataReader reader;
                 cmd.CommandText = "" +
                     "SELECT * FROM User;";
                 cmd.ExecuteNonQuery();
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
+                //reader = cmd.ExecuteReader();
+                /*while (reader.Read())
                 {
                     string myreader = reader.GetString(0);
                     Console.WriteLine(myreader);
-                }
+                }*/
                 conn.Close();
             }
             catch (Exception)
             {
                 throw new Exception("Error at DBConnector.Initialize()");
-            }
+           }
         }
         public static User GetUser(string n, string p)
         {
