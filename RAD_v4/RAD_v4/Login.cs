@@ -17,9 +17,10 @@ namespace RAD_v4
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void SignInButton_click(object sender, EventArgs e)
         {
-
+            MessageBox.Show($"Hello, {UsernameTextbox}, your password is {PasswordTextbox}?");
         }
+
     }
 }

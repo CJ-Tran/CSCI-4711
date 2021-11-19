@@ -1,5 +1,4 @@
-﻿
-namespace RAD_v4
+﻿namespace RAD_v4
 {
     partial class Login
     {
@@ -29,33 +28,33 @@ namespace RAD_v4
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.KRTS = new System.Windows.Forms.Label();
+            this.PleaseSignIn = new System.Windows.Forms.Label();
             this.UsernameTextbox = new System.Windows.Forms.TextBox();
             this.PasswordTextbox = new System.Windows.Forms.TextBox();
             this.SignInButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // KRTS
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(254, 85);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 31);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "KRTS";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.KRTS.AutoSize = true;
+            this.KRTS.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KRTS.Location = new System.Drawing.Point(254, 85);
+            this.KRTS.Name = "KRTS";
+            this.KRTS.Size = new System.Drawing.Size(91, 31);
+            this.KRTS.TabIndex = 0;
+            this.KRTS.Text = "KRTS";
+            this.KRTS.Click += new System.EventHandler(this.SignInButton_click);
             // 
-            // label2
+            // PleaseSignIn
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(205, 134);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(189, 29);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Please Sign In:";
+            this.PleaseSignIn.AutoSize = true;
+            this.PleaseSignIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PleaseSignIn.Location = new System.Drawing.Point(205, 134);
+            this.PleaseSignIn.Name = "PleaseSignIn";
+            this.PleaseSignIn.Size = new System.Drawing.Size(189, 29);
+            this.PleaseSignIn.TabIndex = 1;
+            this.PleaseSignIn.Text = "Please Sign In:";
             // 
             // UsernameTextbox
             // 
@@ -95,8 +94,8 @@ namespace RAD_v4
             this.Controls.Add(this.SignInButton);
             this.Controls.Add(this.PasswordTextbox);
             this.Controls.Add(this.UsernameTextbox);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.PleaseSignIn);
+            this.Controls.Add(this.KRTS);
             this.Name = "Login";
             this.Size = new System.Drawing.Size(613, 485);
             this.ResumeLayout(false);
@@ -106,10 +105,11 @@ namespace RAD_v4
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label KRTS;
+        private System.Windows.Forms.Label PleaseSignIn;
         private System.Windows.Forms.TextBox UsernameTextbox;
         private System.Windows.Forms.TextBox PasswordTextbox;
         private System.Windows.Forms.Button SignInButton;
+        private object button1;
     }
 }

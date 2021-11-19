@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Controller;
+using System.Windows.Forms;
 
 namespace Boundary
 {
-    public class Form
+    public class Form : System.Windows.Forms.Form
     {
         //LogoutControl logoutCtrl;
 

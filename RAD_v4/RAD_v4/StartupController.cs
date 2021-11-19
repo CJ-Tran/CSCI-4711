@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Boundary;
 using System.Data.SQLite;
+using System.Windows.Forms;
 
 namespace Controller
 { 
@@ -15,6 +16,9 @@ namespace Controller
             //AvailController ac = new AvailController();
             LoginForm lf = new LoginForm();
             lf.Open();
+
+            Application.Run(new LoginForm());
+            
 
             // Was testing static/non-static
             DBConnector.Initialize();

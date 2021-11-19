@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Controller;
+using System.Windows.Forms;
 
 namespace Boundary
 {
@@ -18,11 +19,14 @@ namespace Boundary
 
         //public LoginForm(LogoutControl logoutCtrl) : base(logoutCtrl) { }
 
-        public LoginForm() { }
+        public LoginForm():base() { }
 
         public void Open()
         {
             // opens login form
+            RAD_v4.Login lform1 = new RAD_v4.Login();
+            lform1.Visible = true;
+            //lform1.Show();
         }
 
         public void Submit()
