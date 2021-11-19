@@ -8,12 +8,12 @@ using System.Data.SQLite;
 
 namespace Controller
 {
-    class DBConnector
+    static class DBConnector
     {
-        SQLiteConnection conn = new SQLiteConnection("Data Source=PasswordManager.s3db;Version=3;");//woriking way of creating a connection
+        static SQLiteConnection conn = new SQLiteConnection("Data Source=PasswordManager.s3db;Version=3;");//woriking way of creating a connection
         //static readonly SQLiteCommand cmd = new SQLiteCommand();
 
-        public void Initialize()
+        public static void Initialize()
         {
             try
             {
@@ -152,7 +152,7 @@ namespace Controller
         }
 
         /* Saves logout info when user logs out */
-        public void SaveLogout(string name)
+        public static void SaveLogout(string name)
         {
             //SQLiteConnection conn = new SQLiteConnection();
             SQLiteCommand cmd = new SQLiteCommand();

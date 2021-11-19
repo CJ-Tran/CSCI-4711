@@ -17,9 +17,9 @@ namespace Controller
             lf.Open();
 
             // Was testing static/non-static
-            //DBConnector.Initialize();
-            DBConnector db = new DBConnector();
-            db.Initialize();
+            DBConnector.Initialize();
+            //DBConnector db = new DBConnector();
+            //db.Initialize();
         }
 
     }
