@@ -61,6 +61,5 @@ C:\Users\CJ\source\repos\CSCI-4711\RAD_v4\RAD_v4\bin\Debug\EntityFramework.xml
 C:\Users\CJ\source\repos\CSCI-4711\RAD_v4\RAD_v4\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\CJ\source\repos\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\RAD_v4.csproj.AssemblyReference.cache
 C:\Users\CJ\source\repos\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\RAD_v4.csproj.CoreCompileInputs.cache
-C:\Users\CJ\source\repos\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\RAD_v4.csproj.CopyComplete
 C:\Users\CJ\source\repos\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\RAD_v4.exe
 C:\Users\CJ\source\repos\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\RAD_v4.pdb

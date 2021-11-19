@@ -8,12 +8,12 @@ using System.Data.SQLite;
 
 namespace Controller
 {
-     class DBConnector
+    class DBConnector
     {
         SQLiteConnection conn = new SQLiteConnection("Data Source=PasswordManager.s3db;Version=3;");//woriking way of creating a connection
         //static readonly SQLiteCommand cmd = new SQLiteCommand();
 
-        public  void Initialize()
+        public void Initialize()
         {
             try
             {
@@ -30,7 +30,7 @@ namespace Controller
                     "DROP TABLE IF EXISTS Keys; " +
                     "DROP TABLE IF EXISTS Log; ";
                 cmd.ExecuteNonQuery();
-               
+
                 cmd.CommandText = "" +
                     "CREATE TABLE User (" +
                     "UName VARCHAR(50)," +
@@ -59,22 +59,25 @@ namespace Controller
                 cmd.ExecuteNonQuery();
 
                 // Was just trying to get it to display and see if it was working
-                //SQLiteDataReader reader;
+                /*
                 cmd.CommandText = "" +
                     "SELECT * FROM User;";
                 cmd.ExecuteNonQuery();
-                //reader = cmd.ExecuteReader();
-                /*while (reader.Read())
+
+                SQLiteDataReader reader;
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
                     string myreader = reader.GetString(0);
                     Console.WriteLine(myreader);
-                }*/
+                }
+                */
                 conn.Close();
             }
             catch (Exception)
             {
                 throw new Exception("Error at DBConnector.Initialize()");
-           }
+            }
         }
         public static User GetUser(string n, string p)
         {
@@ -149,7 +152,7 @@ namespace Controller
         }
 
         /* Saves logout info when user logs out */
-        public  void SaveLogout(string name)
+        public void SaveLogout(string name)
         {
             //SQLiteConnection conn = new SQLiteConnection();
             SQLiteCommand cmd = new SQLiteCommand();

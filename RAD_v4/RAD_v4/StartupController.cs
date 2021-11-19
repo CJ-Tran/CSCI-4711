@@ -16,6 +16,7 @@ namespace Controller
             LoginForm lf = new LoginForm();
             lf.Open();
 
+            // Was testing static/non-static
             //DBConnector.Initialize();
             DBConnector db = new DBConnector();
             db.Initialize();
