@@ -14,11 +14,9 @@ namespace Controller
         public static void Initiate()
         {
             //AvailController ac = new AvailController();
-            LoginForm lf = new LoginForm();
-            lf.Open();
-
             Application.Run(new LoginForm());
             
+
 
             // Was testing static/non-static
             DBConnector.Initialize();

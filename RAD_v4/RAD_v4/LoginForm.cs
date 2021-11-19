@@ -19,14 +19,18 @@ namespace Boundary
 
         //public LoginForm(LogoutControl logoutCtrl) : base(logoutCtrl) { }
 
-        public LoginForm():base() { }
+        public LoginForm():base() 
+        {
+            Open();
+        }
 
         public void Open()
         {
             // opens login form
-            RAD_v4.Login lform1 = new RAD_v4.Login();
-            lform1.Visible = true;
-            //lform1.Show();
+            RAD_v4.Login loginform1 = new RAD_v4.Login();
+            loginform1.Visible = true;
+            this.Activate();
+            this.Show();
         }
 
         public void Submit()

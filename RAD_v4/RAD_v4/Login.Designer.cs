@@ -30,9 +30,11 @@
         {
             this.KRTS = new System.Windows.Forms.Label();
             this.PleaseSignIn = new System.Windows.Forms.Label();
-            this.UsernameTextbox = new System.Windows.Forms.TextBox();
-            this.PasswordTextbox = new System.Windows.Forms.TextBox();
+            this.UNameInput = new System.Windows.Forms.TextBox();
+            this.PWordInput = new System.Windows.Forms.TextBox();
             this.SignInButton = new System.Windows.Forms.Button();
+            this.UNameLabel = new System.Windows.Forms.Label();
+            this.PasswordLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // KRTS
@@ -44,7 +46,7 @@
             this.KRTS.Size = new System.Drawing.Size(91, 31);
             this.KRTS.TabIndex = 0;
             this.KRTS.Text = "KRTS";
-            this.KRTS.Click += new System.EventHandler(this.SignInButton_click);
+            this.KRTS.Click += new System.EventHandler(this.SignInButton_Click_1);
             // 
             // PleaseSignIn
             // 
@@ -56,23 +58,25 @@
             this.PleaseSignIn.TabIndex = 1;
             this.PleaseSignIn.Text = "Please Sign In:";
             // 
-            // UsernameTextbox
+            // UNameInput
             // 
-            this.UsernameTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameTextbox.Location = new System.Drawing.Point(210, 207);
-            this.UsernameTextbox.Name = "UsernameTextbox";
-            this.UsernameTextbox.Size = new System.Drawing.Size(184, 29);
-            this.UsernameTextbox.TabIndex = 2;
-            this.UsernameTextbox.Text = "Username";
+            this.UNameInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UNameInput.Location = new System.Drawing.Point(210, 207);
+            this.UNameInput.Name = "UNameInput";
+            this.UNameInput.Size = new System.Drawing.Size(184, 29);
+            this.UNameInput.TabIndex = 2;
+            this.UNameInput.Text = "Click here";
+            this.UNameInput.TextChanged += new System.EventHandler(this.UNameInput_TextChanged);
             // 
-            // PasswordTextbox
+            // PWordInput
             // 
-            this.PasswordTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordTextbox.Location = new System.Drawing.Point(210, 268);
-            this.PasswordTextbox.Name = "PasswordTextbox";
-            this.PasswordTextbox.Size = new System.Drawing.Size(184, 29);
-            this.PasswordTextbox.TabIndex = 3;
-            this.PasswordTextbox.Text = "Password";
+            this.PWordInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PWordInput.Location = new System.Drawing.Point(210, 268);
+            this.PWordInput.Name = "PWordInput";
+            this.PWordInput.Size = new System.Drawing.Size(184, 29);
+            this.PWordInput.TabIndex = 3;
+            this.PWordInput.Text = "Click here";
+            this.PWordInput.TextChanged += new System.EventHandler(this.PWordInput_TextChanged);
             // 
             // SignInButton
             // 
@@ -85,19 +89,45 @@
             this.SignInButton.TabIndex = 4;
             this.SignInButton.Text = "Sign In";
             this.SignInButton.UseVisualStyleBackColor = true;
+            this.SignInButton.Click += new System.EventHandler(this.SignInButton_Click_1);
+            // 
+            // UNameLabel
+            // 
+            this.UNameLabel.AutoSize = true;
+            this.UNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UNameLabel.Location = new System.Drawing.Point(102, 210);
+            this.UNameLabel.Name = "UNameLabel";
+            this.UNameLabel.Size = new System.Drawing.Size(102, 24);
+            this.UNameLabel.TabIndex = 5;
+            this.UNameLabel.Text = "Username:";
+            this.UNameLabel.Click += new System.EventHandler(this.UNameLabel_Click);
+            // 
+            // PasswordLabel
+            // 
+            this.PasswordLabel.AutoSize = true;
+            this.PasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordLabel.Location = new System.Drawing.Point(102, 268);
+            this.PasswordLabel.Name = "PasswordLabel";
+            this.PasswordLabel.Size = new System.Drawing.Size(97, 24);
+            this.PasswordLabel.TabIndex = 6;
+            this.PasswordLabel.Text = "Password:";
+            this.PasswordLabel.Click += new System.EventHandler(this.PasswordLabel_Click);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Controls.Add(this.PasswordLabel);
+            this.Controls.Add(this.UNameLabel);
             this.Controls.Add(this.SignInButton);
-            this.Controls.Add(this.PasswordTextbox);
-            this.Controls.Add(this.UsernameTextbox);
+            this.Controls.Add(this.PWordInput);
+            this.Controls.Add(this.UNameInput);
             this.Controls.Add(this.PleaseSignIn);
             this.Controls.Add(this.KRTS);
             this.Name = "Login";
             this.Size = new System.Drawing.Size(613, 485);
+            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -107,9 +137,11 @@
 
         private System.Windows.Forms.Label KRTS;
         private System.Windows.Forms.Label PleaseSignIn;
-        private System.Windows.Forms.TextBox UsernameTextbox;
-        private System.Windows.Forms.TextBox PasswordTextbox;
+        private System.Windows.Forms.TextBox UNameInput;
+        private System.Windows.Forms.TextBox PWordInput;
         private System.Windows.Forms.Button SignInButton;
         private object button1;
+        private System.Windows.Forms.Label UNameLabel;
+        private System.Windows.Forms.Label PasswordLabel;
     }
 }
