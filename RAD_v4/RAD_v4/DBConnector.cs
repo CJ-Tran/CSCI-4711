@@ -19,18 +19,18 @@ namespace Controller
             {
                 //SQLiteConnection conn = new SQLiteConnection("Data Source=PasswordManager.s3db;Version=3;");
                 SQLiteCommand cmd = conn.CreateCommand();// cmd is associated with the connector
+
                 //start DB
                 conn.Open();
+
                 //We might not want to have a drop schema line since that will wipe the User table every time the DB is initialized
                 // the 'typeof' for TYPE can be int for simplicity (since the enum occurs in local code)
-               
                 cmd.CommandText = "" +
                     "DROP TABLE IF EXISTS User; " +
                     "DROP TABLE IF EXISTS Keys; " +
                     "DROP TABLE IF EXISTS Log; ";
                 cmd.ExecuteNonQuery();
                
-
                 cmd.CommandText = "" +
                     "CREATE TABLE User (" +
                     "UName VARCHAR(50)," +
@@ -58,6 +58,7 @@ namespace Controller
                     ")";
                 cmd.ExecuteNonQuery();
 
+                // Was just trying to get it to display and see if it was working
                 //SQLiteDataReader reader;
                 cmd.CommandText = "" +
                     "SELECT * FROM User;";
