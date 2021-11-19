@@ -29,8 +29,8 @@ namespace Boundary
             // opens login form
             RAD_v4.Login loginform1 = new RAD_v4.Login();
             loginform1.Visible = true;
-            this.Activate();
-            this.Show();
+            //this.Activate();
+            //this.Show();
         }
 
         public void Submit()

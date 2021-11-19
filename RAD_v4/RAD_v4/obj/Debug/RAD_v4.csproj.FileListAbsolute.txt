@@ -64,3 +64,4 @@ C:\Users\CJ\source\repos\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\RAD_v4.exe
 C:\Users\CJ\source\repos\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\RAD_v4.pdb
 C:\Users\CJ\source\repos\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\RAD_v4.Login.resources
 C:\Users\CJ\source\repos\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\RAD_v4.csproj.GenerateResource.cache
+C:\Users\CJ\source\repos\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\RAD_v4.csproj.AssemblyReference.cache

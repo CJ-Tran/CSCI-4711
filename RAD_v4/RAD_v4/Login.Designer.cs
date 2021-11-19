@@ -117,7 +117,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            //this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Controls.Add(this.PasswordLabel);
             this.Controls.Add(this.UNameLabel);
             this.Controls.Add(this.SignInButton);
@@ -140,7 +140,6 @@
         private System.Windows.Forms.TextBox UNameInput;
         private System.Windows.Forms.TextBox PWordInput;
         private System.Windows.Forms.Button SignInButton;
-        private object button1;
         private System.Windows.Forms.Label UNameLabel;
         private System.Windows.Forms.Label PasswordLabel;
     }

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace RAD_v4
 {
-    public partial class Login : UserControl
+    public partial class Login : Form // changed to Form, from UserControl
     {
         public Login()
         {
@@ -19,13 +19,13 @@ namespace RAD_v4
 
         private void SignInButton_Click_1(object sender, EventArgs e)
         {
-            MessageBox.Show($"Hello, {UNameInput}, your password is {PWordInput}?");
+            MessageBox.Show($"Hello {UNameInput.Text}, your password is {PWordInput.Text}?");
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
-            this.Visible = true;
-            this.Show();
+            //this.Visible = true;
+            //this.Show();
         }
 
         private void UNameInput_TextChanged(object sender, EventArgs e)
