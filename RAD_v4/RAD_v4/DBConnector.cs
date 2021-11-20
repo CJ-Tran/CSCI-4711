@@ -67,7 +67,7 @@ namespace Controller
                 cmd = conn.CreateCommand();
                 cmd.CommandText = "" +
                     "SELECT PwdHash FROM User" +
-                    $"WHERE UName = {uName}";
+                    $"WHERE UName = {uName};";
                 SQLiteDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
@@ -83,7 +83,7 @@ namespace Controller
             }//try
             catch (Exception)
             {
-                throw new Exception("GetUser() threw an exception"); //Probably gonna throw this exception when username/password is incorrect
+                throw new Exception("GetUser() threw an exception (Probably bad user)"); //Probably gonna throw this exception when username/password is incorrect
             }//catch
         }//GetUser()
 
