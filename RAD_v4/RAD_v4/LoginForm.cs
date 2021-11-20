@@ -47,7 +47,6 @@ namespace Boundary
             {
                 Application.Exit();
                 Close();
-
             }
 
         }

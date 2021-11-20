@@ -69,12 +69,14 @@ namespace Controller
 
         public static void Save(string u, string p) // changed to void Save() more realistic?
         {
-            SQLiteCommand cmd = DBConnector.conn.CreateCommand(); // forgot how to check if user is in table so I'll just only add them right now
+            //SQLiteCommand cmd = DBConnector.conn.CreateCommand(); // forgot how to check if user is in table so I'll just only add them right now
+             
             DBConnector.conn.Open();
-            cmd.CommandText = "" +
+            DBConnector.cmd.CommandText = "" +
                     "INSERT INTO User (UName, PWord, Type)" +
                     $"VALUES(\'{u}\', \'{p}\', 0);";
-            cmd.ExecuteNonQuery();
+            DBConnector.cmd.ExecuteNonQuery();
+            DBConnector.conn.Close();
         }
     }
 }

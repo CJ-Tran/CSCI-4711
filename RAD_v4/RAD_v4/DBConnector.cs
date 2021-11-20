@@ -11,14 +11,14 @@ namespace Controller
     static class DBConnector
     {
         public static SQLiteConnection conn = new SQLiteConnection("Data Source=PasswordManager.s3db;Version=3;");//working way of creating a connection
-        //static readonly SQLiteCommand cmd = new SQLiteCommand();
+        public static SQLiteCommand cmd = conn.CreateCommand();
 
         public static void Initialize()
         {
             try
             {
                 //SQLiteConnection conn = new SQLiteConnection("Data Source=PasswordManager.s3db;Version=3;");
-                SQLiteCommand cmd = conn.CreateCommand();// cmd is associated with the connector
+                //SQLiteCommand cmd = conn.CreateCommand();// cmd is associated with the connector
 
                 //start DB
                 conn.Open();
@@ -57,6 +57,7 @@ namespace Controller
                     "Logout DATETIME" +
                     ")";
                 cmd.ExecuteNonQuery();
+                conn.Close();
 
                 // Was just trying to get it to display and see if it was working
                 /*
