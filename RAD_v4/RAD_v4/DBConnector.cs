@@ -77,6 +77,20 @@ namespace Controller
 
         public static KeyList GetKeys()
         {
+            cmd = conn.CreateCommand();
+            cmd.CommandText = "" +
+                "SELECT * from keys;";
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            Key k;
+            while (reader.Read())
+            {
+                int id = reader.GetInt32(0);
+                string currentAssigned = reader.GetString(1);
+                string lastAssigned = reader.GetString(2);
+                int roomNum = reader.GetInt32(3);
+                StatusType status = (StatusType)reader.GetInt32(4);
+                k = new Key(id, status, roomNum, currentAssigned, lastAssigned);
+            }//while
             List<Key> kList = new List<Key>(); //populate klist with query of keys before returning
             return new KeyList(kList);
         }//GetKeys()
