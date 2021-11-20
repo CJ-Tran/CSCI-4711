@@ -17,7 +17,7 @@ namespace Controller
             if (uName == null || pWord == null)
             {
                 return false;
-            }
+            }//fi
             else
             {
                 //Take substring(35) b/c object returns "System.Windows.Forms.Text, Textbox: uName" and we only want uName
@@ -27,25 +27,24 @@ namespace Controller
                 if (validUName == "" || validUName == " " || validPWord == "" || validPWord == " ")
                 {
                     return false;
-                }
+                }//fi
                 else
                 {
-                    Save(validUName, validPWord);
-
+                    try
+                    {
+                        User user = DBConnector.GetUser(validUName, validPWord);
+                        DBConnector.SaveLogin(user);
+                    }//try
+                    catch (Exception)
+                    {
+                        return false;
+                    }//catch
                     Boundary.MainMenu mainMenu = new Boundary.MainMenu();
                     mainMenu.Open(validUName, DBConnector.GetKeys());
 
                     return true;
-                }
-            }
-        }
-
-        public static void Save(string u, string p) // changed to void Save() more realistic?
-        {
-            DBConnector.cmd.CommandText = "" +
-                    "INSERT INTO User (UName, PWord, Type)" +
-                    $"VALUES(\'{u}\', \'{p}\', 0);";
-            DBConnector.cmd.ExecuteNonQuery();
-        }
-    }
-}
+                }//else
+            }//else
+        }//Verify()
+    }//AvailController class
+}//namespace
