@@ -23,15 +23,16 @@ namespace Controller
         {
             MainMenu mainMenu = new MainMenu();
             LoginForm loginForm = new LoginForm();
-
-            if (Validate(DBConnector.GetUser(uName, pWord)) == true)
+            try
             {
+                User user = DBConnector.GetUser(uName, pWord);
                 mainMenu.Open(uName, DBConnector.GetKeys());
+                DBConnector.SaveLogin(user);
                 loginForm.Close();
 
                 // and save user login
             }
-            else
+            catch(Exception)
             {
                 loginForm.Display("Error!");
             }

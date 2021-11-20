@@ -25,7 +25,10 @@ namespace Entity
             this.UName = username;
             this.Type = type;
         }
-
+        public string GetName()
+        {
+            return this.UName;
+        }
         
 
     }

@@ -128,6 +128,7 @@ namespace Controller
         {
             try
             {
+                //need to call
                 return new User(uName);
                 //putting this link for when we begin implementing the hashing algorithm
                 //https://stackoverflow.com/questions/4181198/how-to-hash-a-password#10402129
@@ -237,6 +238,24 @@ namespace Controller
             }//catch
         }//Save(keystatus)
 
+        public static void SaveLogin(User user)
+        {
+            try
+            {
+                SQLiteCommand cmd = new SQLiteCommand();
+                cmd.CommandText = "" +
+                    "INSERT INTO AccessEvent VALUES(" +
+                    $"{user.GetName()}," +
+                    $"{DateTime.Now}," +
+                    "Login);";
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                conn.Close(); //close connection if exception is thrown while saving logout information
+            }//catch
+        }//SaveLogin()
+
         public static void SaveLogout(string name)
         {
             try
@@ -253,6 +272,7 @@ namespace Controller
             catch(Exception)
             {
                 conn.Close(); //close connection if exception is thrown while saving logout information
+                throw new SQLiteException("Program encountered an error while attempting to save logout event");
             }//catch
         }//SaveLogout()
     }//DBConnector
