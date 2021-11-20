@@ -47,86 +47,14 @@ namespace Controller
                     "Type TEXT NOT NULL," +
                     "PRIMARY KEY (User, Time));";
                 cmd.ExecuteNonQuery();
-            }
+            }//try
             catch (Exception e)
             {
                 conn.Close();
                 throw new SQLiteException("An error occurred while attempting to initialize the database. Source of error: " + e.Source);
-            }
-        }
-        /*
-        static SQLiteConnection conn = new SQLiteConnection("Data Source=PasswordManager.s3db;Version=3;");//woriking way of creating a connection
-        //static readonly SQLiteCommand cmd = new SQLiteCommand();
-        //static readonly SQLiteCommand cmd = new SQLiteCommand();
-
-        public static void Initialize()
-        {
-            try
-            {
-                //SQLiteConnection conn = new SQLiteConnection("Data Source=PasswordManager.s3db;Version=3;");
-                SQLiteCommand cmd = conn.CreateCommand();// cmd is associated with the connector
-
-                //start DB
-                conn.Open();
-
-                //We might not want to have a drop schema line since that will wipe the User table every time the DB is initialized
-                // the 'typeof' for TYPE can be int for simplicity (since the enum occurs in local code)
-                cmd.CommandText = "" +
-                    "DROP TABLE IF EXISTS User; " +
-                    "DROP TABLE IF EXISTS Keys; " +
-                    "DROP TABLE IF EXISTS Log; ";
-                cmd.ExecuteNonQuery();
-
-                cmd.CommandText = "" +
-                    "CREATE TABLE User (" +
-                    "UName VARCHAR(50)," +
-                    "PWord CHAR(16)," +
-                    "Type SMALLINT," + // Customer = 0, Admin = 1
-                    "PRIMARY KEY (UName, PWord)" +//MULTIPLE PRIMARY KEY SYNTAX
-                    ")";
-                cmd.ExecuteNonQuery();
-
-                cmd.CommandText = "" +
-                    "CREATE TABLE Keys (" +
-                    "ID VARCHAR(16) PRIMARY KEY," +
-                    "Status VARCHAR(10)," +
-                    "CurrentUser VARCHAR(16)," +
-                    "PreviousUser VARCHAR(16)," +
-                    "RoomNum SMALLINT" +
-                    ")";
-                cmd.ExecuteNonQuery();
-
-                cmd.CommandText = "" +
-                    "CREATE TABLE Log (" +
-                    "User VARCHAR(16) PRIMARY KEY," +
-                    "Login DATETIME," +
-                    "Logout DATETIME" +
-                    ")";
-                cmd.ExecuteNonQuery();
-                conn.Close();
-
-                // Was just trying to get it to display and see if it was working
-
-                cmd.CommandText = "" +
-                    "SELECT * FROM User;";
-                cmd.ExecuteNonQuery();
-
-                SQLiteDataReader reader;
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    string myreader = reader.GetString(0);
-                    Console.WriteLine(myreader);
-                }
-                
-                conn.Close();
-            }
-            catch (Exception)
-            {
-                throw new Exception("Error at DBConnector.Initialize()");
-            }
-        }
-        */
+            }//catch
+        }//Initialize()
+		
         public static User GetUser(string uName, string pwdHash)
         {
             try
