@@ -11,9 +11,11 @@ using System.Windows.Forms;
 
 namespace RAD_v4
 {
-    public partial class MMenu : Form
+    public partial class RequestKey : Form
     {
-        public MMenu()
+        Boundary.RequestKeyForm rkf;
+
+        public RequestKey()
         {
             InitializeComponent();
         }
@@ -24,7 +26,7 @@ namespace RAD_v4
 
             foreach (Entity.Key k in kList.Keys)
             {
-                if(u.Type == Entity.User.AcctType.Admin)
+                if (u.Type == Entity.User.AcctType.Admin)
                 {
                     keys.Add(k);
                 }
@@ -33,6 +35,8 @@ namespace RAD_v4
                     keys.Add(k);
                 }
             }
+
+            rkf = new Boundary.RequestKeyForm(u, kList);
         }
 
         private void KeysList_SelectedIndexChanged(object sender, EventArgs e)
@@ -40,9 +44,20 @@ namespace RAD_v4
 
         }
 
-        private void MMenu_Load(object sender, EventArgs e)
+        private void RequestKey_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void SubmitBtn_Click(object sender, EventArgs e)
+        {
+            rkf.Submit(sender);
+
+        }
+
+        private void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            Controller.LogoutControl.Logout(rkf.user.UName);
         }
     }
 }

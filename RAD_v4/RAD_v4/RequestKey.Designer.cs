@@ -1,7 +1,7 @@
 ﻿
 namespace RAD_v4
 {
-    partial class MMenu
+    partial class RequestKey
     {
         /// <summary>
         /// Required designer variable.
@@ -84,6 +84,7 @@ namespace RAD_v4
             this.LogoutBtn.TabIndex = 4;
             this.LogoutBtn.Text = "Logout";
             this.LogoutBtn.UseVisualStyleBackColor = true;
+            this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click);
             // 
             // SubmitBtn
             // 
@@ -94,8 +95,9 @@ namespace RAD_v4
             this.SubmitBtn.TabIndex = 5;
             this.SubmitBtn.Text = "Submit";
             this.SubmitBtn.UseVisualStyleBackColor = true;
+            this.SubmitBtn.Click += new System.EventHandler(this.SubmitBtn_Click);
             // 
-            // MMenu
+            // RequestKey
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -105,9 +107,9 @@ namespace RAD_v4
             this.Controls.Add(this.KeysList);
             this.Controls.Add(this.KeysLbl);
             this.Controls.Add(this.RqstKeyLbl);
-            this.Name = "MMenu";
+            this.Name = "RequestKey";
             this.Text = "MMenu";
-            this.Load += new System.EventHandler(this.MMenu_Load);
+            this.Load += new System.EventHandler(this.RequestKey_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

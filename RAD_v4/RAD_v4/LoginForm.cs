@@ -22,9 +22,8 @@ namespace Boundary
 
         public void Submit()
         {
-            if (AvailController.Verify(tempUName, tempPWord))
+            if (LoginControl.Verify(tempUName, tempPWord))
             {
-                Application.Exit();
                 Close();
             }
             else

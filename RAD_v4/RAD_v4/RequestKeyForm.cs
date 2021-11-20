@@ -4,27 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Controller;
+using Entity;
+//using System.Windows.Forms;
 
 namespace Boundary
 {
-    class RequestKeyForm : Form
+    public class RequestKeyForm : Form
     {
-        //RequestControl RequestCtrl;
+        public User user;
 
-        public RequestKeyForm()
+        public RequestKeyForm(User u, KeyList kList)
         {
-            //RequestCtrl = new RequestControl();
+            user = u;
+
+            RAD_v4.RequestKey rk = new RAD_v4.RequestKey();
+            rk.AddKeys(u, kList);
+            rk.Refresh();
+            rk.TopMost = true;
+            rk.Visible = true;
         }
 
-        public void Submit()
+        public void Submit(object sender)
         {
-            string n = "";
-            int k = 0;
-            //RequestControl rc = new RequestControl();
-            RequestControl.Reserve(n, k); // no need return bool (Sequence Diagram)
-            Close();
+            bool valid = RequestControl.Reserve(user.UName, int.Parse(sender.ToString().Substring(36))); 
+            if (valid)
+            {
+                Close();
+            }
         }
-
-        //public void Close() { }
     }
 }
