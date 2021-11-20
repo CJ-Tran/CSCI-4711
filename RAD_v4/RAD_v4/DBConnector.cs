@@ -151,7 +151,7 @@ namespace Controller
                 cmd.ExecuteNonQuery();
 
                 cmd.CommandText = "" +
-                    "SELECT CurrentUser FROM Key" +
+                    "SELECT CurrentAssigned FROM Key" +
                     $"Where Id = {res.KeyID};";
                 SQLiteDataReader reader = cmd.ExecuteReader();
                 string nowPrevUser = string.Empty;
@@ -172,6 +172,7 @@ namespace Controller
 
                 return true;
             }
+
             catch (Exception)
             {
                 return false;
