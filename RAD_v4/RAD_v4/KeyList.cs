@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entity
 {
-    class KeyList
+    public class KeyList
     {
-        private Key[] Keys { get; set; } //private auto-implemented property for keys array
+        public Key[] Keys { get; set; } //private auto-implemented property for keys array
+        //public to help add
 
         public KeyList(List<Key> aKeyList)
         {

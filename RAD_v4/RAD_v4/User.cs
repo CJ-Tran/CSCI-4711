@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Entity
 {
-    class User
+    public class User
     {
         /* Properties */
         private string UName { get; set; } //username
 
-        private AcctType Type { get; set; } //account type (Admin = 1/Customer = 0)
+        public AcctType Type { get; private set; } //account type (Admin = 1/Customer = 0)
+        // public to get the type
 
         public enum AcctType
         {

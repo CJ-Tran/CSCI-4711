@@ -83,6 +83,12 @@
     <Compile Include="MainMenu.cs" />
     <Compile Include="ManageControl.cs" />
     <Compile Include="ManageKeyForm.cs" />
+    <Compile Include="MMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MMenu.Designer.cs">
+      <DependentUpon>MMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="RequestControl.cs" />
     <Compile Include="RequestKeyForm.cs" />
     <Compile Include="RequestProcessedWin.cs" />
@@ -102,6 +108,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MMenu.resx">
+      <DependentUpon>MMenu.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

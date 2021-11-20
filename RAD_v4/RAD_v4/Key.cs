@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entity
 {
-    class Key
+    public class Key // public to help add
     {
         /* Properties */
         public int ID { get; set; }
