@@ -60,12 +60,24 @@ namespace Controller
             }//catch
         }//Initialize()
 		
-        public static User GetUser(string uName, string pwdHash)
+        public static User GetUser(string uName, out string storedHash)
         {
             try
             {
-                //need to call
-                return new User(uName);
+                cmd = conn.CreateCommand();
+                cmd.CommandText = "" +
+                    "SELECT PwdHash FROM User" +
+                    $"WHERE UName = {uName}";
+                SQLiteDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    storedHash = reader.GetString(0);
+                    return new User(uName);
+                }
+                else
+                {
+                    throw new UnauthorizedAccessException("Something went wrong while retrieving user from db");
+                }
                 //putting this link for when we begin implementing the hashing algorithm
                 //https://stackoverflow.com/questions/4181198/how-to-hash-a-password#10402129
             }//try
