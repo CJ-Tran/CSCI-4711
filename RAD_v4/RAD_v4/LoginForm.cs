@@ -10,21 +10,10 @@ namespace Boundary
 {
     class LoginForm : Form
     {
-        public string tempUName, tempPWord;
+        //public string tempUName, tempPWord;
+        public object tempUName, tempPWord;
 
-        //AvailController availCtrl;
-
-        //public LoginForm(AvailController availCtrl)
-        //{
-        //    this.availCtrl = availCtrl;
-        //}
-
-        //public LoginForm(LogoutControl logoutCtrl) : base(logoutCtrl) { }
-
-        public LoginForm() : base()
-        {
-
-        }
+        public LoginForm() : base() { }
 
         public void Open()
         {
@@ -32,29 +21,23 @@ namespace Boundary
             RAD_v4.Login loginform1 = new RAD_v4.Login();
             loginform1.Visible = true;
             loginform1.TopMost = true;
-            //this.Activate();
-            //this.Show();
         }
 
         public void Submit()
         {
-            //string n = "", p = ""; // example
             //AvailController.Verify(tempUName, tempPWord);
             //Close();
-            
+
+            //bool valid = AvailController.Verify(tempUName.Trim(), tempPWord.Trim());
             bool valid = AvailController.Verify(tempUName, tempPWord);
+
             if (valid)
             {
                 Application.Exit();
-                Close();
+                Close(); // Use parent class (Form) CLose method
             }
 
         }
-
-        //public void Close()
-        //{
-        //    // close login form
-        //}
 
         public void Display(string s)
         {

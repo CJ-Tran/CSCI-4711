@@ -21,7 +21,7 @@ namespace Controller
         //    lf = new LoginForm(this);
         //}
 
-        public static bool Verify(string uName, string pWord) // Verify has bool instead of old Validate()
+        public static bool Verify(object uName, object pWord) // Verify has bool instead of old Validate()
         {
             Boundary.MainMenu mainMenu = new Boundary.MainMenu();
             LoginForm loginForm = new LoginForm();
@@ -31,18 +31,18 @@ namespace Controller
             bool validU = false;
             bool validP = false;
 
-            if (uName != null && uName.ToString() != "")
+            if (uName != null && uName.ToString().Trim() != "" && uName.ToString().Trim() != " ")
             {
-                validUName = uName.ToString().Trim().Substring(35); // 36 b/c prefix
+                validUName = uName.ToString().Substring(35).Trim(); // 36 b/c prefix
                 validU = true;
             }
             else
             {
                 MessageBox.Show("Username is an incorrect type!");
             }
-            if (pWord != null && pWord.ToString() != "")
+            if (pWord != null && pWord.ToString().Trim() != " " && pWord.ToString().Trim() != " ")
             {
-                validPWord = pWord.ToString().Trim().Substring(36);
+                validPWord = pWord.ToString().Substring(36).Trim();
                 validP = true;
 
             }
@@ -58,8 +58,6 @@ namespace Controller
                 mainMenu.Open(validUName, DBConnector.GetKeys());
 
                 return true;
-
-                //loginForm.Close(); //LoginForm closes itself
             }
             else
             {
@@ -69,8 +67,6 @@ namespace Controller
 
         public static void Save(string u, string p) // changed to void Save() more realistic?
         {
-            //SQLiteCommand cmd = DBConnector.conn.CreateCommand(); // forgot how to check if user is in table so I'll just only add them right now
-             
             DBConnector.conn.Open();
             DBConnector.cmd.CommandText = "" +
                     "INSERT INTO User (UName, PWord, Type)" +
