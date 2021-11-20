@@ -25,10 +25,5 @@ namespace Boundary
             LogoutControl.Logout(n);
             Close();
         }
-
-        public void Close()
-        {
-
-        }
     }
 }

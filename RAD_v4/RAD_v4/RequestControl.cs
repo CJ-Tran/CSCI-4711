@@ -16,8 +16,6 @@ namespace Controller
 
             DBConnector.Save(new Reservation(uName, key));
             rpw.Open(uName);
-
-            //return true; // no need?
         }
     }
 }

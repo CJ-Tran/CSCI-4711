@@ -10,9 +10,53 @@ namespace Controller
 {
     static class DBConnector
     {
+        
+        private static SQLiteConnection conn = new SQLiteConnection("Data Source=KMTS.db;Version=3;");
+        public static void Initialize()
+        {
+            try
+            {
+                conn.Open();
+                SQLiteCommand cmd = conn.CreateCommand();
+
+                //User
+                cmd.CommandText = "" +
+                    "CREATE TABLE IF NOT EXISTS User (" +
+                    "UName TEXT NOT NULL," +
+                    "PwdHash TEXT NOT NULL," +
+                    "Type INTEGER NOT NULL," +
+                    "PRIMARY KEY (UName));";
+                cmd.ExecuteNonQuery();
+
+                //Key
+                cmd.CommandText = "" +
+                    "CREATE TABLE IF NOT EXISTS Key (" +
+                    "Id INTEGER NOT NULL," +
+                    "CurrentAssigned TEXT NULL," +
+                    "LastAssigned TEXT NULL," +
+                    "RoomNum INTEGER NOT NULL," +
+                    "Status INT NOT NULL," +
+                    "PRIMARY KEY (Id));";
+                cmd.ExecuteNonQuery();
+
+                //AccessEvent
+                cmd.CommandText = "" +
+                    "CREATE TABLE IF NOT EXISTS AccessEvent (" +
+                    "User TEXT NOT NULL," +
+                    "Time NUMERIC NOT NULL," +
+                    "Type TEXT NOT NULL," +
+                    "PRIMARY KEY (User, Time));";
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                throw new SQLiteException("An error occurred while attempting to initialize the database. Source of error: " + e.Source);
+            }
+        }
+        /*
         static SQLiteConnection conn = new SQLiteConnection("Data Source=PasswordManager.s3db;Version=3;");//woriking way of creating a connection
         //static readonly SQLiteCommand cmd = new SQLiteCommand();
-
         public static void Initialize()
         {
             try
@@ -59,7 +103,7 @@ namespace Controller
                 cmd.ExecuteNonQuery();
 
                 // Was just trying to get it to display and see if it was working
-                /*
+
                 cmd.CommandText = "" +
                     "SELECT * FROM User;";
                 cmd.ExecuteNonQuery();
@@ -71,7 +115,7 @@ namespace Controller
                     string myreader = reader.GetString(0);
                     Console.WriteLine(myreader);
                 }
-                */
+                
                 conn.Close();
             }
             catch (Exception)
@@ -79,9 +123,10 @@ namespace Controller
                 throw new Exception("Error at DBConnector.Initialize()");
             }
         }
-        public static User GetUser(string n, string p)
+        */
+        public static User GetUser(string uName, string pwdHash)
         {
-            return new User(n, p);
+            return new User(uName);
             //putting this link for when we begin implementing the hashing algorithm
             //https://stackoverflow.com/questions/4181198/how-to-hash-a-password#10402129
         }
@@ -95,22 +140,42 @@ namespace Controller
         /* Updates a key's status via reservation */
         public static bool Save(Reservation res)
         {
-            //SQLiteConnection conn = new SQLiteConnection();
-            SQLiteCommand cmd = new SQLiteCommand();
+            try
+            {
+                conn.Open();
+                SQLiteCommand cmd = new SQLiteCommand();
+                cmd.CommandText = "" +
+                    "UPDATE Key" +
+                    $"Set Status = {(int)StatusType.Pending}" +
+                    $"WHERE Id = {res.KeyID};";
+                cmd.ExecuteNonQuery();
 
-            cmd.CommandText = "" +
-                "UPDATE Keys" +
-                "Set KeyStatus = \"Pending\"" +
-                $"WHERE ID = {res.KeyID};";
-            cmd.ExecuteNonQuery();
+                cmd.CommandText = "" +
+                    "SELECT CurrentUser FROM Key" +
+                    $"Where Id = {res.KeyID};";
+                SQLiteDataReader reader = cmd.ExecuteReader();
+                string nowPrevUser = string.Empty;
+                if (reader.Read())
+                    nowPrevUser = reader.GetString(0);
 
-            cmd.CommandText = "" +
-                "UPDATE Keys" +
-                $"Set CurrentUser = {res.UName}" +
-                $"WHERE ID = {res.KeyID};";
-            cmd.ExecuteNonQuery();
+                cmd.CommandText = "" +
+                    "UPDATE Key" +
+                    $"Set LastAssigned = {nowPrevUser}" +
+                    $"WHERE Id = {res.KeyID};";
+                cmd.ExecuteNonQuery();
 
-            return true; //unnecessary?
+                cmd.CommandText = "" +
+                    "UPDATE Key" +
+                    $"Set CurrentAssigned = {res.UName}" +
+                    $"WHERE ID = {res.KeyID};";
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         /* KeyStatus Getter */
