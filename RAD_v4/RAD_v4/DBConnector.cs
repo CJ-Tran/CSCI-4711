@@ -72,7 +72,9 @@ namespace Controller
                     Console.WriteLine(myreader);
                 }
                 */
-                conn.Close();
+
+
+                //conn.Close();
             }
             catch (Exception)
             {

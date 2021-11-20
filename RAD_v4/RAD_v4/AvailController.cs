@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Boundary;
 using Entity;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace Controller
 {
@@ -20,25 +21,29 @@ namespace Controller
         //    lf = new LoginForm(this);
         //}
 
-        public static void Verify(EventArgs uName, EventArgs pWord)
+        public static bool Verify(EventArgs uName, EventArgs pWord) // Verify has bool instead of old Validate()
         {
             Boundary.MainMenu mainMenu = new Boundary.MainMenu();
             LoginForm loginForm = new LoginForm();
 
             string validUName = "";
             string validPWord = "";
+            bool validU = false;
+            bool validP = false;
 
-            if (uName != null && uName is string && uName.ToString() != "")
+            if (uName != null && uName.ToString() != "")
             {
                 validUName = uName.ToString();
+                validU = true;
             }
             else
             {
                 MessageBox.Show("Username is an incorrect type!");
             }
-            if (pWord != null && pWord is string && pWord.ToString() != "")
+            if (pWord != null && pWord.ToString() != "")
             {
                 validPWord = pWord.ToString();
+                validP = true;
 
             }
             else
@@ -46,24 +51,30 @@ namespace Controller
                 MessageBox.Show("Password is an incorrect type!");
             }
 
-
-            if (Validate(DBConnector.GetUser(validUName, validPWord)) == true)
+            if (validU && validP)
             {
+                Save(validUName, validPWord);
+                
                 mainMenu.Open(validUName, DBConnector.GetKeys());
-                loginForm.Close();
 
-                // and save user login
+                return true;
+
+                //loginForm.Close(); //LoginForm closes itself
             }
             else
             {
-                loginForm.Display("Error!");
+                return false;
             }
         }
 
-        public static bool Validate(User user) // changed to bool?
+        public static void Save(string userName, string pWord) // changed to void Save() more realistic?
         {
-            // comapre to an array of users in DB?
-            return true;
+            DBConnector.conn;
+            SQLiteCommand cmd = new SQLiteCommand(); // forgot how to check if user is in table so I'll just only add them right now
+            cmd.CommandText = "" +
+                    "INSERT INTO User" +
+                    $"VALUES({userName}, {pWord}, 0);";
+            cmd.ExecuteNonQuery();
         }
     }
 }
