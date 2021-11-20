@@ -12,6 +12,7 @@ namespace Controller
     {
         
         private static SQLiteConnection conn = new SQLiteConnection("Data Source=KMTS.db;Version=3;");
+        private static SQLiteCommand cmd;
         public static void Initialize()
         {
             try
@@ -21,7 +22,7 @@ namespace Controller
 
                 //start DB
                 conn.Open();
-                SQLiteCommand cmd = conn.CreateCommand();
+                cmd = conn.CreateCommand();
 
                 //User
                 cmd.CommandText = "" +
@@ -85,7 +86,7 @@ namespace Controller
         {
             try
             {
-                SQLiteCommand cmd = new SQLiteCommand();
+                cmd = conn.CreateCommand();
                 cmd.CommandText = "" +
                     "UPDATE Key" +
                     $"Set Status = {(int)StatusType.Pending}" +
@@ -128,7 +129,7 @@ namespace Controller
             int status = -1;
             try
             {
-                SQLiteCommand cmd = new SQLiteCommand();
+                cmd = conn.CreateCommand();
                 cmd.CommandText = "" +
                     "SELECT Status" +
                     "FROM Keys" +
@@ -160,7 +161,6 @@ namespace Controller
         {
             try
             {
-                SQLiteCommand cmd = new SQLiteCommand();
                 cmd.CommandText = "" +
                     "UPDATE Keys" +
                     $"Set Status = {(int)keyStat.Status}" +
@@ -177,7 +177,6 @@ namespace Controller
         {
             try
             {
-                SQLiteCommand cmd = new SQLiteCommand();
                 cmd.CommandText = "" +
                     "INSERT INTO AccessEvent VALUES(" +
                     $"{user.GetName()}," +
@@ -195,7 +194,7 @@ namespace Controller
         {
             try
             {
-                SQLiteCommand cmd = new SQLiteCommand();
+                SQLiteCommand cmd = conn.CreateCommand();
                 cmd.CommandText = "" +
                     "INSERT INTO AccessEvent VALUES(" +
                     $"{name}," +
