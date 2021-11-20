@@ -13,9 +13,9 @@ namespace Entity
 
         public StatusType Status { get; set; }
 
-        private string CurrentUser { get; set; }
+        public string CurrentUser { get; set; }
 
-        private string PreviousUser { get; set; }
+        public string PreviousUser { get; set; }
 
         public int RoomNum { get; set; }
 
