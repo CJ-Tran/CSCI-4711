@@ -90,7 +90,7 @@ namespace Controller
 
         public static KeyList GetKeys()
         {
-            List<Key> kList = new List<Key>(); //keys from database should be placed into this list
+            List<Key> kList = new List<Key>(); //populate klist with query of keys before returning
             return new KeyList(kList);
         }
 

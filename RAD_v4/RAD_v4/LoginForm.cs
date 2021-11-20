@@ -31,6 +31,7 @@ namespace Boundary
             // opens login form
             RAD_v4.Login loginform1 = new RAD_v4.Login();
             loginform1.Visible = true;
+            loginform1.TopMost = true;
             //this.Activate();
             //this.Show();
         }
