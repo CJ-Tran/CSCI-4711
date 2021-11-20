@@ -85,3 +85,8 @@ C:\Users\chris\Documents\GitHub\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\RAD_v4.csproj.
 C:\Users\chris\Documents\GitHub\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\RAD_v4.csproj.CopyComplete
 C:\Users\chris\Documents\GitHub\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\RAD_v4.exe
 C:\Users\chris\Documents\GitHub\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\RAD_v4.pdb
+C:\Users\Josh\Source\Repos\CJ-Tran\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\RAD_v4.csproj.AssemblyReference.cache
+C:\Users\Josh\Source\Repos\CJ-Tran\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\RAD_v4.Login.resources
+C:\Users\Josh\Source\Repos\CJ-Tran\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\Boundary.ManageKeyForm.resources
+C:\Users\Josh\Source\Repos\CJ-Tran\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\RAD_v4.MMenu.resources
+C:\Users\Josh\Source\Repos\CJ-Tran\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\RAD_v4.csproj.GenerateResource.cache

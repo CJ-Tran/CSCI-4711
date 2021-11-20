@@ -67,22 +67,28 @@
   <ItemGroup>
     <Compile Include="AvailController.cs" />
     <Compile Include="DBConnector.cs" />
-    <Compile Include="Form.cs" />
+    <Compile Include="Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Key.cs" />
     <Compile Include="KeyList.cs" />
     <Compile Include="KeyStatus.cs" />
     <Compile Include="KRTS.cs" />
     <Compile Include="Login.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs" />
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="LogoutControl.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="ManageControl.cs" />
-    <Compile Include="ManageKeyForm.cs" />
+    <Compile Include="ManageKeyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,7 +96,9 @@
       <DependentUpon>MMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="RequestControl.cs" />
-    <Compile Include="RequestKeyForm.cs" />
+    <Compile Include="RequestKeyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="RequestProcessedWin.cs" />
     <Compile Include="Reservation.cs" />
     <Compile Include="StartupController.cs" />
@@ -108,6 +116,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageKeyForm.resx">
+      <DependentUpon>ManageKeyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MMenu.resx">
       <DependentUpon>MMenu.cs</DependentUpon>
