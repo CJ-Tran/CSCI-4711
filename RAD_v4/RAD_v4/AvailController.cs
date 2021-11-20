@@ -30,9 +30,10 @@ namespace Controller
                 }//fi
                 else
                 {
+                    User user;
                     try
                     {
-                        User user = DBConnector.GetUser(validUName, validPWord);
+                        user = DBConnector.GetUser(validUName, validPWord);
                         DBConnector.SaveLogin(user);
                     }//try
                     catch (Exception)
