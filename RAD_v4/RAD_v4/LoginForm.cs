@@ -10,14 +10,11 @@ namespace Boundary
 {
     class LoginForm : Form
     {
-        //public string tempUName, tempPWord;
         public object tempUName, tempPWord;
-
-        public LoginForm() : base() { }
 
         public void Open()
         {
-            // opens login form
+            //opens login form
             RAD_v4.Login loginform1 = new RAD_v4.Login();
             loginform1.Visible = true;
             loginform1.TopMost = true;
@@ -25,18 +22,15 @@ namespace Boundary
 
         public void Submit()
         {
-            //AvailController.Verify(tempUName, tempPWord);
-            //Close();
-
-            //bool valid = AvailController.Verify(tempUName.Trim(), tempPWord.Trim());
-            bool valid = AvailController.Verify(tempUName, tempPWord);
-
-            if (valid)
+            if (AvailController.Verify(tempUName, tempPWord))
             {
                 Application.Exit();
-                Close(); // Use parent class (Form) CLose method
+                Close();
             }
-
+            else
+            {
+                MessageBox.Show("Incorrect username or password!");
+            }
         }
 
         public void Display(string s)

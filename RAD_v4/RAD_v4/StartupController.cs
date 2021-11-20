@@ -13,17 +13,12 @@ namespace Controller
     {
         public static void Initiate()
         {
-            //AvailController ac = new AvailController();
+            //Had to Initialize DB first to save values
+            DBConnector.Initialize();
+
             LoginForm lf = new LoginForm();
             lf.Open();
             Application.Run(lf);
-            
-
-
-            // Was testing static/non-static
-            DBConnector.Initialize();
-            //DBConnector db = new DBConnector();
-            //db.Initialize();
         }
 
     }

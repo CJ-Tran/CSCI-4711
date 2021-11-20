@@ -36,8 +36,8 @@ namespace Controller
                     "CREATE TABLE User (" +
                     "UName VARCHAR(50)," +
                     "PWord CHAR(16)," +
-                    "Type SMALLINT," + // Customer = 0, Admin = 1
-                    "PRIMARY KEY (UName, PWord)" +//MULTIPLE PRIMARY KEY SYNTAX
+                    "Type SMALLINT," + //Customer = 0, Admin = 1
+                    "PRIMARY KEY (UName, PWord)" + //MULTIPLE PRIMARY KEY SYNTAX
                     ")";
                 cmd.ExecuteNonQuery();
 
@@ -59,7 +59,7 @@ namespace Controller
                     ")";
                 cmd.ExecuteNonQuery();
 
-                conn.Close();
+                //conn.Close();
             }
             catch (Exception)
             {
@@ -82,9 +82,6 @@ namespace Controller
         /* Updates a key's status via reservation */
         public static bool Save(Reservation res)
         {
-            //SQLiteConnection conn = new SQLiteConnection();
-            SQLiteCommand cmd = new SQLiteCommand();
-
             cmd.CommandText = "" +
                 "UPDATE Keys" +
                 "Set KeyStatus = \"Pending\"" +
@@ -103,9 +100,6 @@ namespace Controller
         /* KeyStatus Getter */
         public static KeyStatus GetStatus(int key)
         {
-            //SQLiteConnection conn = new SQLiteConnection();
-            SQLiteCommand cmd = new SQLiteCommand();
-
             cmd.CommandText = "" +
                 "SELECT Status" +
                 "FROM Keys" +
@@ -128,9 +122,6 @@ namespace Controller
         /* Updates Key's Status */
         public static void Save(KeyStatus keyStat)
         {
-            //SQLiteConnection conn = new SQLiteConnection();
-            SQLiteCommand cmd = new SQLiteCommand();
-
             // save to DB
             cmd.CommandText = "" +
                 "UPDATE Keys" +
@@ -141,9 +132,6 @@ namespace Controller
         /* Saves logout info when user logs out */
         public static void SaveLogout(string name)
         {
-            //SQLiteConnection conn = new SQLiteConnection();
-            SQLiteCommand cmd = new SQLiteCommand();
-
             // save to DB
             cmd.CommandText = "" +
                 "UPDATE Logs" +

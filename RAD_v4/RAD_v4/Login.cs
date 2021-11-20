@@ -33,17 +33,12 @@ namespace RAD_v4
 
         private void UNameInput_TextChanged(object sender, EventArgs e)
         {
-            //tempLoginForm.tempUName = sender.ToString();
             tempLoginForm.tempUName = sender;
-
         }
 
         private void PWordInput_TextChanged(object sender, EventArgs e)
         {
-
-            tempLoginForm.tempPWord = sender.ToString();
             tempLoginForm.tempPWord = sender;
-
         }
 
         private void UNameLabel_Click(object sender, EventArgs e) { }
