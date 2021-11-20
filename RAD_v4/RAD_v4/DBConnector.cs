@@ -10,7 +10,7 @@ namespace Controller
 {
     static class DBConnector
     {
-        static SQLiteConnection conn = new SQLiteConnection("Data Source=PasswordManager.s3db;Version=3;");//woriking way of creating a connection
+        public static SQLiteConnection conn = new SQLiteConnection("Data Source=PasswordManager.s3db;Version=3;");//working way of creating a connection
         //static readonly SQLiteCommand cmd = new SQLiteCommand();
 
         public static void Initialize()
@@ -35,7 +35,7 @@ namespace Controller
                     "CREATE TABLE User (" +
                     "UName VARCHAR(50)," +
                     "PWord CHAR(16)," +
-                    "TYPE SMALLINT," + // Customer = 0, Admin = 1
+                    "Type SMALLINT," + // Customer = 0, Admin = 1
                     "PRIMARY KEY (UName, PWord)" +//MULTIPLE PRIMARY KEY SYNTAX
                     ")";
                 cmd.ExecuteNonQuery();

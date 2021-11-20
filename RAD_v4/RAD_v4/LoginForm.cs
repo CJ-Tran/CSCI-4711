@@ -10,7 +10,7 @@ namespace Boundary
 {
     class LoginForm : Form
     {
-        public EventArgs tempUName, tempPWord;
+        public string tempUName, tempPWord;
 
         //AvailController availCtrl;
 
@@ -38,16 +38,16 @@ namespace Boundary
         public void Submit()
         {
             //string n = "", p = ""; // example
-            AvailController.Verify(tempUName, tempPWord);
-            Close();
-            /*
+            //AvailController.Verify(tempUName, tempPWord);
+            //Close();
+            
             bool valid = AvailController.Verify(tempUName, tempPWord);
             if (valid)
             {
                 Application.Exit();
                 Close();
 
-            }*/
+            }
 
         }
 

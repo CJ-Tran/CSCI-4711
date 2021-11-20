@@ -16,6 +16,6 @@ namespace Entity
         }
         // Will need constructor that instantiates keys in the future?
 
-        
+
     }
 }
