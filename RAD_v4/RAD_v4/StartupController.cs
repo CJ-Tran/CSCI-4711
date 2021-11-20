@@ -14,7 +14,9 @@ namespace Controller
         public static void Initiate()
         {
             //AvailController ac = new AvailController();
-            Application.Run(new LoginForm());
+            LoginForm lf = new LoginForm();
+            lf.Open();
+            Application.Run(lf);
             
 
 

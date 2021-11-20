@@ -10,6 +10,8 @@ namespace Boundary
 {
     class LoginForm : Form
     {
+        public EventArgs tempUName, tempPWord; 
+
         //AvailController availCtrl;
 
         //public LoginForm(AvailController availCtrl)
@@ -21,7 +23,7 @@ namespace Boundary
 
         public LoginForm():base() 
         {
-            Open();
+
         }
 
         public void Open()
@@ -35,8 +37,8 @@ namespace Boundary
 
         public void Submit()
         {
-            string n = "", p = ""; // example
-            AvailController.Verify(n, p);
+            //string n = "", p = ""; // example
+            AvailController.Verify(tempUName, tempPWord);
             Close();
         }
 
