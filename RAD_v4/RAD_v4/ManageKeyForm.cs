@@ -184,7 +184,7 @@ namespace Boundary
 
         private void KeysList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            button1.Text = KeysList.SelectedItem.ToString();
+            label4.Text = KeysList.SelectedItem.ToString();
         }
     }
 }
