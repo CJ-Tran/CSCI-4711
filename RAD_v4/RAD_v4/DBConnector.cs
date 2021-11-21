@@ -68,7 +68,7 @@ namespace Controller
         {
             try
             {
-                cmd = new SQLiteCommand("SELECT PwdHash FROM User WHERE UName = @textValue1", conn);
+                cmd = new SQLiteCommand("SELECT PwdHash,Type FROM User WHERE UName = @textValue1", conn);
                 cmd.Parameters.AddWithValue("@textValue1", uName);
                 /*
                 cmd = conn.CreateCommand();
@@ -80,7 +80,7 @@ namespace Controller
                 if (reader.Read())
                 {
                     storedHash = reader.GetString(0);
-                    return new User(uName);
+                    return new User(uName, (User.AcctType)reader.GetInt32(1));
                 }
                 else
                 {
