@@ -82,7 +82,7 @@ namespace Controller
             {
                 cmd = conn.CreateCommand();
                 cmd.CommandText = "" +
-                    "SELECT * from keys;";
+                    "SELECT * FROM Key;";
                 SQLiteDataReader reader = cmd.ExecuteReader();
                 Key k;
                 while (reader.Read())

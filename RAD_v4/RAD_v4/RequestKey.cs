@@ -23,6 +23,7 @@ namespace RAD_v4
         public void AddKeys(Entity.User u, Entity.KeyList kList)
         {
             CheckedListBox.ObjectCollection keys = new CheckedListBox.ObjectCollection(KeysList);
+            keys.Clear();
 
             foreach (Entity.Key k in kList.Keys)
             {
