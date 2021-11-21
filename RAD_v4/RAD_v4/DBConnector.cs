@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entity;
 using System.Data.SQLite;
+using System.Security.Cryptography;
 
 namespace Controller
 {
@@ -52,6 +53,9 @@ namespace Controller
                     "Type TEXT NOT NULL," +
                     "PRIMARY KEY (User, Time));";
                 cmd.ExecuteNonQuery();
+
+                //AddUser("ecustomer", "custPass", User.AcctType.Customer);
+                //AddUser("eadmin", "adminPass", User.AcctType.Admin);
             }//try
             catch (Exception e)
             {
@@ -195,6 +199,7 @@ namespace Controller
         {
             try
             {
+                cmd = conn.CreateCommand();
                 cmd.CommandText = "" +
                     "UPDATE Keys" +
                     $"Set Status = {(int)keyStat.Status}" +
@@ -228,7 +233,7 @@ namespace Controller
         {
             try
             {
-                SQLiteCommand cmd = conn.CreateCommand();
+                cmd = conn.CreateCommand();
                 cmd.CommandText = "" +
                     "INSERT INTO AccessEvent VALUES(" +
                     $"{name}," +
@@ -245,7 +250,29 @@ namespace Controller
         }//SaveLogout()
         private static void AddUser(string uName, string password, User.AcctType type)
         {
+            try
+            {
+                //creating a salted hash of the password
+                byte[] salt;
+                new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
+                var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 100000);
+                byte[] hash = pbkdf2.GetBytes(20);
+                byte[] hashBytes = new byte[36];
+                Array.Copy(salt, 0, hashBytes, 0, 16);
+                Array.Copy(hash, 0, hashBytes, 16, 20);
+                string savedPasswordHash = Convert.ToBase64String(hashBytes);
 
+                cmd = new SQLiteCommand("INSERT INTO User(UName, PwdHash, Type) VALUES (@textValue1, @textValue2, @textValue3)", conn);
+                cmd.Parameters.AddWithValue("@textValue1", uName);
+                cmd.Parameters.AddWithValue("@textValue2", savedPasswordHash);
+                cmd.Parameters.AddWithValue("@textValue3", (int)type);
+                cmd.ExecuteNonQuery();
+            }
+            catch(Exception e)
+            {
+                throw e;
+                throw new Exception("Unable to add user, something went wrong");
+            }
         }//AddUser
     }//DBConnector
 }//Controller namespace
