@@ -44,9 +44,10 @@ namespace Boundary
             Display(ManageControl.GetStatus(k));
         }
 
-        public void Save(int index)
+        public void Save(int index,StatusType status)
         {
-            KeyStatus k = new KeyStatus(index);
+
+            KeyStatus k = new KeyStatus(index,status);
             ManageControl.Update(k);
             Display(k);
         }
@@ -77,14 +78,20 @@ namespace Boundary
             this.KeysList.Name = "KeysList";
             this.KeysList.Size = new System.Drawing.Size(120, 89);
             this.KeysList.TabIndex = 0;
+            this.KeysList.SelectedIndexChanged += new System.EventHandler(this.KeysList_SelectedIndexChanged);
             // 
             // KeyStatus
             // 
             this.KeyStatus.FormattingEnabled = true;
+            this.KeyStatus.Items.AddRange(new object[] {
+            "Available",
+            "Pending",
+            "Assigned"});
             this.KeyStatus.Location = new System.Drawing.Point(72, 277);
             this.KeyStatus.Name = "KeyStatus";
             this.KeyStatus.Size = new System.Drawing.Size(120, 89);
             this.KeyStatus.TabIndex = 1;
+            this.KeyStatus.SelectedIndexChanged += new System.EventHandler(this.KeyStatus_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -162,12 +169,22 @@ namespace Boundary
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Save(KeysList.SelectedIndex);
+            Save(KeysList.SelectedIndex, (StatusType)KeyStatus.SelectedIndex);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             LogoutControl.Logout(cUser.UName);
+        }
+
+        private void KeyStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void KeysList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            button1.Text = KeysList.SelectedItem.ToString();
         }
     }
 }
