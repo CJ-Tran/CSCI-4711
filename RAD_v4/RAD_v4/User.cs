@@ -9,7 +9,7 @@ namespace Entity
     public class User
     {
         /* Properties */
-        private string UName { get; set; } //username
+        public string UName { get; private set; } //username
         public AcctType Type { get; private set; } //account type (Admin = 1/Customer = 0)
         // public to get the type
 
@@ -25,9 +25,5 @@ namespace Entity
             this.UName = username;
             this.Type = type;
         }//User()
-        public string GetName()
-        {
-            return this.UName;
-        }//GetName()
     }
 }
