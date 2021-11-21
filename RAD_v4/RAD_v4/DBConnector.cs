@@ -68,10 +68,14 @@ namespace Controller
         {
             try
             {
+                cmd = new SQLiteCommand("SELECT PwdHash FROM User WHERE UName = @textValue1", conn);
+                cmd.Parameters.AddWithValue("@textValue1", uName);
+                /*
                 cmd = conn.CreateCommand();
                 cmd.CommandText = "" +
                     "SELECT PwdHash FROM User" +
                     $"WHERE UName = {uName};";
+                */
                 SQLiteDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
@@ -96,9 +100,7 @@ namespace Controller
             List<Key> kList = new List<Key>(); //populate klist with query of keys before returning
             try
             {
-                cmd = conn.CreateCommand();
-                cmd.CommandText = "" +
-                    "SELECT * from keys;";
+                cmd = new SQLiteCommand("SELECT * from key", conn);
                 SQLiteDataReader reader = cmd.ExecuteReader();
                 Key k;
                 while (reader.Read())
@@ -112,8 +114,9 @@ namespace Controller
                     kList.Add(k);
                 }//while
             }//try
-            catch (Exception)
+            catch (Exception e)
             {
+                throw e;
                 throw new SQLiteException("Failed to get KeyList");
             }
             return new KeyList(kList);
@@ -167,12 +170,8 @@ namespace Controller
             int status = -1;
             try
             {
-                cmd = conn.CreateCommand();
-                cmd.CommandText = "" +
-                    "SELECT Status" +
-                    "FROM Keys" +
-                    $"WHERE ID = {key};";
-
+                cmd = new SQLiteCommand("SELECT Status from Key where keyID = @textValue1", conn);
+                cmd.Parameters.AddWithValue("@textValue1", key);
                 SQLiteDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                     status = reader.GetInt32(0);
@@ -199,11 +198,16 @@ namespace Controller
         {
             try
             {
+                cmd = new SQLiteCommand("UPDATE Key SET Status = @textValue1 WHERE Id = @textValue2", conn);
+                cmd.Parameters.AddWithValue("@textValue1", (int)keyStat.Status);
+                cmd.Parameters.AddWithValue("@textValue2", keyStat.KeyID);
+                /*
                 cmd = conn.CreateCommand();
                 cmd.CommandText = "" +
                     "UPDATE Keys" +
                     $"Set Status = {(int)keyStat.Status}" +
                     $"WHERE Id = {keyStat.KeyID};";
+                */
                 cmd.ExecuteNonQuery();
             }//try
             catch (Exception)
@@ -216,15 +220,16 @@ namespace Controller
         {
             try
             {
-                cmd.CommandText = "" +
-                    "INSERT INTO AccessEvent VALUES(" +
-                    $"{user.GetName()}," +
-                    $"{DateTime.Now}," +
-                    "Login);";
+                cmd = new SQLiteCommand("INSERT INTO AccessEvent (User, Time, Type) VALUES (@textValue1, @textValue2, @textValue3)", conn);
+                cmd.Parameters.AddWithValue("@textValue1", user.GetName());
+                cmd.Parameters.AddWithValue("@textValue2", DateTime.Now);
+                throw new Exception($"{DateTime.Now}");//REMOVE THIS
+                cmd.Parameters.AddWithValue("@textValue3", "Login");
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                throw e; //REMOVE THIS
                 conn.Close(); //close connection if exception is thrown while saving logout information
             }//catch
         }//SaveLogin()
@@ -233,12 +238,10 @@ namespace Controller
         {
             try
             {
-                cmd = conn.CreateCommand();
-                cmd.CommandText = "" +
-                    "INSERT INTO AccessEvent VALUES(" +
-                    $"{name}," +
-                    $"{DateTime.Now}," +
-                    "Logout);";
+                cmd = new SQLiteCommand("INSERT INTO AccessEvent (User, Time, Type) VALUES (@textValue1, @textValue2, @textValue3)", conn);
+                cmd.Parameters.AddWithValue("@textValue1", name);
+                cmd.Parameters.AddWithValue("@textValue2", DateTime.Now);
+                cmd.Parameters.AddWithValue("@textValue3","Logout");
                 cmd.ExecuteNonQuery();
                 conn.Close(); //after saving logout, we can close the connection 
             }//try
