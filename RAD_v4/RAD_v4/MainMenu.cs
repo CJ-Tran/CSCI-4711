@@ -19,8 +19,8 @@ namespace Boundary
             }
             else
             {
-                //ManageKeyForm mkf = new ManageKeyForm();
-                //mkf.Open();
+                ManageKeyForm mkf = new ManageKeyForm(kList);
+                //mkf.Open(kList);
             }
             Close();
         }
