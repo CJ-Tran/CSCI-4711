@@ -14,6 +14,7 @@ namespace RAD_v4
     public partial class RequestKey : Form
     {
         Boundary.RequestKeyForm rkf;
+        private CheckedListBox.ObjectCollection keys;
 
         public RequestKey(Boundary.RequestKeyForm reqForm)
         {
@@ -23,18 +24,14 @@ namespace RAD_v4
 
         public void AddKeys(Entity.User u, Entity.KeyList kList)
         {
-            CheckedListBox.ObjectCollection keys = new CheckedListBox.ObjectCollection(KeysList);
+            //= new CheckedListBox.ObjectCollection(KeysList);
             //keys.Clear();
 
             foreach (Entity.Key k in kList.Keys)
             {
-                //if (u.Type == Entity.User.AcctType.Admin) // can get rid of since we don't deal with admin here
-                //{
-                //    keys.Add(k);
-                //}
                 if (u.Type == Entity.User.AcctType.Customer && k.Status == Entity.StatusType.Available)
                 {
-                    keys.Add(k);
+                    keys.Add(new { Name = k.ID });
                 }
             }
 
@@ -59,6 +56,7 @@ namespace RAD_v4
 
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
+            Close();
             Controller.LogoutControl.Logout(rkf.user.UName);
         }
     }
