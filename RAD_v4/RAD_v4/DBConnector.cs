@@ -54,6 +54,7 @@ namespace Controller
                     "PRIMARY KEY (User, Time));";
                 cmd.ExecuteNonQuery();
 
+                /* Leave commented out */
                 //AddUser("ecustomer", "custPass", User.AcctType.Customer);
                 //AddUser("eadmin", "adminPass", User.AcctType.Admin);
             }//try

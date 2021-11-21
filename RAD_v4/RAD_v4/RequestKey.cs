@@ -13,7 +13,7 @@ namespace RAD_v4
 {
     public partial class RequestKey : Form
     {
-        Boundary.RequestKeyForm rkf;
+        //Boundary.RequestKeyForm rkf;
 
         public RequestKey()
         {
@@ -27,17 +27,17 @@ namespace RAD_v4
 
             foreach (Entity.Key k in kList.Keys)
             {
-                if (u.Type == Entity.User.AcctType.Admin) // can get rid of since we don't deal with admin here
-                {
-                    keys.Add(k);
-                }
-                else if (u.Type == Entity.User.AcctType.Customer && k.Status == Entity.StatusType.Available)
+                //if (u.Type == Entity.User.AcctType.Admin) // can get rid of since we don't deal with admin here
+                //{
+                //    keys.Add(k);
+                //}
+                if (u.Type == Entity.User.AcctType.Customer && k.Status == Entity.StatusType.Available)
                 {
                     keys.Add(k);
                 }
             }
 
-            rkf = new Boundary.RequestKeyForm(u, kList);
+            //rkf = new Boundary.RequestKeyForm(u, kList);
         }
 
         private void KeysList_SelectedIndexChanged(object sender, EventArgs e)
