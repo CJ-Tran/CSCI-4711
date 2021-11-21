@@ -13,11 +13,12 @@ namespace RAD_v4
 {
     public partial class RequestKey : Form
     {
-        //Boundary.RequestKeyForm rkf;
+        Boundary.RequestKeyForm rkf;
 
-        public RequestKey()
+        public RequestKey(Boundary.RequestKeyForm reqForm)
         {
             InitializeComponent();
+            this.rkf = reqForm;
         }
 
         public void AddKeys(Entity.User u, Entity.KeyList kList)

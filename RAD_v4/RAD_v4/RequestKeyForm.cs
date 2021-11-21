@@ -17,7 +17,7 @@ namespace Boundary
         {
             user = u;
 
-            RAD_v4.RequestKey rk = new RAD_v4.RequestKey();
+            RAD_v4.RequestKey rk = new RAD_v4.RequestKey(this);
             rk.AddKeys(u, kList);
             rk.Refresh();
             rk.TopMost = true;
