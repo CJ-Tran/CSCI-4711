@@ -21,10 +21,12 @@ namespace Boundary
         private System.Windows.Forms.Label label3;
 
         //ManageControl mc;
+        private User cUser;
 
-        public ManageKeyForm(Entity.KeyList kList)
+        public ManageKeyForm(User u ,Entity.KeyList kList)
         {
             AddKeys(kList);
+            cUser = u;
             InitializeComponent();
             //mc = new ManageControl();
         }
@@ -119,7 +121,7 @@ namespace Boundary
             this.label4.Size = new System.Drawing.Size(46, 17);
             this.label4.TabIndex = 5;
             this.label4.Text = "label4";
-           
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(306, 401);
@@ -138,6 +140,7 @@ namespace Boundary
             this.button2.TabIndex = 7;
             this.button2.Text = "Logout";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ManageKeyForm
             // 
@@ -160,6 +163,11 @@ namespace Boundary
         private void button1_Click(object sender, EventArgs e)
         {
             Save(KeysList.SelectedIndex);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LogoutControl.Logout(cUser.UName);
         }
     }
 }

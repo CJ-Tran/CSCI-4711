@@ -125,6 +125,9 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ManageKeyForm.resx">
+      <DependentUpon>ManageKeyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RequestKey.resx">
       <DependentUpon>RequestKey.cs</DependentUpon>
     </EmbeddedResource>
