@@ -14,6 +14,7 @@ namespace Controller
         
         private static SQLiteConnection conn = new SQLiteConnection("Data Source=KMTS.db;Version=3;");
         private static SQLiteCommand cmd;
+        private static SQLiteDataReader reader;
         public static void Initialize()
         {
             try
@@ -54,9 +55,33 @@ namespace Controller
                     "PRIMARY KEY (User, Time));";
                 cmd.ExecuteNonQuery();
 
-                /* Leave commented out */
-                //AddUser("ecustomer", "custPass", User.AcctType.Customer);
-                //AddUser("eadmin", "adminPass", User.AcctType.Admin);
+
+
+
+                /*
+                 * The following is for initializing test data into the DB
+                 * Please treat this portion of Initialize as though it exists outside the scope of the program
+                 * thank you,
+                 * Chris J.
+                 */
+                cmd = new SQLiteCommand("SELECT UName FROM User", conn);
+                reader = cmd.ExecuteReader();
+                if (!reader.Read())//if no users in db, add test users
+                {
+                    //purge all users from db if you want to add more (call this block again)
+                    AddUserToDB("ecustomer", "custPass", User.AcctType.Customer);
+                    AddUserToDB("eadmin", "adminPass", User.AcctType.Admin);
+                }//fi
+
+                cmd = new SQLiteCommand("SELECT Id FROM Key", conn);
+                reader = cmd.ExecuteReader();
+                if (!reader.Read())// if no keys in db, add test keys
+                {
+                    //purge all keys from db if you want to add more (call this block again)
+                    AddKeyToDB(0, 1);
+                    AddKeyToDB(1, 2, (int)StatusType.Available, "eadmin");
+                    AddKeyToDB(2, 3);
+                }//fi
             }//try
             catch (Exception e)
             {
@@ -77,7 +102,7 @@ namespace Controller
                     "SELECT PwdHash FROM User" +
                     $"WHERE UName = {uName};";
                 */
-                SQLiteDataReader reader = cmd.ExecuteReader();
+                reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
                     storedHash = reader.GetString(0);
@@ -102,7 +127,7 @@ namespace Controller
             try
             {
                 cmd = new SQLiteCommand("SELECT * from key", conn);
-                SQLiteDataReader reader = cmd.ExecuteReader();
+                reader = cmd.ExecuteReader();
                 Key k;
                 while (reader.Read())
                 {
@@ -115,9 +140,8 @@ namespace Controller
                     kList.Add(k);
                 }//while
             }//try
-            catch (Exception e)
+            catch (Exception)
             {
-                //throw e;
                 throw new SQLiteException("Failed to get KeyList");
             }
             return new KeyList(kList);
@@ -139,7 +163,7 @@ namespace Controller
                 cmd.CommandText = "" +
                     "SELECT CurrentAssigned FROM Key" +
                     $"Where Id = {res.KeyID};";
-                SQLiteDataReader reader = cmd.ExecuteReader();
+                reader = cmd.ExecuteReader();
                 string nowPrevUser = string.Empty;
                 if (reader.Read())
                     nowPrevUser = reader.GetString(0);
@@ -173,7 +197,7 @@ namespace Controller
             {
                 cmd = new SQLiteCommand("SELECT Status from Key where keyID = @textValue1", conn);
                 cmd.Parameters.AddWithValue("@textValue1", key);
-                SQLiteDataReader reader = cmd.ExecuteReader();
+                reader = cmd.ExecuteReader();
                 if (reader.Read())
                     status = reader.GetInt32(0);
             }//try
@@ -252,7 +276,34 @@ namespace Controller
                 throw new SQLiteException("Program encountered an error while attempting to save logout event");
             }//catch
         }//SaveLogout()
-        private static void AddUser(string uName, string password, User.AcctType type)
+        
+        
+        
+        /*
+         * These are not real, production methods.
+         * They exists to add our test cases and are called only during initialization if the database has not yet been initialized with data
+         * I kindly request that these be ignored during code review and treated as though they exist outside of the scope of this program
+         * Thank you,
+         * Chris J.
+        */
+        private static void AddKeyToDB(int kNum, int roomNum, int status = (int)StatusType.Available, string currentUser = "", string previousUser = "")
+        {
+            try
+            {
+                cmd = new SQLiteCommand("INSERT INTO Key(Id,CurrentAssigned,LastAssigned,RoomNum,Status) VALUES (@tv1, @tv2, @tv3, @tv4, @tv5)", conn);
+                cmd.Parameters.AddWithValue("@tv1", kNum);
+                cmd.Parameters.AddWithValue("@tv2", currentUser);
+                cmd.Parameters.AddWithValue("@tv3", previousUser);
+                cmd.Parameters.AddWithValue("@tv4", roomNum);
+                cmd.Parameters.AddWithValue("@tv5", status);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw new Exception("Unable to add key, something went wrong!");
+            }
+        }//AddKeyToDB()
+        private static void AddUserToDB(string uName, string password, User.AcctType type)
         {
             try
             {
@@ -272,11 +323,10 @@ namespace Controller
                 cmd.Parameters.AddWithValue("@textValue3", (int)type);
                 cmd.ExecuteNonQuery();
             }
-            catch(Exception e)
+            catch(Exception)
             {
-                //throw e;
-                throw new Exception("Unable to add user, something went wrong");
+                throw new Exception("Unable to add user, something went wrong!");
             }
-        }//AddUser
+        }//AddUserToDB()
     }//DBConnector
 }//Controller namespace
