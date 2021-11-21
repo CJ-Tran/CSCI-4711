@@ -26,7 +26,7 @@ namespace Boundary
 
         public void Submit(object sender)
         {
-            bool valid = RequestControl.Reserve(user.UName, int.Parse(sender.ToString().Substring(36))); 
+            bool valid = RequestControl.Reserve(user.UName, int.Parse(sender.ToString().Substring(35))); 
             if (valid)
             {
                 Close();

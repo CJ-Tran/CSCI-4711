@@ -20,7 +20,7 @@ namespace Controller
                     RequestProcessedWin rpw = new RequestProcessedWin();
                     rpw.Open(name);
                 }
-                return true;
+                return valid;
             }
             catch (Exception)
             {

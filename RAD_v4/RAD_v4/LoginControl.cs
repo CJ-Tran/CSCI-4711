@@ -20,7 +20,7 @@ namespace Controller
             }//fi
             else
             {
-                //Take substring(35) b/c object returns "System.Windows.Forms.Text, Textbox: uName" and we only want uName
+                //Take substring(35) b/c object returns "System.Windows.Forms.Text, Textbox: uName" and we only want "uName"
                 string validUName = uName.ToString().Substring(35).Trim();
                 string validPWord = pWord.ToString().Substring(35).Trim();
 
