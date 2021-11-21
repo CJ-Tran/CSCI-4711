@@ -243,5 +243,9 @@ namespace Controller
                 throw new SQLiteException("Program encountered an error while attempting to save logout event");
             }//catch
         }//SaveLogout()
+        private static void AddUser(string uName, string password, User.AcctType type)
+        {
+
+        }//AddUser
     }//DBConnector
 }//Controller namespace
