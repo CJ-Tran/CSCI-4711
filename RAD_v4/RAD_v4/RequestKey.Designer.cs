@@ -62,12 +62,12 @@ namespace RAD_v4
             this.KeysList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KeysList.FormattingEnabled = true;
             this.KeysList.Items.AddRange(new object[] {
-            "Room1",
-            "Room2",
-            "Room3",
-            "Room4",
-            "Room5",
-            "Room6"});
+            "Ex1",
+            "Ex2",
+            "Ex3",
+            "Ex4",
+            "Ex5",
+            "Ex6"});
             this.KeysList.Location = new System.Drawing.Point(59, 132);
             this.KeysList.Name = "KeysList";
             this.KeysList.Size = new System.Drawing.Size(157, 88);
