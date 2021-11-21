@@ -59,7 +59,8 @@ namespace RAD_v4
 
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
-            Controller.LogoutControl.Logout(rkf.user.UName);
+           Controller.LogoutControl.Logout(rkf.user.UName);
+            Close();
         }
     }
 }
