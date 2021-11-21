@@ -24,14 +24,15 @@ namespace RAD_v4
 
         public void AddKeys(Entity.User u, Entity.KeyList kList)
         {
-            //= new CheckedListBox.ObjectCollection(KeysList);
+            keys = new CheckedListBox.ObjectCollection(KeysList);
             //keys.Clear();
 
             foreach (Entity.Key k in kList.Keys)
             {
                 if (u.Type == Entity.User.AcctType.Customer && k.Status == Entity.StatusType.Available)
                 {
-                    keys.Add(new { Name = k.ID });
+                    //keys.Add(new { Name = k.ID });
+                    keys.Add(k);
                 }
             }
 
