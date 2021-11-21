@@ -42,10 +42,9 @@ namespace Boundary
             Display(ManageControl.GetStatus(k));
         }
 
-        public void Save()
+        public void Save(int index)
         {
-            int temp = 0;
-            KeyStatus k = new KeyStatus(temp);
+            KeyStatus k = new KeyStatus(index);
             ManageControl.Update(k);
             Display(k);
         }
@@ -69,19 +68,19 @@ namespace Boundary
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // checkedListBox1
+            // KeysList
             // 
             this.KeysList.FormattingEnabled = true;
             this.KeysList.Location = new System.Drawing.Point(72, 81);
-            this.KeysList.Name = "checkedListBox1";
+            this.KeysList.Name = "KeysList";
             this.KeysList.Size = new System.Drawing.Size(120, 89);
             this.KeysList.TabIndex = 0;
             // 
-            // checkedListBox2
+            // KeyStatus
             // 
             this.KeyStatus.FormattingEnabled = true;
             this.KeyStatus.Location = new System.Drawing.Point(72, 277);
-            this.KeyStatus.Name = "checkedListBox2";
+            this.KeyStatus.Name = "KeyStatus";
             this.KeyStatus.Size = new System.Drawing.Size(120, 89);
             this.KeyStatus.TabIndex = 1;
             // 
@@ -111,7 +110,6 @@ namespace Boundary
             this.label3.Size = new System.Drawing.Size(79, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "Key Details";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -121,8 +119,7 @@ namespace Boundary
             this.label4.Size = new System.Drawing.Size(46, 17);
             this.label4.TabIndex = 5;
             this.label4.Text = "label4";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
+           
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(306, 401);
@@ -131,6 +128,7 @@ namespace Boundary
             this.button1.TabIndex = 6;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -158,14 +156,10 @@ namespace Boundary
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+
+        private void button1_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
+            Save(KeysList.SelectedIndex);
         }
     }
 }
