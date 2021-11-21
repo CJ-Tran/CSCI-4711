@@ -11,23 +11,24 @@ namespace Boundary
 {
     class ManageKeyForm : Form
     {
-        private System.Windows.Forms.CheckedListBox KeysList;
-        private System.Windows.Forms.CheckedListBox KeyStatus;
+        private System.Windows.Forms.ListBox KeyStatus;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
+        private ListBox KeysList;
 
         //ManageControl mc;
         private User cUser;
 
         public ManageKeyForm(User u ,Entity.KeyList kList)
         {
-            AddKeys(kList);
+            
             cUser = u;
             InitializeComponent();
+            AddKeys(kList);
             //mc = new ManageControl();
         }
 
@@ -62,35 +63,27 @@ namespace Boundary
 
         private void InitializeComponent()
         {
-            this.KeysList = new System.Windows.Forms.CheckedListBox();
-            this.KeyStatus = new System.Windows.Forms.CheckedListBox();
+            this.KeyStatus = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.KeysList = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
-            // 
-            // KeysList
-            // 
-            this.KeysList.FormattingEnabled = true;
-            this.KeysList.Location = new System.Drawing.Point(72, 81);
-            this.KeysList.Name = "KeysList";
-            this.KeysList.Size = new System.Drawing.Size(120, 89);
-            this.KeysList.TabIndex = 0;
-            this.KeysList.SelectedIndexChanged += new System.EventHandler(this.KeysList_SelectedIndexChanged);
             // 
             // KeyStatus
             // 
             this.KeyStatus.FormattingEnabled = true;
+            this.KeyStatus.ItemHeight = 16;
             this.KeyStatus.Items.AddRange(new object[] {
             "Available",
             "Pending",
             "Assigned"});
             this.KeyStatus.Location = new System.Drawing.Point(72, 277);
             this.KeyStatus.Name = "KeyStatus";
-            this.KeyStatus.Size = new System.Drawing.Size(120, 89);
+            this.KeyStatus.Size = new System.Drawing.Size(120, 84);
             this.KeyStatus.TabIndex = 1;
             this.KeyStatus.SelectedIndexChanged += new System.EventHandler(this.KeyStatus_SelectedIndexChanged);
             // 
@@ -150,18 +143,30 @@ namespace Boundary
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // KeysList
+            // 
+            this.KeysList.FormattingEnabled = true;
+            this.KeysList.ItemHeight = 16;
+            this.KeysList.Items.AddRange(new object[] {
+            "roomKey"});
+            this.KeysList.Location = new System.Drawing.Point(75, 81);
+            this.KeysList.Name = "KeysList";
+            this.KeysList.Size = new System.Drawing.Size(120, 84);
+            this.KeysList.TabIndex = 8;
+            // 
             // ManageKeyForm
             // 
             this.ClientSize = new System.Drawing.Size(742, 471);
+            this.Controls.Add(this.KeysList);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.KeysList);
             this.Controls.Add(this.KeyStatus);
             this.Name = "ManageKeyForm";
+            this.Load += new System.EventHandler(this.ManageKeyForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,7 +191,12 @@ namespace Boundary
 
         private void KeysList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            label4.Text = KeysList.SelectedItem.ToString(); //might need to override; not sure if this would display properly
+            label4.Text = KeysList.SelectedItem.ToString();//might need to override; not sure if this would display properl";
+        }
+
+        private void ManageKeyForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -21,7 +21,8 @@ namespace RAD_v4
 
         private void SignInButton_Click_1(object sender, EventArgs e)
         {
-            tempLoginForm.Submit();
+            if(tempLoginForm.Submit())Close();
+            
             //MessageBox.Show($"Hello {UNameInput.Text}, your password is {PWordInput.Text}?");
         }
 

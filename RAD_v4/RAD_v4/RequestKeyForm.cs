@@ -32,5 +32,23 @@ namespace Boundary
                 Close();
             }
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // RequestKeyForm
+            // 
+            this.ClientSize = new System.Drawing.Size(282, 253);
+            this.Name = "RequestKeyForm";
+            this.Load += new System.EventHandler(this.RequestKeyForm_Load);
+            this.ResumeLayout(false);
+
+        }
+
+        private void RequestKeyForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

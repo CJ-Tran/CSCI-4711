@@ -28,7 +28,5 @@ namespace Entity
             CurrentUser = cUser;
             PreviousUser = pUser;
         }
-
-        
     }
 }

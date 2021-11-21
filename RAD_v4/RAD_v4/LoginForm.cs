@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Controller;
 using System.Windows.Forms;
+using Controller;
+
 
 namespace Boundary
 {
@@ -20,16 +21,36 @@ namespace Boundary
             loginform1.Visible = true;
         }
 
-        public void Submit()
+        public Boolean Submit()
         {
             if (LoginControl.Verify(tempUName, tempPWord))
             {
                 Close();
+                return true;//added to ensure the login form closes
             }
             else
             {
                 MessageBox.Show("Incorrect username or password!");
+                return false;
             }
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // LoginForm
+            // 
+            this.ClientSize = new System.Drawing.Size(282, 253);
+            this.Name = "LoginForm";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
+            this.ResumeLayout(false);
+
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
         }
 
         public void Display(string s)
