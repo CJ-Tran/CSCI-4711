@@ -20,6 +20,8 @@ namespace Boundary
             else
             {
                 ManageKeyForm mkf = new ManageKeyForm(u,kList);
+                mkf.TopMost = true;
+                mkf.Visible = true;
                 //mkf.Open(kList);
             }
             Close();

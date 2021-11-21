@@ -108,3 +108,4 @@ C:\Users\CJ\source\repos\CSCI-4711\RAD_v4\RAD_v4\RAD_v4\bin\Debug\System.Data.SQ
 C:\Users\CJ\source\repos\CSCI-4711\RAD_v4\RAD_v4\RAD_v4\bin\Debug\System.Data.SQLite.xml
 C:\Users\CJ\source\repos\CSCI-4711\RAD_v4\RAD_v4\RAD_v4\bin\Debug\EntityFramework.xml
 C:\Users\CJ\source\repos\CSCI-4711\RAD_v4\RAD_v4\RAD_v4\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\CJ\source\repos\CSCI-4711\RAD_v4\RAD_v4\RAD_v4\obj\Debug\Boundary.ManageKeyForm.resources

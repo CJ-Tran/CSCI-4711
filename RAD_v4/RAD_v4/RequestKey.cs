@@ -23,11 +23,11 @@ namespace RAD_v4
         public void AddKeys(Entity.User u, Entity.KeyList kList)
         {
             CheckedListBox.ObjectCollection keys = new CheckedListBox.ObjectCollection(KeysList);
-            keys.Clear();
+            //keys.Clear();
 
             foreach (Entity.Key k in kList.Keys)
             {
-                if (u.Type == Entity.User.AcctType.Admin)
+                if (u.Type == Entity.User.AcctType.Admin) // can get rid of since we don't deal with admin here
                 {
                     keys.Add(k);
                 }

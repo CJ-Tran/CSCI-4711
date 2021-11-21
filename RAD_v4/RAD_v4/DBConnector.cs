@@ -116,7 +116,7 @@ namespace Controller
             }//try
             catch (Exception e)
             {
-                throw e;
+                //throw e;
                 throw new SQLiteException("Failed to get KeyList");
             }
             return new KeyList(kList);
@@ -273,7 +273,7 @@ namespace Controller
             }
             catch(Exception e)
             {
-                throw e;
+                //throw e;
                 throw new Exception("Unable to add user, something went wrong");
             }
         }//AddUser

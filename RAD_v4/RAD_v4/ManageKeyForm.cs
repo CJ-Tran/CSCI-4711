@@ -33,6 +33,7 @@ namespace Boundary
 
         public void AddKeys(Entity.KeyList kList)
         {
+            KeysList.Items.Clear(); //clear it of any default values before adding
             foreach (Entity.Key k in kList.Keys)
             {
                 KeysList.Items.Add(k);
@@ -49,7 +50,7 @@ namespace Boundary
 
             KeyStatus k = new KeyStatus(index,status);
             ManageControl.Update(k);
-            Display(k);
+            Display(k); // call KeyList_SelectedIndexChanged() better?
         }
 
         //public void Close() { }
@@ -175,6 +176,7 @@ namespace Boundary
         private void button2_Click(object sender, EventArgs e)
         {
             LogoutControl.Logout(cUser.UName);
+            Close(); //need to close this form after logging out
         }
 
         private void KeyStatus_SelectedIndexChanged(object sender, EventArgs e)
@@ -184,7 +186,7 @@ namespace Boundary
 
         private void KeysList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            label4.Text = KeysList.SelectedItem.ToString();
+            label4.Text = KeysList.SelectedItem.ToString(); //might need to override; not sure if this would display properly
         }
     }
 }
