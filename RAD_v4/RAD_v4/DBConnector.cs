@@ -64,6 +64,9 @@ namespace Controller
                  * thank you,
                  * Chris J.
                  */
+
+                //BEGIN TEST DATA ENTRY
+
                 cmd = new SQLiteCommand("SELECT UName FROM User", conn);
                 reader = cmd.ExecuteReader();
                 if (!reader.Read())//if no users in db, add test users
@@ -82,6 +85,10 @@ namespace Controller
                     AddKeyToDB(1, 2, (int)StatusType.Available, "eadmin");
                     AddKeyToDB(2, 3);
                 }//fi
+
+                //END OF TEST DATA ENTRY
+
+
             }//try
             catch (Exception e)
             {
@@ -245,10 +252,9 @@ namespace Controller
         {
             try
             {
-                TimeSpan unix = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
                 cmd = new SQLiteCommand("INSERT INTO AccessEvent (User, Time, Type) VALUES (@textValue1, @textValue2, @textValue3)", conn);
                 cmd.Parameters.AddWithValue("@textValue1", user.UName);
-                cmd.Parameters.AddWithValue("@textValue2", unix.TotalSeconds);
+                cmd.Parameters.AddWithValue("@textValue2", DateTime.UtcNow);
                 cmd.Parameters.AddWithValue("@textValue3", "Login");
                 cmd.ExecuteNonQuery();
             }
@@ -262,10 +268,9 @@ namespace Controller
         {
             try
             {
-                TimeSpan unix = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
                 cmd = new SQLiteCommand("INSERT INTO AccessEvent (User, Time, Type) VALUES (@textValue1, @textValue2, @textValue3)", conn);
                 cmd.Parameters.AddWithValue("@textValue1", name);
-                cmd.Parameters.AddWithValue("@textValue2", unix.TotalSeconds);
+                cmd.Parameters.AddWithValue("@textValue2", DateTime.UtcNow);
                 cmd.Parameters.AddWithValue("@textValue3","Logout");
                 cmd.ExecuteNonQuery();
                 conn.Close(); //after saving logout, we can close the connection 
@@ -286,6 +291,9 @@ namespace Controller
          * Thank you,
          * Chris J.
         */
+
+        //BEGIN METHODS FOR ENTRY OF TESTING DATA
+
         private static void AddKeyToDB(int kNum, int roomNum, int status = (int)StatusType.Available, string currentUser = "", string previousUser = "")
         {
             try
@@ -328,5 +336,8 @@ namespace Controller
                 throw new Exception("Unable to add user, something went wrong!");
             }
         }//AddUserToDB()
+
+        //END METHODS FOR ENTRY OF TEST DATA
+
     }//DBConnector
 }//Controller namespace
