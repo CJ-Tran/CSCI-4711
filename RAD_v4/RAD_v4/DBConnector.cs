@@ -223,13 +223,11 @@ namespace Controller
                 cmd = new SQLiteCommand("INSERT INTO AccessEvent (User, Time, Type) VALUES (@textValue1, @textValue2, @textValue3)", conn);
                 cmd.Parameters.AddWithValue("@textValue1", user.UName);
                 cmd.Parameters.AddWithValue("@textValue2", DateTime.Now);
-                throw new Exception($"{DateTime.Now}");//REMOVE THIS
                 cmd.Parameters.AddWithValue("@textValue3", "Login");
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw e; //REMOVE THIS
                 conn.Close(); //close connection if exception is thrown while saving logout information
             }//catch
         }//SaveLogin()
