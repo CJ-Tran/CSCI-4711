@@ -19,6 +19,7 @@ namespace Controller
         public static void Logout(string name)
         {
             DBConnector.SaveLogout(name);
+            DBConnector.Initialize(); //reinitialize db to open a new connection
             LoginForm lf = new LoginForm();
             lf.Open();
         }
