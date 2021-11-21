@@ -21,17 +21,17 @@ namespace Boundary
             loginform1.Visible = true;
         }
 
-        public Boolean Submit()
+        public void Submit()
         {
             if (LoginControl.Verify(tempUName, tempPWord))
             {
                 Close();
-                return true;//added to ensure the login form closes
+                
             }
             else
             {
                 MessageBox.Show("Incorrect username or password!");
-                return false;
+                
             }
         }
 
