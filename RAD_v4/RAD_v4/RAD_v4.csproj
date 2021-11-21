@@ -130,7 +130,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RequestProcessed.resx">
       <DependentUpon>RequestProcessed.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ManageKeyForm.resx">
       <DependentUpon>ManageKeyForm.cs</DependentUpon>
     </EmbeddedResource>
