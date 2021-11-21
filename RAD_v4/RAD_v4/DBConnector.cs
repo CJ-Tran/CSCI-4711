@@ -245,10 +245,9 @@ namespace Controller
         {
             try
             {
-                TimeSpan unix = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
                 cmd = new SQLiteCommand("INSERT INTO AccessEvent (User, Time, Type) VALUES (@textValue1, @textValue2, @textValue3)", conn);
                 cmd.Parameters.AddWithValue("@textValue1", user.UName);
-                cmd.Parameters.AddWithValue("@textValue2", unix.TotalSeconds);
+                cmd.Parameters.AddWithValue("@textValue2", DateTime.UtcNow);
                 cmd.Parameters.AddWithValue("@textValue3", "Login");
                 cmd.ExecuteNonQuery();
             }
@@ -262,10 +261,9 @@ namespace Controller
         {
             try
             {
-                TimeSpan unix = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
                 cmd = new SQLiteCommand("INSERT INTO AccessEvent (User, Time, Type) VALUES (@textValue1, @textValue2, @textValue3)", conn);
                 cmd.Parameters.AddWithValue("@textValue1", name);
-                cmd.Parameters.AddWithValue("@textValue2", unix.TotalSeconds);
+                cmd.Parameters.AddWithValue("@textValue2", DateTime.UtcNow);
                 cmd.Parameters.AddWithValue("@textValue3","Logout");
                 cmd.ExecuteNonQuery();
                 conn.Close(); //after saving logout, we can close the connection 
