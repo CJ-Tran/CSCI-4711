@@ -10,25 +10,10 @@ namespace Boundary
 {
     public class Form : System.Windows.Forms.Form
     {
-        //LogoutControl logoutCtrl;
-
-        //public Form(LogoutControl logoutCtrl)
-        //{
-        //    this.logoutCtrl = logoutCtrl;
-        //}
-
-        public Form() { }
-
-        public void Logout()
+        public void Logout(string name)
         {
-            string n = "";
-            LogoutControl.Logout(n);
+            LogoutControl.Logout(name);
             Close();
-        }
-
-        public void Close()
-        {
-            //Application.ExitThread();
         }
     }
 }
