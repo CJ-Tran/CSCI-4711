@@ -10,12 +10,26 @@ namespace Controller
 {
     static class RequestControl
     {
-        public static void Reserve(string uName, int key)
+        public static bool Reserve(string name, int key)
         {
-            RequestProcessedWin rpw = new RequestProcessedWin();
+            try
+            {
+                bool valid = DBConnector.Save(new Reservation(name, key));
+                if (valid)
+                {
+                    RequestProcessedWin rpw = new RequestProcessedWin();
+                    rpw.Open(name);
+                }
+                return valid;
+            }
+            catch (Exception)
+            {
+                return false;
+                //throw new Exception("Error at RequestControl.Reserve");
+            }
 
-            DBConnector.Save(new Reservation(uName, key));
-            rpw.Open(uName);
+
+
         }
     }
 }

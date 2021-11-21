@@ -65,32 +65,48 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AvailController.cs" />
+    <Compile Include="LoginControl.cs" />
     <Compile Include="DBConnector.cs" />
-    <Compile Include="Form.cs" />
+    <Compile Include="Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Key.cs" />
     <Compile Include="KeyList.cs" />
     <Compile Include="KeyStatus.cs" />
     <Compile Include="KRTS.cs" />
     <Compile Include="Login.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs" />
-    <Compile Include="LogoutControl.cs" />
-    <Compile Include="MainMenu.cs" />
-    <Compile Include="ManageControl.cs" />
-    <Compile Include="ManageKeyForm.cs" />
-    <Compile Include="MMenu.cs">
+    <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MMenu.Designer.cs">
-      <DependentUpon>MMenu.cs</DependentUpon>
+    <Compile Include="LogoutControl.cs" />
+    <Compile Include="MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageControl.cs" />
+    <Compile Include="ManageKeyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RequestKey.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RequestKey.Designer.cs">
+      <DependentUpon>RequestKey.cs</DependentUpon>
     </Compile>
     <Compile Include="RequestControl.cs" />
-    <Compile Include="RequestKeyForm.cs" />
+    <Compile Include="RequestKeyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RequestProcessed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RequestProcessed.Designer.cs">
+      <DependentUpon>RequestProcessed.cs</DependentUpon>
+    </Compile>
     <Compile Include="RequestProcessedWin.cs" />
     <Compile Include="Reservation.cs" />
     <Compile Include="StartupController.cs" />
@@ -109,8 +125,11 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MMenu.resx">
-      <DependentUpon>MMenu.cs</DependentUpon>
+    <EmbeddedResource Include="RequestKey.resx">
+      <DependentUpon>RequestKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RequestProcessed.resx">
+      <DependentUpon>RequestProcessed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

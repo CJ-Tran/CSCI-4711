@@ -22,9 +22,8 @@ namespace Boundary
 
         public void Submit()
         {
-            if (AvailController.Verify(tempUName, tempPWord))
+            if (LoginControl.Verify(tempUName, tempPWord))
             {
-                Application.Exit();
                 Close();
             }
             else
@@ -38,9 +37,9 @@ namespace Boundary
             Console.WriteLine(s);
         }
 
-        public void Display()
-        {
-            // displays login form on screen
-        }
+        //public void Display()
+        //{
+        //    // displays login form on screen
+        //}
     }
 }

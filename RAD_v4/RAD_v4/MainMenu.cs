@@ -8,16 +8,21 @@ using System.Windows.Forms;
 
 namespace Boundary
 {
-    class MainMenu
+    class MainMenu : Form // mainly serves to pick which form is opened
     {
-        public void Open(User u, KeyList kList)
+        public void Open(User u, KeyList kList) 
         {
             // opens main menu
-            RAD_v4.MMenu mm = new RAD_v4.MMenu();
-            mm.AddKeys(u, kList);
-            mm.Refresh();
-            mm.TopMost = true;
-            mm.Visible = true;
+            if(u.Type ==  User.AcctType.Customer)
+            {
+                RequestKeyForm rkf = new RequestKeyForm(u, kList);
+            }
+            else
+            {
+                //ManageKeyForm mkf = new ManageKeyForm();
+                //mkf.Open();
+            }
+            Close();
         }
     }
 }
