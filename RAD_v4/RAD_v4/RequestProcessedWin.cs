@@ -13,11 +13,9 @@ namespace Boundary
         public void Open(string name) //pass user to save logout
         {
             //opens window
-            RAD_v4.RequestProcessed rp = new RAD_v4.RequestProcessed();
+            RAD_v4.RequestProcessed rp = new RAD_v4.RequestProcessed(name);
             rp.TopMost = true;
             rp.Visible = true;
-
-            Controller.LogoutControl.Logout(name);
         }
     }
 }

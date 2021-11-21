@@ -20,7 +20,7 @@ namespace Controller
         {
             DBConnector.SaveLogout(name);
             LoginForm lf = new LoginForm();
-            lf.Display();
+            lf.Open();
         }
     }
 }

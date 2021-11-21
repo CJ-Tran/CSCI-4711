@@ -12,14 +12,17 @@ namespace RAD_v4
 {
     public partial class RequestProcessed : Form
     {
-        public RequestProcessed()
+        string name;
+
+        public RequestProcessed(string n)
         {
             InitializeComponent();
+            name = n;
         }
 
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Controller.LogoutControl.Logout(name);
             Close();
         }
     }

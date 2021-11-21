@@ -37,9 +37,9 @@ namespace Boundary
             Console.WriteLine(s);
         }
 
-        public void Display()
-        {
-            // displays login form on screen
-        }
+        //public void Display()
+        //{
+        //    // displays login form on screen
+        //}
     }
 }

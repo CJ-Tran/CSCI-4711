@@ -20,7 +20,7 @@ namespace Controller
                     RequestProcessedWin rpw = new RequestProcessedWin();
                     rpw.Open(name);
                 }
-                    return true;
+                return true;
             }
             catch (Exception)
             {
@@ -28,7 +28,7 @@ namespace Controller
                 //throw new Exception("Error at RequestControl.Reserve");
             }
 
-            
+
 
         }
     }
