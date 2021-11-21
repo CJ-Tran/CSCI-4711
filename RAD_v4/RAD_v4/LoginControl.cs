@@ -11,14 +11,14 @@ using System.Security.Cryptography;
 
 namespace Controller
 {
-    static class LoginControl //rename AvailController to LoginControl
+    static class LoginControl //renamed AvailController to LoginControl
     {
-        public static bool Verify(object uName, object pWord) // Verify has bool instead of old Validate()
+        public static bool Verify(object uName, object pWord) // Deleted Validate(), gave its bool return type to Verify
         {
             if (uName == null || pWord == null)
             {
                 return false;
-            }//fi
+            }//if
             else
             {
                 //Take substring(35) b/c object returns "System.Windows.Forms.Text, Textbox: uName" and we only want "uName"
@@ -28,7 +28,7 @@ namespace Controller
                 if (validUName == "" || validUName == " " || validPWord == "" || validPWord == " ")
                 {
                     return false;
-                }//fi
+                }//if
                 else
                 {
                     User user;
@@ -57,5 +57,5 @@ namespace Controller
                 }//else
             }//else
         }//Verify()
-    }//AvailController class
+    }//LoginControl class
 }//Controller namespace
