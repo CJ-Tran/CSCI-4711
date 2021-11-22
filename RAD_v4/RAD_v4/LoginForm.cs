@@ -31,7 +31,7 @@ namespace Boundary
             else
             {
                 MessageBox.Show("Incorrect username or password!");
-                
+                Open(); //reopen
             }
         }
 
