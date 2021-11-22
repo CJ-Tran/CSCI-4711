@@ -25,6 +25,10 @@ namespace Controller
                 //start DB
                 conn.Open();
                 cmd = conn.CreateCommand();
+                
+                cmd.CommandText = "" +
+                    "PRAGMA foreign_keys = 1;";
+                cmd.ExecuteNonQuery();
 
                 //User
                 cmd.CommandText = "" +
@@ -39,8 +43,8 @@ namespace Controller
                 cmd.CommandText = "" +
                     "CREATE TABLE IF NOT EXISTS Key (" +
                     "Id INTEGER NOT NULL," +
-                    "CurrentAssigned TEXT NULL," +
-                    "LastAssigned TEXT NULL," +
+                    "CurrentAssigned TEXT NULL REFERENCES User (UName) ON DELETE SET NULL ON UPDATE CASCADE," +
+                    "LastAssigned TEXT NULL REFERENCES User(UName) ON DELETE SET NULL ON UPDATE CASCADE," +
                     "RoomNum INTEGER NOT NULL," +
                     "Status INT NOT NULL," +
                     "PRIMARY KEY (Id));";
@@ -49,7 +53,7 @@ namespace Controller
                 //AccessEvent
                 cmd.CommandText = "" +
                     "CREATE TABLE IF NOT EXISTS AccessEvent (" +
-                    "User TEXT NOT NULL," +
+                    "User TEXT NOT NULL REFERENCES User (UName) ON DELETE NO ACTION ON UPDATE CASCADE," +
                     "Time NUMERIC NOT NULL," +
                     "Type TEXT NOT NULL," +
                     "PRIMARY KEY (User, Time));";
@@ -130,6 +134,11 @@ namespace Controller
 
         public static KeyList GetKeys()
         {
+            int id;
+            string currentAssigned;
+            string lastAssigned;
+            int roomNum;
+            StatusType status;
             List<Key> kList = new List<Key>(); //populate klist with query of keys before returning
             try
             {
@@ -138,11 +147,25 @@ namespace Controller
                 Key k;
                 while (reader.Read())
                 {
-                    int id = reader.GetInt32(0);
-                    string currentAssigned = reader.GetString(1);
-                    string lastAssigned = reader.GetString(2);
-                    int roomNum = reader.GetInt32(3);
-                    StatusType status = (StatusType)reader.GetInt32(4);
+                    id = reader.GetInt32(0);
+                    if (reader.IsDBNull(1))
+                    {
+                        currentAssigned = string.Empty;
+                    }
+                    else
+                    {
+                        currentAssigned = reader.GetString(1);
+                    }
+                    if (reader.IsDBNull(2))
+                    {
+                        lastAssigned = string.Empty;
+                    }
+                    else
+                    {
+                        lastAssigned = reader.GetString(2);
+                    }
+                    roomNum = reader.GetInt32(3);
+                    status = (StatusType)reader.GetInt32(4);
                     k = new Key(id, status, roomNum, currentAssigned, lastAssigned);
                     kList.Add(k);
                 }//while
@@ -298,10 +321,27 @@ namespace Controller
         {
             try
             {
+                if (currentUser.Equals(""))
+                if (previousUser.Equals(""))
+                    previousUser = string.Empty;
                 cmd = new SQLiteCommand("INSERT INTO Key(Id,CurrentAssigned,LastAssigned,RoomNum,Status) VALUES (@tv1, @tv2, @tv3, @tv4, @tv5)", conn);
                 cmd.Parameters.AddWithValue("@tv1", kNum);
-                cmd.Parameters.AddWithValue("@tv2", currentUser);
-                cmd.Parameters.AddWithValue("@tv3", previousUser);
+                if (string.IsNullOrEmpty(currentUser))
+                {
+                    cmd.Parameters.AddWithValue("@tv2", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@tv2", currentUser);
+                }
+                if (string.IsNullOrEmpty(previousUser))
+                {
+                    cmd.Parameters.AddWithValue("@tv3", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@tv3", previousUser);
+                }
                 cmd.Parameters.AddWithValue("@tv4", roomNum);
                 cmd.Parameters.AddWithValue("@tv5", status);
                 cmd.ExecuteNonQuery();
