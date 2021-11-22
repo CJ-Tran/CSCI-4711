@@ -1,6 +1,6 @@
 ﻿namespace RAD_v4
 {
-    partial class Login
+    partial class LoginForm
     {
         /// <summary> 
         /// Required designer variable.

@@ -11,6 +11,11 @@ namespace RAD_v4
         static void Main(string[] args) //not used anymore
         {
             KRTS.Run(); //no need?
+
+            /*
+             * How I changed program from Console to Windows Application:
+             * https://forum.openframeworks.cc/t/how-to-hide-a-console-window-when-launching-exe-file/28616
+             */
         }
 
     }

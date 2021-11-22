@@ -16,8 +16,11 @@ namespace Controller
             //Had to Initialize DB first to save values
             DBConnector.Initialize();
 
-            LoginForm lf = new LoginForm();
-            lf.Open();
+            //opens login form
+            RAD_v4.LoginForm loginform1 = new RAD_v4.LoginForm();
+            loginform1.TopMost = true; 
+            loginform1.Visible = true;
+
             Application.Run(); //leave .Run() empty to loop
         }
 

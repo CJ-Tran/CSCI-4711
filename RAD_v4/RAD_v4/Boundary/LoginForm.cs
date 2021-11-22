@@ -1,66 +1,65 @@
-﻿using System;
+﻿using Controller;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Controller;
 
-
-namespace Boundary
+namespace RAD_v4
 {
-    class LoginForm : Form
+    public partial class LoginForm : Form // UserControl -> Form
     {
         public object tempUName, tempPWord;
-
-        public void Open()
-        {
-            //opens login form
-            RAD_v4.Login loginform1 = new RAD_v4.Login();
-            loginform1.TopMost = true; // Make top-most before making visible
-            loginform1.Visible = true;
-        }
-
+        
         public void Submit()
         {
             if (LoginControl.Verify(tempUName, tempPWord))
             {
                 Close();
-                
             }
             else
             {
                 MessageBox.Show("Incorrect username or password!");
-                Open(); //reopen
+
+                //reopens login form
+                this.TopMost = true; 
+                this.Visible = true;
             }
         }
 
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            // 
-            // LoginForm
-            // 
-            this.ClientSize = new System.Drawing.Size(282, 253);
-            this.Name = "LoginForm";
-            this.Load += new System.EventHandler(this.LoginForm_Load);
-            this.ResumeLayout(false);
+        /* Got rid of Display(string s), Display(), Open() methods */
 
+
+        /* UI Methods */
+        public LoginForm()
+        {
+            InitializeComponent();
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
+        private void SignInButton_Click_1(object sender, EventArgs e)
         {
-
+            Submit();
+            Close();
         }
 
-        public void Display(string s)
+        private void UNameInput_TextChanged(object sender, EventArgs e)
         {
-            Console.WriteLine(s);
+            tempUName = sender;
         }
 
-        //public void Display()
-        //{
-        //    // displays login form on screen
-        //}
+        private void PWordInput_TextChanged(object sender, EventArgs e)
+        {
+            tempPWord = sender;
+        }
+
+        private void UNameLabel_Click(object sender, EventArgs e) { }
+
+        private void PasswordLabel_Click(object sender, EventArgs e) { }
+
+        private void Login_Load(object sender, EventArgs e) { }
     }
 }

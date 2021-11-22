@@ -77,14 +77,11 @@
     <Compile Include="Entity\KeyList.cs" />
     <Compile Include="Entity\KeyStatus.cs" />
     <Compile Include="KRTS.cs" />
-    <Compile Include="Boundary\Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Boundary\Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
     <Compile Include="Boundary\LoginForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Boundary\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Controller\LogoutControl.cs" />
     <Compile Include="Boundary\MainMenu.cs">
@@ -125,9 +122,6 @@
     <Content Include="SQLite.Interop.dll" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Boundary\Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Boundary\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
