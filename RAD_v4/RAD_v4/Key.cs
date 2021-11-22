@@ -33,5 +33,9 @@ namespace Entity
             //return "id: " + ID + " status: " + Status + " Room Num: " + RoomNum + " Current User: " + CurrentUser + " previous User: " + PreviousUser;
             return "k: " + this.ID + " R: " + this.RoomNum;
         }//ToString()
+        public String KeyInfo()
+        {
+            return Status + " " + CurrentUser + " " + PreviousUser;  
+        }
     }
 }

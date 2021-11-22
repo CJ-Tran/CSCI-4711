@@ -198,7 +198,7 @@ namespace Boundary
 
         private void KeysList_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            label4.Text = KList.Keys[KeysList.SelectedIndex].ToString();//might need to override; not sure if this would display properl";
+            label4.Text = KList.Keys[KeysList.SelectedIndex].KeyInfo();//might need to override; not sure if this would display properl";
             Refresh();
         }
     }
