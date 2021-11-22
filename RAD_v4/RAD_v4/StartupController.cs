@@ -18,7 +18,7 @@ namespace Controller
 
             LoginForm lf = new LoginForm();
             lf.Open();
-            Application.Run(lf);
+            Application.Run(); //leave .Run() empty to loop
         }
 
     }
