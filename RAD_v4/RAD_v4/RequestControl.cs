@@ -15,7 +15,7 @@ namespace Controller
             try
             {
                 bool valid = DBConnector.Save(new Reservation(name, key));
-                if (true) //valid -> true
+                if (valid) //valid -> true
                 {
                     RequestProcessedWin rpw = new RequestProcessedWin();
                     rpw.Open(name);

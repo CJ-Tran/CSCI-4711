@@ -182,32 +182,29 @@ namespace Controller
         {
             try
             {
-                cmd = conn.CreateCommand();
-                cmd.CommandText = "" +
-                    "UPDATE Key" +
-                    $"Set Status = {(int)StatusType.Pending}" +
-                    $"WHERE Id = {res.KeyID};";
+                cmd = new SQLiteCommand("UPDATE Key SET Status = @tv1 WHERE Id = @tv2", conn);
+                cmd.Parameters.AddWithValue("@tv1",(int)StatusType.Pending);
+                cmd.Parameters.AddWithValue("@tv2", res.KeyID);
                 cmd.ExecuteNonQuery();
 
                 //Get current user and set it to previousUser
-                cmd.CommandText = "" +
-                    "SELECT CurrentAssigned FROM Key" +
-                    $"Where Id = {res.KeyID};";
+                cmd = new SQLiteCommand("SELECT CurrentAssigned FROM Key WHERE Id = @tv1", conn);
+                cmd.Parameters.AddWithValue("@tv1", res.KeyID);
                 reader = cmd.ExecuteReader();
                 string nowPrevUser = string.Empty;
                 if (reader.Read())
-                    nowPrevUser = reader.GetString(0);
-                cmd.CommandText = "" +
-                    "UPDATE Key" +
-                    $"Set LastAssigned = {nowPrevUser}" +
-                    $"WHERE Id = {res.KeyID};";
-                cmd.ExecuteNonQuery();
-
+                    if (!reader.IsDBNull(0))
+                    {
+                        nowPrevUser = reader.GetString(0);
+                        cmd = new SQLiteCommand("UPDATE Key SET LastAssigned = @tv1 WHERE Id = @tv2", conn);
+                        cmd.Parameters.AddWithValue("@tv1", nowPrevUser);
+                        cmd.Parameters.AddWithValue("@tv2", res.KeyID);
+                        cmd.ExecuteNonQuery();
+                    }
                 //Assign new user to CurrentUser
-                cmd.CommandText = "" +
-                    "UPDATE Key" +
-                    $"Set CurrentAssigned = {res.UName}" +
-                    $"WHERE ID = {res.KeyID};";
+                cmd = new SQLiteCommand("UPDATE Key SET CurrentAssigned = @tv1 WHERE Id = @tv2", conn);
+                cmd.Parameters.AddWithValue("@tv1", res.UName);
+                cmd.Parameters.AddWithValue("@tv2", res.KeyID);
                 cmd.ExecuteNonQuery();
 
                 return true;
