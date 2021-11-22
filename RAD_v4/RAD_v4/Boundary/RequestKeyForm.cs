@@ -24,9 +24,9 @@ namespace Boundary
             rk.Visible = true;
         }
 
-        public void Submit(Entity.Key k)
+        public void Submit(string s)
         {
-            bool valid = RequestControl.Reserve(user.UName, k.ID); 
+            bool valid = RequestControl.Reserve(user.UName, int.Parse(s)); 
             if (valid)
             {
                 Close();
