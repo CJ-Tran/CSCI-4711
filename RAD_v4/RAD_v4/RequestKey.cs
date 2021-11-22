@@ -47,14 +47,15 @@ namespace RAD_v4
 
         private void SubmitBtn_Click(object sender, EventArgs e)
         {
+            Close();
             rkf.Submit(KeyList.SelectedIndex.ToString());
 
         }
 
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
-           Controller.LogoutControl.Logout(rkf.user.UName);
            Close();
+           Controller.LogoutControl.Logout(rkf.user.UName);
         }
 
         private void KeyList_SelectedIndexChanged(object sender, EventArgs e)

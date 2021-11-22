@@ -155,7 +155,7 @@ namespace Controller
         }//GetKeys()
 
         //Updates a key's status via reservation
-        public static bool Save(Reservation res)
+        public static void Save(Reservation res)
         {
             try
             {
@@ -187,12 +187,12 @@ namespace Controller
                     $"WHERE ID = {res.KeyID};";
                 cmd.ExecuteNonQuery();
 
-                return true;
+                //return true;
             }//try
 
             catch (Exception)
             {
-                return false;
+                throw new Exception("Error at DBConnector.Save()");
             }//catch
         }//Save(reservation)
 

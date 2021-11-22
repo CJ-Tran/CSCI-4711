@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Boundary
 {
-    class RequestProcessedWin // Delete? Pop up window can be implemented in the UI
+    class RequestProcessedWin 
     {
         public void Open(string name) //pass user to save logout
         {

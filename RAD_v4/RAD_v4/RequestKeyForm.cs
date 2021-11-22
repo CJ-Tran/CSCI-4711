@@ -26,11 +26,8 @@ namespace Boundary
 
         public void Submit(string s)
         {
-            bool valid = RequestControl.Reserve(user.UName, int.Parse(s)); 
-            if (valid)
-            {
-                Close();
-            }
+            Close();
+            RequestControl.Reserve(user.UName, int.Parse(s));
         }
 
         private void InitializeComponent()
