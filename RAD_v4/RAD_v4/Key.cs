@@ -28,10 +28,17 @@ namespace Entity
             CurrentUser = cUser;
             PreviousUser = pUser;
         }
-        public override String ToString()
+        public override String ToString() // display all Key info
         {
-            //return "id: " + ID + " status: " + Status + " Room Num: " + RoomNum + " Current User: " + CurrentUser + " previous User: " + PreviousUser;
-            return "k: " + this.ID + " R: " + this.RoomNum;
+            return "" +
+                "id: " + ID + "\n" +
+                "status: " + Status + "\n" +
+                "Room Num: " + RoomNum + "\n" +
+                "Current User: " + CurrentUser + "\n" +
+                "previous User: " + PreviousUser + "\n";
+
+            //return "k: " + this.ID + " R: " + this.RoomNum;
+
         }//ToString()
         public String KeyInfo()
         {

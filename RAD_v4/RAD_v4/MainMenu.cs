@@ -24,7 +24,7 @@ namespace Boundary
                 mkf.Visible = true;
                 //mkf.Open(kList);
             }
-            //Close();
+            Close();
         }
     }
 }

@@ -40,7 +40,7 @@ namespace Boundary
             KeysList.Items.Clear(); //clear it of any default values before adding
             foreach (Entity.Key k in kList.Keys)
             {
-                KeysList.Items.Add(k);
+                KeysList.Items.Add(k.ID); //only show KeyID in SelectKey menu
             }
         }
         public void Submit() //UNUSED
@@ -224,7 +224,7 @@ namespace Boundary
 
         private void KeysList_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            SelectKeyInfo.Text = KList.Keys[KeysList.SelectedIndex].KeyInfo();
+            SelectKeyInfo.Text = KList.Keys[KeysList.SelectedIndex].ToString(); //use ToString to display all info
         }
 
         private void KeyStatusLbl_Click(object sender, EventArgs e)
