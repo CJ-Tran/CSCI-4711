@@ -12,7 +12,7 @@ namespace Boundary
     {
         public void Open(User u, KeyList kList) 
         {
-            // opens main menu
+            // opens appropriate menu
             if(u.Type ==  User.AcctType.Customer)
             {
                 RequestKeyForm rkf = new RequestKeyForm(u, kList);
@@ -24,7 +24,7 @@ namespace Boundary
                 mkf.Visible = true;
                 //mkf.Open(kList);
             }
-            Close();
+            //Close();
         }
     }
 }

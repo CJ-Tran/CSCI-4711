@@ -43,7 +43,7 @@ namespace Boundary
                 KeysList.Items.Add(k);
             }
         }
-        public void Submit()
+        public void Submit() //UNUSED
         {
             int k = 0;
             Display(ManageControl.GetStatus(k));
@@ -54,7 +54,8 @@ namespace Boundary
 
             KeyStatus k = new KeyStatus(index, status);
             ManageControl.Update(k);
-            Display(k); // call KeyList_SelectedIndexChanged() better?
+            //Refresh(); 
+            //Display(k); // call KeyList_SelectedIndexChanged() better?
         }
 
         //public void Close() { }
@@ -132,7 +133,7 @@ namespace Boundary
             this.SelectKeyInfo.Size = new System.Drawing.Size(117, 20);
             this.SelectKeyInfo.TabIndex = 5;
             this.SelectKeyInfo.Text = "(Select a key...)";
-            this.SelectKeyInfo.Click += new System.EventHandler(this.label4_Click);
+            this.SelectKeyInfo.Click += new System.EventHandler(this.SelectKeyInfo_Click);
             // 
             // SaveBtn
             // 
@@ -143,7 +144,7 @@ namespace Boundary
             this.SaveBtn.TabIndex = 6;
             this.SaveBtn.Text = "Save";
             this.SaveBtn.UseVisualStyleBackColor = true;
-            this.SaveBtn.Click += new System.EventHandler(this.button1_Click);
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // LogoutBtn
             // 
@@ -154,7 +155,7 @@ namespace Boundary
             this.LogoutBtn.TabIndex = 7;
             this.LogoutBtn.Text = "Logout";
             this.LogoutBtn.UseVisualStyleBackColor = true;
-            this.LogoutBtn.Click += new System.EventHandler(this.button2_Click);
+            this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click);
             // 
             // KeysList
             // 
@@ -192,21 +193,22 @@ namespace Boundary
             this.Controls.Add(this.KeyStatusLbl);
             this.Controls.Add(this.KeyStatus);
             this.Name = "ManageKeyForm";
+            this.Load += new System.EventHandler(this.ManageKeyForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void SaveBtn_Click(object sender, EventArgs e)
         {
             Save(KeysList.SelectedIndex, (StatusType)KeyStatus.SelectedIndex);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void LogoutBtn_Click(object sender, EventArgs e)
         {
+            Close();
             LogoutControl.Logout(cUser.UName);
-            Close(); //need to close this form after logging out
         }
 
         private void KeyStatus_SelectedIndexChanged(object sender, EventArgs e)
@@ -215,7 +217,7 @@ namespace Boundary
         }
 
 
-        private void label4_Click(object sender, EventArgs e)
+        private void SelectKeyInfo_Click(object sender, EventArgs e)
         {
 
         }
@@ -226,6 +228,11 @@ namespace Boundary
         }
 
         private void KeyStatusLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ManageKeyForm_Load(object sender, EventArgs e)
         {
 
         }

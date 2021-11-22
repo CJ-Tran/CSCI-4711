@@ -76,6 +76,7 @@
             this.PWordInput.Size = new System.Drawing.Size(184, 29);
             this.PWordInput.TabIndex = 3;
             this.PWordInput.Text = "Click here";
+            this.PWordInput.UseSystemPasswordChar = true;
             this.PWordInput.TextChanged += new System.EventHandler(this.PWordInput_TextChanged);
             // 
             // SignInButton
