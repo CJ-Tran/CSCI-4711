@@ -23,76 +23,79 @@ namespace Controller
                 //SQLiteCommand cmd = conn.CreateCommand();// cmd is associated with the connector
 
                 //start DB
-                conn.Open();
-                cmd = conn.CreateCommand();
-                
-                cmd.CommandText = "" +
-                    "PRAGMA foreign_keys = 1;";
-                cmd.ExecuteNonQuery();
-
-                //User
-                cmd.CommandText = "" +
-                    "CREATE TABLE IF NOT EXISTS User (" +
-                    "UName TEXT NOT NULL," +
-                    "PwdHash TEXT NOT NULL," +
-                    "Type INTEGER NOT NULL," +
-                    "PRIMARY KEY (UName));";
-                cmd.ExecuteNonQuery();
-
-                //Key
-                cmd.CommandText = "" +
-                    "CREATE TABLE IF NOT EXISTS Key (" +
-                    "Id INTEGER NOT NULL," +
-                    "CurrentAssigned TEXT NULL REFERENCES User (UName) ON DELETE SET NULL ON UPDATE CASCADE," +
-                    "LastAssigned TEXT NULL REFERENCES User(UName) ON DELETE SET NULL ON UPDATE CASCADE," +
-                    "RoomNum INTEGER NOT NULL," +
-                    "Status INT NOT NULL," +
-                    "PRIMARY KEY (Id));";
-                cmd.ExecuteNonQuery();
-
-                //AccessEvent
-                cmd.CommandText = "" +
-                    "CREATE TABLE IF NOT EXISTS AccessEvent (" +
-                    "User TEXT NOT NULL REFERENCES User (UName) ON DELETE NO ACTION ON UPDATE CASCADE," +
-                    "Time NUMERIC NOT NULL," +
-                    "Type TEXT NOT NULL," +
-                    "PRIMARY KEY (User, Time));";
-                cmd.ExecuteNonQuery();
-
-
-
-
-                /*
-                 * The following is for initializing test data into the DB
-                 * Please treat this portion of Initialize as though it exists outside the scope of the program
-                 * thank you,
-                 * Chris J.
-                 */
-
-                //BEGIN TEST DATA ENTRY
-
-                cmd = new SQLiteCommand("SELECT UName FROM User", conn);
-                reader = cmd.ExecuteReader();
-                if (!reader.Read())//if no users in db, add test users
+                if (WaitForConnection())
                 {
-                    //purge all users from db if you want to add more (call this block again)
-                    AddUserToDB("ecustomer", "custPass", User.AcctType.Customer);
-                    AddUserToDB("eadmin", "adminPass", User.AcctType.Admin);
+                    cmd = conn.CreateCommand();
+
+                    cmd.CommandText = "" +
+                        "PRAGMA foreign_keys = 1;";
+                    cmd.ExecuteNonQuery();
+
+                    //User
+                    cmd.CommandText = "" +
+                        "CREATE TABLE IF NOT EXISTS User (" +
+                        "UName TEXT NOT NULL," +
+                        "PwdHash TEXT NOT NULL," +
+                        "Type INTEGER NOT NULL," +
+                        "PRIMARY KEY (UName));";
+                    cmd.ExecuteNonQuery();
+
+                    //Key
+                    cmd.CommandText = "" +
+                        "CREATE TABLE IF NOT EXISTS Key (" +
+                        "Id INTEGER NOT NULL," +
+                        "CurrentAssigned TEXT NULL REFERENCES User (UName) ON DELETE SET NULL ON UPDATE CASCADE," +
+                        "LastAssigned TEXT NULL REFERENCES User(UName) ON DELETE SET NULL ON UPDATE CASCADE," +
+                        "RoomNum INTEGER NOT NULL," +
+                        "Status INT NOT NULL," +
+                        "PRIMARY KEY (Id));";
+                    cmd.ExecuteNonQuery();
+
+                    //AccessEvent
+                    cmd.CommandText = "" +
+                        "CREATE TABLE IF NOT EXISTS AccessEvent (" +
+                        "User TEXT NOT NULL REFERENCES User (UName) ON DELETE NO ACTION ON UPDATE CASCADE," +
+                        "Time NUMERIC NOT NULL," +
+                        "Type TEXT NOT NULL," +
+                        "PRIMARY KEY (User, Time));";
+                    cmd.ExecuteNonQuery();
+
+
+
+
+                    /*
+                     * The following is for initializing test data into the DB
+                     * Please treat this portion of Initialize as though it exists outside the scope of the program
+                     * thank you,
+                     * Chris J.
+                     */
+
+                    //BEGIN TEST DATA ENTRY
+
+                    cmd = new SQLiteCommand("SELECT UName FROM User", conn);
+                    reader = cmd.ExecuteReader();
+                    if (!reader.Read())//if no users in db, add test users
+                    {
+                        //purge all users from db if you want to add more (call this block again)
+                        AddUserToDB("ecustomer", "custPass", User.AcctType.Customer);
+                        AddUserToDB("eadmin", "adminPass", User.AcctType.Admin);
+                    }//fi
+
+                    cmd = new SQLiteCommand("SELECT Id FROM Key", conn);
+                    reader = cmd.ExecuteReader();
+                    if (!reader.Read())// if no keys in db, add test keys
+                    {
+                        //purge all keys from db if you want to add more (call this block again)
+                        AddKeyToDB(0, 1);
+                        AddKeyToDB(1, 2, (int)StatusType.Available, "eadmin");
+                        AddKeyToDB(2, 3);
+                    }//fi
+
+                    //END OF TEST DATA ENTRY
+
                 }//fi
-
-                cmd = new SQLiteCommand("SELECT Id FROM Key", conn);
-                reader = cmd.ExecuteReader();
-                if (!reader.Read())// if no keys in db, add test keys
-                {
-                    //purge all keys from db if you want to add more (call this block again)
-                    AddKeyToDB(0, 1);
-                    AddKeyToDB(1, 2, (int)StatusType.Available, "eadmin");
-                    AddKeyToDB(2, 3);
-                }//fi
-
-                //END OF TEST DATA ENTRY
-
-
+                else
+                    throw new Exception();
             }//try
             catch (Exception e)
             {
@@ -105,30 +108,35 @@ namespace Controller
         {
             try
             {
-                cmd = new SQLiteCommand("SELECT PwdHash,Type FROM User WHERE UName = @textValue1", conn);
-                cmd.Parameters.AddWithValue("@textValue1", uName);
-                /*
-                cmd = conn.CreateCommand();
-                cmd.CommandText = "" +
-                    "SELECT PwdHash FROM User" +
-                    $"WHERE UName = {uName};";
-                */
-                reader = cmd.ExecuteReader();
-                if (reader.Read())
+                if (WaitForConnection())
                 {
-                    storedHash = reader.GetString(0);
-                    return new User(uName, (User.AcctType)reader.GetInt32(1));
+                    cmd = new SQLiteCommand("SELECT PwdHash,Type FROM User WHERE UName = @textValue1", conn);
+                    cmd.Parameters.AddWithValue("@textValue1", uName);
+                    /*
+                    cmd = conn.CreateCommand();
+                    cmd.CommandText = "" +
+                        "SELECT PwdHash FROM User" +
+                        $"WHERE UName = {uName};";
+                    */
+                    reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        storedHash = reader.GetString(0);
+                        return new User(uName, (User.AcctType)reader.GetInt32(1));
+                    }
+                    else
+                    {
+                        throw new UnauthorizedAccessException("Something went wrong while retrieving user from db");
+                    }
+                    //putting this link for when we begin implementing the hashing algorithm
+                    //https://stackoverflow.com/questions/4181198/how-to-hash-a-password#10402129
                 }
                 else
-                {
-                    throw new UnauthorizedAccessException("Something went wrong while retrieving user from db");
-                }
-                //putting this link for when we begin implementing the hashing algorithm
-                //https://stackoverflow.com/questions/4181198/how-to-hash-a-password#10402129
+                    throw new Exception("Could not get connection");
             }//try
-            catch (Exception)
+            catch (Exception e)
             {
-                throw new Exception("GetUser() threw an exception (Probably bad user)"); //Probably gonna throw this exception when username/password is incorrect
+                throw new Exception("GetUser() threw an exception (Probably bad user)" + e.GetType()); //Probably gonna throw this exception when username/password is incorrect
             }//catch
         }//GetUser()
 
@@ -272,15 +280,19 @@ namespace Controller
         {
             try
             {
-                cmd = new SQLiteCommand("INSERT INTO AccessEvent (User, Time, Type) VALUES (@textValue1, @textValue2, @textValue3)", conn);
-                cmd.Parameters.AddWithValue("@textValue1", user.UName);
-                cmd.Parameters.AddWithValue("@textValue2", DateTime.UtcNow);
-                cmd.Parameters.AddWithValue("@textValue3", "Login");
-                cmd.ExecuteNonQuery();
+                if (WaitForConnection())
+                {
+                    cmd = new SQLiteCommand("INSERT INTO AccessEvent (User, Time, Type) VALUES (@textValue1, @textValue2, @textValue3)", conn);
+                    cmd.Parameters.AddWithValue("@textValue1", user.UName);
+                    cmd.Parameters.AddWithValue("@textValue2", DateTime.UtcNow.ToString());
+                    cmd.Parameters.AddWithValue("@textValue3", "Login");
+                    cmd.ExecuteNonQuery();
+                }
             }
             catch (Exception)
             {
-                conn.Close(); //close connection if exception is thrown while saving logout information
+                conn.Close(); //close connection if exception is thrown while saving login information
+                throw new Exception("Something went wrong while attempting to save login for " + user.UName + " at time " + DateTime.UtcNow);
             }//catch
         }//SaveLogin()
 
@@ -290,7 +302,7 @@ namespace Controller
             {
                 cmd = new SQLiteCommand("INSERT INTO AccessEvent (User, Time, Type) VALUES (@textValue1, @textValue2, @textValue3)", conn);
                 cmd.Parameters.AddWithValue("@textValue1", name);
-                cmd.Parameters.AddWithValue("@textValue2", DateTime.UtcNow);
+                cmd.Parameters.AddWithValue("@textValue2", DateTime.UtcNow.ToString());
                 cmd.Parameters.AddWithValue("@textValue3","Logout");
                 cmd.ExecuteNonQuery();
                 conn.Close(); //after saving logout, we can close the connection 
@@ -301,6 +313,27 @@ namespace Controller
                 throw new SQLiteException("Program encountered an error while attempting to save logout event");
             }//catch
         }//SaveLogout()
+
+        private static bool WaitForConnection()
+        {
+            if (!conn.State.Equals(System.Data.ConnectionState.Open))
+            {
+                conn.Open();
+                int waitCount = 0;
+                while (conn.State.Equals(System.Data.ConnectionState.Closed))
+                {
+                    System.Threading.Thread.Sleep(100);
+                    waitCount++;
+                    if (waitCount > 999)
+                        return false;
+                    else
+                        conn.Open();
+                }//while
+                return true;
+            }//fi
+            else
+                return true;
+        }//WaitForConnection()
         
         
         
