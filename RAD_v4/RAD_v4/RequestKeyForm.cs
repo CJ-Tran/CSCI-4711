@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,21 +12,32 @@ namespace Boundary
     public class RequestKeyForm : Form
     {
         public User user;
+        KeyList copy;
 
         public RequestKeyForm(User u, KeyList kList)
         {
             user = u;
 
             RAD_v4.RequestKey rk = new RAD_v4.RequestKey(this);
+            copy = kList;
             rk.AddKeys(u, kList);
             rk.Refresh();
             rk.TopMost = true;
             rk.Visible = true;
         }
 
-        public void Submit(object sender)
+        public void Submit(string s)
         {
-            bool valid = RequestControl.Reserve(user.UName, int.Parse(sender.ToString().Substring(35))); 
+            //int chosenKey = -1;
+            //foreach(Key k in copy.Keys)
+            //{
+            //    if(k.ID == int.Parse(sender.ToString()))
+            //    {
+            //        chosenKey = k.ID;
+            //    }
+            //}
+
+            bool valid = RequestControl.Reserve(user.UName, int.Parse(s)); 
             if (valid)
             {
                 Close();
