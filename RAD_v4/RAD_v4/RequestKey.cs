@@ -1,4 +1,4 @@
-﻿using Entity;
+using Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +14,7 @@ namespace RAD_v4
     public partial class RequestKey : Form
     {
         Boundary.RequestKeyForm rkf;
+        //Object selectedKey;
 
         public RequestKey(Boundary.RequestKeyForm reqForm)
         {
@@ -23,18 +24,11 @@ namespace RAD_v4
 
         public void AddKeys(Entity.User u, Entity.KeyList kList)
         {
-            CheckedListBox.ObjectCollection keys = new CheckedListBox.ObjectCollection(KeysList);
-            //keys.Clear();
-
             foreach (Entity.Key k in kList.Keys)
             {
-                //if (u.Type == Entity.User.AcctType.Admin) // can get rid of since we don't deal with admin here
-                //{
-                //    keys.Add(k);
-                //}
-                if (u.Type == Entity.User.AcctType.Customer && k.Status == Entity.StatusType.Available)
+                if (k.Status == Entity.StatusType.Available)
                 {
-                    keys.Add(k);
+                    this.KeyList.Items.Add(k.ID);
                 }
             }
 
@@ -53,14 +47,19 @@ namespace RAD_v4
 
         private void SubmitBtn_Click(object sender, EventArgs e)
         {
-            rkf.Submit(sender);
+            rkf.Submit(KeyList.SelectedIndex.ToString());
 
         }
 
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
            Controller.LogoutControl.Logout(rkf.user.UName);
-            Close();
+           Close();
+        }
+
+        private void KeyList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //selectedKey = sender;
         }
     }
 }
