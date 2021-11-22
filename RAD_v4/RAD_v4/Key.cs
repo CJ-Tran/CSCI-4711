@@ -42,7 +42,7 @@ namespace Entity
         }//ToString()
         public String KeyInfo()
         {
-            return Status + " " + CurrentUser + " " + PreviousUser;  
+            return Status + " " + CurrentUser + " " + PreviousUser;
         }
     }
 }

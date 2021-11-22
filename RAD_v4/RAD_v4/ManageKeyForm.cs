@@ -60,7 +60,7 @@ namespace Boundary
 
         //public void Close() { }
 
-        public void Display(KeyStatus k)
+        public void Display(KeyStatus k) // UNUSED
         {
 
         }
@@ -203,6 +203,7 @@ namespace Boundary
         private void SaveBtn_Click(object sender, EventArgs e)
         {
             Save(KeysList.SelectedIndex, (StatusType)KeyStatus.SelectedIndex);
+            Refresh();
         }
 
         private void LogoutBtn_Click(object sender, EventArgs e)
