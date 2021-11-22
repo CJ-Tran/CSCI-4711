@@ -8,9 +8,9 @@ namespace RAD_v4
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args) //not used anymore
         {
-            KRTS.Run();
+            KRTS.Run(); //no need?
         }
 
     }

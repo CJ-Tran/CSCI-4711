@@ -11,7 +11,6 @@ namespace RAD_v4
     {
         public static void Run()
         {
-            //StartupController sc = new StartupController();
             StartupController.Initiate();
         }
     }
