@@ -28,8 +28,10 @@ namespace Entity
             CurrentUser = cUser;
             PreviousUser = pUser;
         }
-        public String ToStringR()
+        public override String ToString()
         {
-            return "id: " + ID + "status: " + Status + "Room Num: " + RoomNum + "Current User: " + CurrentUser + "previous User: " + PreviousUser;     }
+            //return "id: " + ID + " status: " + Status + " Room Num: " + RoomNum + " Current User: " + CurrentUser + " previous User: " + PreviousUser;
+            return "k: " + this.ID + " R: " + this.RoomNum;
+        }//ToString()
     }
 }
