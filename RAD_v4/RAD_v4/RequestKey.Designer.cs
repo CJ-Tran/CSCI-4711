@@ -31,9 +31,9 @@ namespace RAD_v4
         {
             this.RqstKeyLbl = new System.Windows.Forms.Label();
             this.KeysLbl = new System.Windows.Forms.Label();
-            this.KeysList = new System.Windows.Forms.CheckedListBox();
             this.LogoutBtn = new System.Windows.Forms.Button();
             this.SubmitBtn = new System.Windows.Forms.Button();
+            this.KeyList = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // RqstKeyLbl
@@ -55,25 +55,6 @@ namespace RAD_v4
             this.KeysLbl.Size = new System.Drawing.Size(72, 29);
             this.KeysLbl.TabIndex = 1;
             this.KeysLbl.Text = "Keys:";
-            // 
-            // KeysList
-            // 
-            this.KeysList.CheckOnClick = true;
-            this.KeysList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KeysList.FormattingEnabled = true;
-            this.KeysList.Items.AddRange(new object[] {
-            "Ex1",
-            "Ex2",
-            "Ex3",
-            "Ex4",
-            "Ex5",
-            "Ex6"});
-            this.KeysList.Location = new System.Drawing.Point(59, 132);
-            this.KeysList.Name = "KeysList";
-            this.KeysList.Size = new System.Drawing.Size(157, 88);
-            this.KeysList.Sorted = true;
-            this.KeysList.TabIndex = 3;
-            this.KeysList.SelectedIndexChanged += new System.EventHandler(this.KeysList_SelectedIndexChanged);
             // 
             // LogoutBtn
             // 
@@ -97,14 +78,25 @@ namespace RAD_v4
             this.SubmitBtn.UseVisualStyleBackColor = true;
             this.SubmitBtn.Click += new System.EventHandler(this.SubmitBtn_Click);
             // 
+            // KeyList
+            // 
+            this.KeyList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeyList.FormattingEnabled = true;
+            this.KeyList.ItemHeight = 20;
+            this.KeyList.Location = new System.Drawing.Point(59, 132);
+            this.KeyList.Name = "KeyList";
+            this.KeyList.Size = new System.Drawing.Size(157, 84);
+            this.KeyList.TabIndex = 6;
+            this.KeyList.SelectedIndexChanged += new System.EventHandler(this.KeyList_SelectedIndexChanged_1);
+            // 
             // RequestKey
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(444, 391);
+            this.Controls.Add(this.KeyList);
             this.Controls.Add(this.SubmitBtn);
             this.Controls.Add(this.LogoutBtn);
-            this.Controls.Add(this.KeysList);
             this.Controls.Add(this.KeysLbl);
             this.Controls.Add(this.RqstKeyLbl);
             this.Name = "RequestKey";
@@ -119,8 +111,8 @@ namespace RAD_v4
 
         private System.Windows.Forms.Label RqstKeyLbl;
         private System.Windows.Forms.Label KeysLbl;
-        private System.Windows.Forms.CheckedListBox KeysList;
         private System.Windows.Forms.Button LogoutBtn;
         private System.Windows.Forms.Button SubmitBtn;
+        private System.Windows.Forms.ListBox KeyList;
     }
 }

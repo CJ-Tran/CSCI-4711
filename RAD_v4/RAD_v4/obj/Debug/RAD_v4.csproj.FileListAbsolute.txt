@@ -134,3 +134,7 @@ C:\Users\Josh\Documents\GitHub\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\RAD_v4.exe
 C:\Users\Josh\Documents\GitHub\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\RAD_v4.pdb
 C:\Users\Josh\Documents\GitHub\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\Boundary.RequestKeyForm.resources
 C:\Users\Josh\Documents\GitHub\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\Boundary.LoginForm.resources
+C:\Users\CJ\Source\Repos\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\Boundary.LoginForm.resources
+C:\Users\CJ\Source\Repos\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\Boundary.ManageKeyForm.resources
+C:\Users\CJ\Source\Repos\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\Boundary.RequestKeyForm.resources
+C:\Users\CJ\Source\Repos\CSCI-4711\RAD_v4\RAD_v4\obj\Debug\RAD_v4.csproj.CopyComplete
