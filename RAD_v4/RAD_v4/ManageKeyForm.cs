@@ -12,16 +12,17 @@ namespace Boundary
     class ManageKeyForm : Form
     {
         private System.Windows.Forms.ListBox KeyStatus;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label KeyStatusLbl;
+        private System.Windows.Forms.Label SelectKeyLbl;
+        private System.Windows.Forms.Label SelectKeyInfo;
+        private System.Windows.Forms.Button SaveBtn;
+        private System.Windows.Forms.Button LogoutBtn;
+        private System.Windows.Forms.Label KeyDetailsLbl;
         private ListBox KeysList;
 
         //ManageControl mc;
         private User cUser;
+        private Label ManageKeysLbl;
         private KeyList KList;
 
         public ManageKeyForm(User u, Entity.KeyList kList)
@@ -66,106 +67,129 @@ namespace Boundary
         private void InitializeComponent()
         {
             this.KeyStatus = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.KeyStatusLbl = new System.Windows.Forms.Label();
+            this.SelectKeyLbl = new System.Windows.Forms.Label();
+            this.KeyDetailsLbl = new System.Windows.Forms.Label();
+            this.SelectKeyInfo = new System.Windows.Forms.Label();
+            this.SaveBtn = new System.Windows.Forms.Button();
+            this.LogoutBtn = new System.Windows.Forms.Button();
             this.KeysList = new System.Windows.Forms.ListBox();
+            this.ManageKeysLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // KeyStatus
             // 
+            this.KeyStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KeyStatus.FormattingEnabled = true;
+            this.KeyStatus.ItemHeight = 20;
             this.KeyStatus.Items.AddRange(new object[] {
             "Available",
             "Pending",
             "Assigned"});
-            this.KeyStatus.Location = new System.Drawing.Point(72, 277);
+            this.KeyStatus.Location = new System.Drawing.Point(75, 296);
             this.KeyStatus.Name = "KeyStatus";
-            this.KeyStatus.Size = new System.Drawing.Size(120, 82);
+            this.KeyStatus.Size = new System.Drawing.Size(120, 84);
             this.KeyStatus.TabIndex = 1;
             this.KeyStatus.SelectedIndexChanged += new System.EventHandler(this.KeyStatus_SelectedIndexChanged);
             // 
-            // label1
+            // KeyStatusLbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(72, 254);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Key Status:";
+            this.KeyStatusLbl.AutoSize = true;
+            this.KeyStatusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeyStatusLbl.Location = new System.Drawing.Point(70, 264);
+            this.KeyStatusLbl.Name = "KeyStatusLbl";
+            this.KeyStatusLbl.Size = new System.Drawing.Size(132, 29);
+            this.KeyStatusLbl.TabIndex = 2;
+            this.KeyStatusLbl.Text = "Key Status:";
+            this.KeyStatusLbl.Click += new System.EventHandler(this.KeyStatusLbl_Click);
             // 
-            // label2
+            // SelectKeyLbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(72, 58);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Select Key:";
+            this.SelectKeyLbl.AutoSize = true;
+            this.SelectKeyLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectKeyLbl.Location = new System.Drawing.Point(70, 101);
+            this.SelectKeyLbl.Name = "SelectKeyLbl";
+            this.SelectKeyLbl.Size = new System.Drawing.Size(134, 29);
+            this.SelectKeyLbl.TabIndex = 3;
+            this.SelectKeyLbl.Text = "Select Key:";
             // 
-            // label3
+            // KeyDetailsLbl
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(348, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Key Details";
+            this.KeyDetailsLbl.AutoSize = true;
+            this.KeyDetailsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeyDetailsLbl.Location = new System.Drawing.Point(348, 101);
+            this.KeyDetailsLbl.Name = "KeyDetailsLbl";
+            this.KeyDetailsLbl.Size = new System.Drawing.Size(134, 29);
+            this.KeyDetailsLbl.TabIndex = 4;
+            this.KeyDetailsLbl.Text = "Key Details";
             // 
-            // label4
+            // SelectKeyInfo
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(348, 81);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "label4";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.SelectKeyInfo.AutoSize = true;
+            this.SelectKeyInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectKeyInfo.Location = new System.Drawing.Point(349, 142);
+            this.SelectKeyInfo.Name = "SelectKeyInfo";
+            this.SelectKeyInfo.Size = new System.Drawing.Size(117, 20);
+            this.SelectKeyInfo.TabIndex = 5;
+            this.SelectKeyInfo.Text = "(Select a key...)";
+            this.SelectKeyInfo.Click += new System.EventHandler(this.label4_Click);
             // 
-            // button1
+            // SaveBtn
             // 
-            this.button1.Location = new System.Drawing.Point(306, 401);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.SaveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveBtn.Location = new System.Drawing.Point(353, 335);
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.Size = new System.Drawing.Size(83, 45);
+            this.SaveBtn.TabIndex = 6;
+            this.SaveBtn.Text = "Save";
+            this.SaveBtn.UseVisualStyleBackColor = true;
+            this.SaveBtn.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // LogoutBtn
             // 
-            this.button2.Location = new System.Drawing.Point(518, 400);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Logout";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.LogoutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogoutBtn.Location = new System.Drawing.Point(545, 335);
+            this.LogoutBtn.Name = "LogoutBtn";
+            this.LogoutBtn.Size = new System.Drawing.Size(83, 45);
+            this.LogoutBtn.TabIndex = 7;
+            this.LogoutBtn.Text = "Logout";
+            this.LogoutBtn.UseVisualStyleBackColor = true;
+            this.LogoutBtn.Click += new System.EventHandler(this.button2_Click);
             // 
             // KeysList
             // 
+            this.KeysList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KeysList.FormattingEnabled = true;
+            this.KeysList.ItemHeight = 20;
             this.KeysList.Items.AddRange(new object[] {
             "roomKey"});
-            this.KeysList.Location = new System.Drawing.Point(75, 81);
+            this.KeysList.Location = new System.Drawing.Point(75, 142);
             this.KeysList.Name = "KeysList";
-            this.KeysList.Size = new System.Drawing.Size(120, 82);
+            this.KeysList.Size = new System.Drawing.Size(129, 84);
             this.KeysList.TabIndex = 8;
             this.KeysList.SelectedIndexChanged += new System.EventHandler(this.KeysList_SelectedIndexChanged_1);
+            // 
+            // ManageKeysLbl
+            // 
+            this.ManageKeysLbl.AutoSize = true;
+            this.ManageKeysLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageKeysLbl.Location = new System.Drawing.Point(69, 49);
+            this.ManageKeysLbl.Name = "ManageKeysLbl";
+            this.ManageKeysLbl.Size = new System.Drawing.Size(172, 31);
+            this.ManageKeysLbl.TabIndex = 9;
+            this.ManageKeysLbl.Text = "ManageKeys";
             // 
             // ManageKeyForm
             // 
             this.ClientSize = new System.Drawing.Size(742, 471);
+            this.Controls.Add(this.ManageKeysLbl);
             this.Controls.Add(this.KeysList);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.LogoutBtn);
+            this.Controls.Add(this.SaveBtn);
+            this.Controls.Add(this.SelectKeyInfo);
+            this.Controls.Add(this.KeyDetailsLbl);
+            this.Controls.Add(this.SelectKeyLbl);
+            this.Controls.Add(this.KeyStatusLbl);
             this.Controls.Add(this.KeyStatus);
             this.Name = "ManageKeyForm";
             this.ResumeLayout(false);
@@ -198,8 +222,12 @@ namespace Boundary
 
         private void KeysList_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            label4.Text = KList.Keys[KeysList.SelectedIndex].KeyInfo();//might need to override; not sure if this would display properl";
-            Refresh();
+            SelectKeyInfo.Text = KList.Keys[KeysList.SelectedIndex].KeyInfo();
+        }
+
+        private void KeyStatusLbl_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
