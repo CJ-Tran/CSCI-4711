@@ -25,11 +25,7 @@ namespace Controller
             catch (Exception)
             {
                 return false;
-                //throw new Exception("Error at RequestControl.Reserve");
             }
-
-
-
         }
     }
 }

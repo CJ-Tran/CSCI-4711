@@ -20,9 +20,7 @@ namespace Entity
 
         public StatusType Status { get; set; }
 
-
-        // Key's status set to "Available" by default
-        public KeyStatus(int keyNum, StatusType status = StatusType.Available)
+        public KeyStatus(int keyNum, StatusType status = StatusType.Available)// Key's status set to "Available" by default
         {
             this.KeyID = keyNum;
             this.Status = status;

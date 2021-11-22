@@ -50,6 +50,7 @@ namespace Controller
                     {
                         return false;
                     }//catch
+
                     Boundary.MainMenu mainMenu = new Boundary.MainMenu();
                     mainMenu.Open(user, DBConnector.GetKeys()); //passing user instead of the name to check for type on MainMenu
 

@@ -8,15 +8,11 @@ namespace Entity
 {
     public class KeyList
     {
-        public Key[] Keys { get; set; } //private auto-implemented property for keys array
-        //public to help add
+        public Key[] Keys { get; set; } //made public to make adding keys easier
 
         public KeyList(List<Key> aKeyList)
         {
             Keys = aKeyList.ToArray();
         }
-        // Will need constructor that instantiates keys in the future?
-
-
     }
 }

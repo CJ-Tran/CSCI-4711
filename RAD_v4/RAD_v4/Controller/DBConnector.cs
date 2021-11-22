@@ -79,7 +79,7 @@ namespace Controller
                                 //purge all users from db if you want to add more (call this block again)
                                 AddUserToDB("ecustomer", "custPass", User.AcctType.Customer);
                                 AddUserToDB("eadmin", "adminPass", User.AcctType.Admin);
-                            }//fi
+                            }//if
                         }
                     }
                     using (SQLiteCommand cmd = new SQLiteCommand("SELECT Id FROM Key", conn))
@@ -95,7 +95,9 @@ namespace Controller
                             }//fi
                         }
                     }
+
                     //END OF TEST DATA ENTRY
+
                 }//try
                 catch (Exception e)
                 {
@@ -151,6 +153,7 @@ namespace Controller
             int roomNum;
             StatusType status;
             List<Key> kList = new List<Key>(); //populate klist with query of keys before returning
+
             using (SQLiteConnection conn = new SQLiteConnection("Data Source=KMTS.db;Version=3;"))
             {
                 conn.Open();
@@ -357,8 +360,7 @@ namespace Controller
             }
         }//SaveLogout()
         
-        
-        
+
         /*
          * These are not real, production methods.
          * They exists to add our test cases and are called only during initialization if the database has not yet been initialized with data
