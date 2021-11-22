@@ -65,54 +65,54 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LoginControl.cs" />
-    <Compile Include="DBConnector.cs" />
-    <Compile Include="Form.cs">
+    <Compile Include="Controller\LoginControl.cs" />
+    <Compile Include="Controller\DBConnector.cs" />
+    <Compile Include="Boundary\Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Key.cs" />
-    <Compile Include="KeyList.cs" />
-    <Compile Include="KeyStatus.cs" />
+    <Compile Include="Entity\Key.cs" />
+    <Compile Include="Entity\KeyList.cs" />
+    <Compile Include="Entity\KeyStatus.cs" />
     <Compile Include="KRTS.cs" />
-    <Compile Include="Login.cs">
+    <Compile Include="Boundary\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="Boundary\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
+    <Compile Include="Boundary\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LogoutControl.cs" />
-    <Compile Include="MainMenu.cs">
+    <Compile Include="Controller\LogoutControl.cs" />
+    <Compile Include="Boundary\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManageControl.cs" />
-    <Compile Include="ManageKeyForm.cs">
+    <Compile Include="Controller\ManageControl.cs" />
+    <Compile Include="Boundary\ManageKeyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RequestKey.cs">
+    <Compile Include="Boundary\RequestKey.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RequestKey.Designer.cs">
+    <Compile Include="Boundary\RequestKey.Designer.cs">
       <DependentUpon>RequestKey.cs</DependentUpon>
     </Compile>
-    <Compile Include="RequestControl.cs" />
-    <Compile Include="RequestKeyForm.cs">
+    <Compile Include="Controller\RequestControl.cs" />
+    <Compile Include="Boundary\RequestKeyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RequestProcessed.cs">
+    <Compile Include="Boundary\RequestProcessed.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RequestProcessed.Designer.cs">
+    <Compile Include="Boundary\RequestProcessed.Designer.cs">
       <DependentUpon>RequestProcessed.cs</DependentUpon>
     </Compile>
-    <Compile Include="RequestProcessedWin.cs" />
-    <Compile Include="Reservation.cs" />
-    <Compile Include="StartupController.cs" />
+    <Compile Include="Boundary\RequestProcessedWin.cs" />
+    <Compile Include="Boundary\Reservation.cs" />
+    <Compile Include="Controller\StartupController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="Entity\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -122,25 +122,26 @@
     <Content Include="SQLite.Interop.dll" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="Boundary\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
+    <EmbeddedResource Include="Boundary\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManageKeyForm.resx">
+    <EmbeddedResource Include="Boundary\ManageKeyForm.resx">
       <DependentUpon>ManageKeyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RequestKey.resx">
+    <EmbeddedResource Include="Boundary\RequestKey.resx">
       <DependentUpon>RequestKey.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RequestKeyForm.resx">
+    <EmbeddedResource Include="Boundary\RequestKeyForm.resx">
       <DependentUpon>RequestKeyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RequestProcessed.resx">
+    <EmbeddedResource Include="Boundary\RequestProcessed.resx">
       <DependentUpon>RequestProcessed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
