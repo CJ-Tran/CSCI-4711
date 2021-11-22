@@ -22,11 +22,13 @@ namespace Boundary
 
         //ManageControl mc;
         private User cUser;
+        private KeyList KList;
 
         public ManageKeyForm(User u, Entity.KeyList kList)
         {
 
             cUser = u;
+            KList = kList;
             InitializeComponent();
             AddKeys(kList);
             //mc = new ManageControl();
@@ -166,7 +168,6 @@ namespace Boundary
             this.Controls.Add(this.label1);
             this.Controls.Add(this.KeyStatus);
             this.Name = "ManageKeyForm";
-            this.Load += new System.EventHandler(this.ManageKeyForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,15 +190,6 @@ namespace Boundary
 
         }
 
-        private void KeysList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ManageKeyForm_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void label4_Click(object sender, EventArgs e)
         {
@@ -206,7 +198,7 @@ namespace Boundary
 
         private void KeysList_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            label4.Text = KeysList.SelectedIndex.ToString();//might need to override; not sure if this would display properl";
+            label4.Text = KList.Keys[KeysList.SelectedIndex].ToString();//might need to override; not sure if this would display properl";
             Refresh();
         }
     }
