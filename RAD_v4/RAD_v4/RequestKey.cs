@@ -13,6 +13,7 @@ namespace RAD_v4
 {
     public partial class RequestKey : Form
     {
+        private KeyList KList;
         Boundary.RequestKeyForm rkf;
         //Object selectedKey;
 
@@ -24,14 +25,16 @@ namespace RAD_v4
 
         public void AddKeys(Entity.User u, Entity.KeyList kList)
         {
+            List<Key> temp = new List<Key>(); 
             foreach (Entity.Key k in kList.Keys)
             {
                 if (k.Status == Entity.StatusType.Available)
                 {
                     this.KeyList.Items.Add(k.ID);
+                    temp.Add(k);
                 }
             }
-
+            KList = new KeyList(temp);
             //rkf = new Boundary.RequestKeyForm(u, kList);
         }
 
@@ -48,7 +51,7 @@ namespace RAD_v4
         private void SubmitBtn_Click(object sender, EventArgs e)
         {
             Close();
-            rkf.Submit(KeyList.SelectedIndex.ToString());
+            rkf.Submit(KList.Keys[KeyList.SelectedIndex]);
 
         }
 
