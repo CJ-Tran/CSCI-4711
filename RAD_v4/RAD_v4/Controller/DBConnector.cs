@@ -1,9 +1,6 @@
-﻿using System;
+﻿using Entity;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Entity;
 using System.Data.SQLite;
 using System.Security.Cryptography;
 
@@ -105,7 +102,7 @@ namespace Controller
                 }//catch
             }
         }//Initialize()
-		
+
         public static User GetUser(string uName, out string storedHash)
         {
             using (SQLiteConnection conn = new SQLiteConnection("Data Source=KMTS.db;Version=3;"))
@@ -359,7 +356,7 @@ namespace Controller
                 }//catch
             }
         }//SaveLogout()
-        
+
 
         /*
          * These are not real, production methods.

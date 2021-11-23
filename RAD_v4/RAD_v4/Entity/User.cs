@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entity
+﻿namespace Entity
 {
     public class User
     {
@@ -17,7 +11,7 @@ namespace Entity
          *    Customer = 0
          * Made public to get User type
          */
-        public AcctType Type { get; private set; } 
+        public AcctType Type { get; private set; }
 
         public enum AcctType
         {

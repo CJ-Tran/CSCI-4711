@@ -1,12 +1,5 @@
 ﻿using Controller;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RAD_v4
@@ -14,7 +7,7 @@ namespace RAD_v4
     public partial class LoginForm : Form // UserControl -> Form
     {
         public object tempUName, tempPWord;
-        
+
         public void Submit()
         {
             if (LoginControl.Verify(tempUName, tempPWord))
@@ -26,7 +19,7 @@ namespace RAD_v4
                 MessageBox.Show("Incorrect username or password!");
 
                 //reopens login form
-                this.TopMost = true; 
+                this.TopMost = true;
                 this.Visible = true;
             }
         }
