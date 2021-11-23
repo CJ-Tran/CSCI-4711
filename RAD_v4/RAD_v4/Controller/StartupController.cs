@@ -8,7 +8,7 @@ using System.Data.SQLite;
 using System.Windows.Forms;
 
 namespace Controller
-{ 
+{
     static class StartupController
     {
         public static void Initiate()
@@ -16,10 +16,12 @@ namespace Controller
             //Had to Initialize DB first to save values
             DBConnector.Initialize();
 
-            //opens login form
-            RAD_v4.LoginForm loginform1 = new RAD_v4.LoginForm();
-            loginform1.TopMost = true; 
-            loginform1.Visible = true;
+            /* Opens login form */
+            RAD_v4.LoginForm loginform1 = new RAD_v4.LoginForm()
+            {
+                TopMost = true,
+                Visible = true
+            };
 
             Application.Run(); //leave .Run() empty to loop
         }

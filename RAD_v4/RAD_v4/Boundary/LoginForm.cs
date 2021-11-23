@@ -31,10 +31,11 @@ namespace RAD_v4
             }
         }
 
-        /* Got rid of Display(string s), Display(), Open() methods */
+        /*
+         * Got rid of Display(string s), Display(), Open() methods
+         */
 
-
-        /* UI Methods */
+        /* UI Elements */
         public LoginForm()
         {
             InitializeComponent();

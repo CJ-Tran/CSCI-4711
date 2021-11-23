@@ -108,7 +108,7 @@
       <DependentUpon>RequestProcessed.cs</DependentUpon>
     </Compile>
     <Compile Include="Boundary\RequestProcessedWin.cs" />
-    <Compile Include="Boundary\Reservation.cs" />
+    <Compile Include="Entity\Reservation.cs" />
     <Compile Include="Controller\StartupController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -11,30 +11,21 @@ namespace Boundary
 {
     class ManageKeyForm : Form
     {
-        private System.Windows.Forms.ListBox KeyStatus;
-        private System.Windows.Forms.Label KeyStatusLbl;
-        private System.Windows.Forms.Label SelectKeyLbl;
-        private System.Windows.Forms.Label SelectKeyInfo;
-        private System.Windows.Forms.Button SaveBtn;
-        private System.Windows.Forms.Button LogoutBtn;
-        private System.Windows.Forms.Label KeyDetailsLbl;
-        private ListBox KeysList;
-
-        //ManageControl mc;
+        /* Class Variables */
         private User cUser;
         private Label ManageKeysLbl;
         private KeyList KList;
 
+        /* Constructor */
         public ManageKeyForm(User u, Entity.KeyList kList)
         {
-
             cUser = u;
             KList = kList;
             InitializeComponent();
             AddKeys(kList);
-            //mc = new ManageControl();
         }
 
+        /* Methods */
         public void AddKeys(Entity.KeyList kList)
         {
             KeysList.Items.Clear(); //clear it of any default values before adding
@@ -43,27 +34,27 @@ namespace Boundary
                 KeysList.Items.Add(k.ID); //only show KeyID in SelectKey menu
             }
         }
-        public void Submit() //UNUSED
-        {
-            int k = 0;
-            Display(ManageControl.GetStatus(k));
-        }
 
         public void Save(int index, StatusType status)
         {
 
             KeyStatus k = new KeyStatus(index, status);
             ManageControl.Update(k);
-            //Refresh(); 
-            //Display(k); // call KeyList_SelectedIndexChanged() better?
         }
 
-        //public void Close() { }
+        /*
+         * Deleted Close(), Display(KeyStatus k), Submit() method since unused 
+         */
 
-        public void Display(KeyStatus k) // UNUSED
-        {
-
-        }
+        /* UI Elements */
+        private System.Windows.Forms.ListBox KeyStatus;
+        private System.Windows.Forms.Label KeyStatusLbl;
+        private System.Windows.Forms.Label SelectKeyLbl;
+        private System.Windows.Forms.Label SelectKeyInfo;
+        private System.Windows.Forms.Button SaveBtn;
+        private System.Windows.Forms.Button LogoutBtn;
+        private System.Windows.Forms.Label KeyDetailsLbl;
+        private ListBox KeysList;
 
         private void InitializeComponent()
         {
@@ -196,9 +187,7 @@ namespace Boundary
             this.Load += new System.EventHandler(this.ManageKeyForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
-
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
@@ -211,31 +200,17 @@ namespace Boundary
             Close();
             LogoutControl.Logout(cUser.UName);
         }
-
-        private void KeyStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void SelectKeyInfo_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void KeysList_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             SelectKeyInfo.Text = KList.Keys[KeysList.SelectedIndex].ToString(); //use ToString to display all info
         }
 
-        private void KeyStatusLbl_Click(object sender, EventArgs e)
-        {
+        private void KeyStatus_SelectedIndexChanged(object sender, EventArgs e) { }
 
-        }
+        private void SelectKeyInfo_Click(object sender, EventArgs e) { }
 
-        private void ManageKeyForm_Load(object sender, EventArgs e)
-        {
+        private void KeyStatusLbl_Click(object sender, EventArgs e) { }
 
-        }
+        private void ManageKeyForm_Load(object sender, EventArgs e) { }
     }
 }
