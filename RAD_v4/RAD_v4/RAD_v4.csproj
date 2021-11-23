@@ -76,7 +76,6 @@
     <Compile Include="Entity\Key.cs" />
     <Compile Include="Entity\KeyList.cs" />
     <Compile Include="Entity\KeyStatus.cs" />
-    <Compile Include="KRTS.cs" />
     <Compile Include="Boundary\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
