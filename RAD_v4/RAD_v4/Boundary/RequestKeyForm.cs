@@ -1,54 +1,77 @@
-﻿using System;
+using Controller;
+using Entity;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Controller;
-using Entity;
-//using System.Windows.Forms;
+using System.Windows.Forms;
 
-namespace Boundary
+namespace RAD_v4
 {
-    public class RequestKeyForm : Form
+    public partial class RequestKeyForm : Form
     {
+        /* Class Variables */
         public User user;
+        private KeyList KList;
 
-        public RequestKeyForm(User u, KeyList kList)
-        {
-            user = u;
-
-            RAD_v4.RequestKey rk = new RAD_v4.RequestKey(this);
-            rk.AddKeys(u, kList);
-            rk.Refresh();
-            rk.TopMost = true;
-            rk.Visible = true;
-        }
-
+        /* Methods */
         public void Submit(Entity.Key k)
         {
-            bool valid = RequestControl.Reserve(user.UName, k.ID); 
+            bool valid = RequestControl.Reserve(user.UName, k.ID);
             if (valid)
             {
                 Close();
             }
         }
 
-        private void InitializeComponent()
+        public void AddKeys(Entity.User u, Entity.KeyList kList)
         {
-            this.SuspendLayout();
-            // 
-            // RequestKeyForm
-            // 
-            this.ClientSize = new System.Drawing.Size(282, 253);
-            this.Name = "RequestKeyForm";
-            this.Load += new System.EventHandler(this.RequestKeyForm_Load);
-            this.ResumeLayout(false);
+            List<Key> temp = new List<Key>();
+            foreach (Entity.Key k in kList.Keys)
+            {
+                if (k.Status == Entity.StatusType.Available)
+                {
+                    this.KeyList.Items.Add(k.ID);
+                    temp.Add(k);
+                }
+            }
+            KList = new KeyList(temp);
+        }
+        
+        /* Constructor & UI Elements */
+        public RequestKeyForm(User u, KeyList kList)
+        {
+            user = u;
 
+            InitializeComponent();
+            AddKeys(u, kList);
+            Refresh();
+            TopMost = true;
+            Visible = true;
         }
 
-        private void RequestKeyForm_Load(object sender, EventArgs e)
+        private void SubmitBtn_Click(object sender, EventArgs e)
         {
-
+            Close();
+            this.Submit(KList.Keys[KeyList.SelectedIndex]);
         }
+
+        private void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            Close();
+            Controller.LogoutControl.Logout(this.user.UName);
+        }
+
+        private void KeysList_SelectedIndexChanged(object sender, EventArgs e) { }
+
+        private void RequestKey_Load(object sender, EventArgs e) { }
+
+        private void KeyList_SelectedIndexChanged(object sender, EventArgs e) { }
+
+        private void KeyList_SelectedIndexChanged_1(object sender, EventArgs e) { }
     }
 }

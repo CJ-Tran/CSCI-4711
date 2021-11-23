@@ -190,13 +190,11 @@ C:\Users\CJ\Source\Repos\CSCI-4711_5\RAD_v4\RAD_v4\bin\Debug\System.Data.SQLite.
 C:\Users\CJ\Source\Repos\CSCI-4711_5\RAD_v4\RAD_v4\bin\Debug\EntityFramework.xml
 C:\Users\CJ\Source\Repos\CSCI-4711_5\RAD_v4\RAD_v4\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\CJ\Source\Repos\CSCI-4711_5\RAD_v4\RAD_v4\obj\Debug\RAD_v4.csproj.AssemblyReference.cache
-C:\Users\CJ\Source\Repos\CSCI-4711_5\RAD_v4\RAD_v4\obj\Debug\RAD_v4.Login.resources
-C:\Users\CJ\Source\Repos\CSCI-4711_5\RAD_v4\RAD_v4\obj\Debug\Boundary.LoginForm.resources
 C:\Users\CJ\Source\Repos\CSCI-4711_5\RAD_v4\RAD_v4\obj\Debug\Boundary.ManageKeyForm.resources
-C:\Users\CJ\Source\Repos\CSCI-4711_5\RAD_v4\RAD_v4\obj\Debug\RAD_v4.RequestKey.resources
-C:\Users\CJ\Source\Repos\CSCI-4711_5\RAD_v4\RAD_v4\obj\Debug\Boundary.RequestKeyForm.resources
 C:\Users\CJ\Source\Repos\CSCI-4711_5\RAD_v4\RAD_v4\obj\Debug\RAD_v4.RequestProcessed.resources
 C:\Users\CJ\Source\Repos\CSCI-4711_5\RAD_v4\RAD_v4\obj\Debug\RAD_v4.csproj.GenerateResource.cache
 C:\Users\CJ\Source\Repos\CSCI-4711_5\RAD_v4\RAD_v4\obj\Debug\RAD_v4.csproj.CoreCompileInputs.cache
 C:\Users\CJ\Source\Repos\CSCI-4711_5\RAD_v4\RAD_v4\obj\Debug\RAD_v4.exe
 C:\Users\CJ\Source\Repos\CSCI-4711_5\RAD_v4\RAD_v4\obj\Debug\RAD_v4.pdb
+C:\Users\CJ\Source\Repos\CSCI-4711_5\RAD_v4\RAD_v4\obj\Debug\RAD_v4.LoginForm.resources
+C:\Users\CJ\Source\Repos\CSCI-4711_5\RAD_v4\RAD_v4\obj\Debug\RAD_v4.RequestKeyForm.resources

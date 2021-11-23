@@ -13,12 +13,11 @@ namespace Entity
 
         public int KeyID { get; set; }
 
+        /* Constructor */
         public Reservation(string name, int keyId)
         {
             this.UName = name;
             this.KeyID = keyId;
         }
-
-
     }
 }

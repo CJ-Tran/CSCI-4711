@@ -1,7 +1,7 @@
 ﻿
 namespace RAD_v4
 {
-    partial class RequestKey
+    partial class RequestKeyForm
     {
         /// <summary>
         /// Required designer variable.

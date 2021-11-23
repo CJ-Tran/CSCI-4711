@@ -91,16 +91,13 @@
     <Compile Include="Boundary\ManageKeyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Boundary\RequestKey.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Boundary\RequestKey.Designer.cs">
-      <DependentUpon>RequestKey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controller\RequestControl.cs" />
     <Compile Include="Boundary\RequestKeyForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Boundary\RequestKeyForm.Designer.cs">
+      <DependentUpon>RequestKeyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\RequestControl.cs" />
     <Compile Include="Boundary\RequestProcessed.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,9 +124,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Boundary\ManageKeyForm.resx">
       <DependentUpon>ManageKeyForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Boundary\RequestKey.resx">
-      <DependentUpon>RequestKey.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Boundary\RequestKeyForm.resx">
       <DependentUpon>RequestKeyForm.cs</DependentUpon>
