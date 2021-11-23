@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 namespace RAD_v4
 {
+    /*
+     * How I changed program from Console to Windows Application:
+     * https://forum.openframeworks.cc/t/how-to-hide-a-console-window-when-launching-exe-file/28616
+     */
     class Program
     {
-        static void Main(string[] args) //not used anymore
+        static void Main(string[] args)
         {
-            KRTS.Run(); //no need?
-
-            /*
-             * How I changed program from Console to Windows Application:
-             * https://forum.openframeworks.cc/t/how-to-hide-a-console-window-when-launching-exe-file/28616
-             */
+            KRTS.Run();
         }
-
     }
 }

@@ -1,21 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Entity;
 using System.Windows.Forms;
 
-namespace Boundary
+namespace RAD_v4
 {
-    class RequestProcessedWin 
+    public partial class RequestProcessedWin : Form
     {
-        public void Open(string name) //pass user to save logout
+        string name;
+
+        public RequestProcessedWin(string n)
         {
-            //opens window
-            RAD_v4.RequestProcessed rp = new RAD_v4.RequestProcessed(name);
-            rp.TopMost = true;
-            rp.Visible = true;
+            InitializeComponent();
+            name = n;
+        }
+
+        private void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            Controller.LogoutControl.Logout(name);
+            Close();
         }
     }
 }

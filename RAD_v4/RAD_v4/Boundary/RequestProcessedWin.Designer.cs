@@ -1,7 +1,7 @@
 ﻿
 namespace RAD_v4
 {
-    partial class RequestProcessed
+    partial class RequestProcessedWin
     {
         /// <summary>
         /// Required designer variable.
@@ -37,7 +37,7 @@ namespace RAD_v4
             // 
             this.MessageLbl.AutoSize = true;
             this.MessageLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MessageLbl.Location = new System.Drawing.Point(24, 108);
+            this.MessageLbl.Location = new System.Drawing.Point(24, 142);
             this.MessageLbl.Name = "MessageLbl";
             this.MessageLbl.Size = new System.Drawing.Size(382, 29);
             this.MessageLbl.TabIndex = 0;
@@ -46,7 +46,7 @@ namespace RAD_v4
             // LogoutBtn
             // 
             this.LogoutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogoutBtn.Location = new System.Drawing.Point(173, 182);
+            this.LogoutBtn.Location = new System.Drawing.Point(173, 217);
             this.LogoutBtn.Name = "LogoutBtn";
             this.LogoutBtn.Size = new System.Drawing.Size(94, 43);
             this.LogoutBtn.TabIndex = 1;
@@ -54,14 +54,14 @@ namespace RAD_v4
             this.LogoutBtn.UseVisualStyleBackColor = true;
             this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click);
             // 
-            // RequestProcessed
+            // RequestProcessedWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(444, 391);
             this.Controls.Add(this.LogoutBtn);
             this.Controls.Add(this.MessageLbl);
-            this.Name = "RequestProcessed";
+            this.Name = "RequestProcessedWin";
             this.Text = "RequestProcessed";
             this.ResumeLayout(false);
             this.PerformLayout();

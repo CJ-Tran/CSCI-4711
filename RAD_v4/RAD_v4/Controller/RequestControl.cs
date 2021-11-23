@@ -17,8 +17,11 @@ namespace Controller
                 bool valid = DBConnector.Save(new Reservation(name, key));
                 if (valid) //valid -> true
                 {
-                    RequestProcessedWin rpw = new RequestProcessedWin();
-                    rpw.Open(name);
+                    RAD_v4.RequestProcessedWin rp = new RAD_v4.RequestProcessedWin(name)
+                    {
+                        TopMost = true,
+                        Visible = true
+                    };
                 }
                 return valid;
             }

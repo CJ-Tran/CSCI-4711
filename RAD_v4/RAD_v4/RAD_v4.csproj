@@ -98,13 +98,12 @@
       <DependentUpon>RequestKeyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Controller\RequestControl.cs" />
-    <Compile Include="Boundary\RequestProcessed.cs">
+    <Compile Include="Boundary\RequestProcessedWin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Boundary\RequestProcessed.Designer.cs">
-      <DependentUpon>RequestProcessed.cs</DependentUpon>
+    <Compile Include="Boundary\RequestProcessedWin.Designer.cs">
+      <DependentUpon>RequestProcessedWin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Boundary\RequestProcessedWin.cs" />
     <Compile Include="Entity\Reservation.cs" />
     <Compile Include="Controller\StartupController.cs" />
     <Compile Include="Program.cs" />
@@ -128,8 +127,8 @@
     <EmbeddedResource Include="Boundary\RequestKeyForm.resx">
       <DependentUpon>RequestKeyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Boundary\RequestProcessed.resx">
-      <DependentUpon>RequestProcessed.cs</DependentUpon>
+    <EmbeddedResource Include="Boundary\RequestProcessedWin.resx">
+      <DependentUpon>RequestProcessedWin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
